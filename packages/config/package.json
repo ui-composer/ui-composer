@@ -1,0 +1,12 @@
+{
+  "name": "@ui-composer/config",
+  "version": "0.0.1",
+  "module": "commonjs",
+  "description": "Configurations",
+  "license": "ISC",
+  "files": [
+    "eslint",
+    "typescript",
+    "package.json"
+  ]
+}

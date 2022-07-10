@@ -1,0 +1,52 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# Yarn
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Dependencies
+/node_modules
+node_modules
+/.pnp
+.pnp.*
+
+# testing
+/coverage
+
+# production
+build
+dist
+lib
+typings
+
+# Generated files
+.cache-loader
+.parcel-cache
+.docusaurus
+.next
+
+# Typescript
+tsconfig.tsbuildinfo
+*.d.ts.map
+
+# Misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.gitconfig
+.log
+.jest-*
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

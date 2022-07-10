@@ -1,0 +1,58 @@
+{
+  "name": "@ui-composer/monorepo",
+  "private": true,
+  "version": "0.0.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "setup": "./scripts/setup/workspaces.mjs",
+    "clean": "./scripts/clean/workspaces.sh",
+    "clean:workspace": "./scripts/clean/workspace.mjs",
+    "format": "./scripts/format/workspaces.sh",
+    "format:workspace": "./scripts/format/workspace.mjs",
+    "lint": "./scripts/lint/workspaces.sh",
+    "lint:workspace": "./scripts/lint/workspace.mjs",
+    "build": "./scripts/build/workspaces.sh",
+    "build.packages": "yarn build --no-private",
+    "build:workspace": "./scripts/build/workspace.mjs",
+    "release": "./scripts/release/workspaces.sh",
+    "release:workspace": "./scripts/release/workspace.mjs",
+    "app": "yarn workspace @ui-composer/app",
+    "library": "yarn workspace ui-composer",
+    "website": "yarn workspace @ui-composer/website",
+    "debug": "echo $npm_package_version"
+  },
+  "dependencies": {
+    "@monorepo-utils/workspaces-to-typescript-project-references": "^2.8.2",
+    "@react-native-community/eslint-config": "^3.0.3",
+    "@typescript-eslint/eslint-plugin": "^5.30.5",
+    "@typescript-eslint/parser": "^5.30.5",
+    "@vanilla-extract/esbuild-plugin": "^2.1.0",
+    "autoprefixer": "^10.4.7",
+    "esbuild": "^0.14.48",
+    "eslint": "^8.19.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-compat": "^4.0.2",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx": "^0.1.0",
+    "eslint-plugin-jsx-a11y": "^6.6.0",
+    "eslint-plugin-mdx": "^2.0.1",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-native": "^4.0.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "postcss": "^8.4.14",
+    "postcss-preset-env": "^7.7.2",
+    "prettier": "^2.7.1",
+    "typescript": "^4.7.4",
+    "zx": "^7.0.7"
+  },
+  "engines": {
+    "node": "16.14.*"
+  },
+  "packageManager": "yarn@3.2.1"
+}

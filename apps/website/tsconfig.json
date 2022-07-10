@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig.composite.json",
+  "compilerOptions": {
+    "jsx": "react",
+    "outDir": "build",
+    "rootDir": "."
+  },
+  "include": ["**/*"],
+  "exclude": [
+    ".docusaurus",
+    "build",
+    "dist",
+    "jest.config.js",
+    "babel.config.js",
+    "babel.build.config.js"
+  ]
+}

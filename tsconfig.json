@@ -1,0 +1,14 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "apps/app"
+    },
+    {
+      "path": "apps/website"
+    },
+    {
+      "path": "packages/ui-composer"
+    }
+  ]
+}

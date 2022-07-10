@@ -1,0 +1,5 @@
+dist
+.next
+.docusaurus
+node_modules
+coverage

@@ -1,0 +1,14 @@
+{
+  "extends": "./packages/config/typescript/tsconfig.base",
+  "compilerOptions": {
+    // THIS MUST BE AT ROOT, if you set baseurl in sub-package it breaks intellisense jump to
+    "baseUrl": ".",
+    "rootDir": ".",
+    "paths": {
+      "@site/*": ["./apps/website/*"],
+      // TODO: automate this during format + package.json exports for deep imports
+      "@ui-composer/website/*": ["./apps/website/*"],
+      "ui-composer/*": ["./packages/ui-composer/src/*"]
+    }
+  }
+}
