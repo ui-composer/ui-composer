@@ -16,12 +16,10 @@ async function transformToken({
   setsToExclude,
   /** enable/disable resolving references, removing any aliases or math expressions */
   outputReferences,
-  /** enable/disable automatic expansion of typography types */
-  expandTypography = false,
 }) {
   const includedSets = setsToInclude ? setsToInclude.join(',') : '';
   const excludedSets = setsToExclude ? setsToExclude.join(',') : '';
-  return await $`${tokenTransformer} ${source} ${destination} ${includedSets} ${excludedSets} --resolveReferences ${outputReferences} --expandTypography ${expandTypography}`;
+  return await $`${tokenTransformer} ${source} ${destination} ${includedSets} ${excludedSets} --resolveReferences ${outputReferences}`;
 }
 
 await Promise.all(
@@ -81,6 +79,12 @@ await Promise.all(
                     {
                       destination: `generated/${name}/tokens/${groupName}.css`,
                       format: 'css/variables',
+                      filter(token) {
+                        if (token.type === 'typography') {
+                          console.log(token);
+                        }
+                        return token.type !== 'typography';
+                      },
                       options: {
                         showFileHeader: false,
                         selector: `.${name}-${groupName}`,
