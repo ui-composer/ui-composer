@@ -1,23 +1,23 @@
 {
   "palette": {
     "secondary": {
-      "value": "#32353d",
+      "value": "{color.gray.20}",
       "type": "color"
     },
     "backgroundOverlay": {
-      "value": "#0a0b0d80",
+      "value": "rgba({color.gray.0}, 0.5)",
       "type": "color"
     },
     "elevation1": {
-      "value": "#141519",
+      "value": "{color.gray.5}",
       "type": "color"
     },
     "elevation2": {
-      "value": "#1e2025",
+      "value": "{color.gray.10}",
       "type": "color"
     }
   },
-  "colors": {
+  "color": {
     "blue": {
       "0": {
         "type": "color",

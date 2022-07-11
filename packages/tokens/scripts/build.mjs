@@ -9,10 +9,19 @@ const tokenTransformer = await $`yarn bin token-transformer`;
  *  Converts tokens from Figma Tokens to something Style Dictionary can read, removing any math operations or aliases, only resulting in raw values.
  * @link https://github.com/six7/figma-tokens/tree/main/token-transformer
  */
-async function transformToken({ source, destination, setsToInclude, setsToExclude }) {
+async function transformToken({
+  source,
+  destination,
+  setsToInclude,
+  setsToExclude,
+  /** enable/disable resolving references, removing any aliases or math expressions */
+  outputReferences,
+  /** enable/disable automatic expansion of typography types */
+  expandTypography = false,
+}) {
   const includedSets = setsToInclude ? setsToInclude.join(',') : '';
   const excludedSets = setsToExclude ? setsToExclude.join(',') : '';
-  return await $`${tokenTransformer} ${source} ${destination} ${includedSets} ${excludedSets}`;
+  return await $`${tokenTransformer} ${source} ${destination} ${includedSets} ${excludedSets} --resolveReferences ${outputReferences} --expandTypography ${expandTypography}`;
 }
 
 await Promise.all(
@@ -20,13 +29,14 @@ await Promise.all(
     .readdirSync('src', { withFileTypes: true })
     .filter(item => item.isDirectory())
     .map(async ({ name }) => {
-      const figmaTokensSrcPath = `generated/${name}/figma-tokens/data.json`;
+      const figmaTokensMergedSrcPath = `generated/${name}/figma-tokens/data.json`;
       /**
        * This is what is consumed by figma-tokens plugin
        */
       await transformToken({
         source: `src/${name}`,
-        destination: figmaTokensSrcPath,
+        destination: figmaTokensMergedSrcPath,
+        outputReferences: true,
       });
 
       const files = await glob([`src/${name}/**/*.json`]);
@@ -37,12 +47,31 @@ await Promise.all(
           const styleDictionarySrcPath = `generated/${name}/style-dictionary/${groupName}.json`;
 
           await transformToken({
-            source: figmaTokensSrcPath,
+            source: figmaTokensMergedSrcPath,
             destination: styleDictionarySrcPath,
             setsToInclude: [groupName],
+            outputReferences: false,
           });
 
           styleDictionaryPackage
+            .registerTransform({
+              name: 'size/css-px', // notice: the name is an override of an existing predefined method (yes, you can do it)
+              type: 'value',
+              matcher(token) {
+                // this is an example of a possible filter (based on the "cti" values) to show how a "matcher" works
+                return ['spacing', 'sizing', 'lineHeights', 'fontSizes'].includes(token.type);
+              },
+              transformer(token) {
+                return `${token.original.value}px`;
+              },
+            })
+            .registerTransformGroup({
+              name: 'css',
+              transforms: [
+                ...require('style-dictionary/lib/common/transformGroups').css,
+                'size/css-px',
+              ],
+            })
             .extend({
               source: [styleDictionarySrcPath],
               platforms: {
@@ -53,6 +82,7 @@ await Promise.all(
                       destination: `generated/${name}/tokens/${groupName}.css`,
                       format: 'css/variables',
                       options: {
+                        showFileHeader: false,
                         selector: `.${name}-${groupName}`,
                         outputReferences: true,
                       },

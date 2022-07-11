@@ -1,83 +1,83 @@
 {
   "palette": {
     "foreground": {
-      "value": "#0a0b0d",
+      "value": "{color.gray.100}",
       "type": "color"
     },
     "foregroundMuted": {
-      "value": "#5b616e",
+      "value": "{color.gray.60}",
       "type": "color"
     },
     "background": {
-      "value": "#ffffff",
+      "value": "{color.gray.0}",
       "type": "color"
     },
     "backgroundAlternate": {
-      "value": "#eef0f3",
+      "value": "{color.gray.5}",
       "type": "color"
     },
     "backgroundOverlay": {
-      "value": "#32353d54",
+      "value": "rgba({color.gray.80}, 0.33)",
       "type": "color"
     },
     "line": {
-      "value": "#5b616e33",
+      "value": "rgba({color.gray.60}, 0.2)",
       "type": "color"
     },
     "lineHeavy": {
-      "value": "#5b616ea8",
+      "value": "rgba({color.gray.60}, 0.66)",
       "type": "color"
     },
     "primary": {
-      "value": "#0052ff",
+      "value": "{color.blue.60}",
       "type": "color"
     },
     "primaryWash": {
-      "value": "#f5f8ff",
+      "value": "{color.blue.0}",
       "type": "color"
     },
     "primaryForeground": {
-      "value": "#ffffff",
+      "value": "{color.gray.0}",
       "type": "color"
     },
     "negative": {
-      "value": "#cf202f",
+      "value": "{color.red.60}",
       "type": "color"
     },
     "negativeForeground": {
-      "value": "#ffffff",
+      "value": "{color.gray.0}",
       "type": "color"
     },
     "positive": {
-      "value": "#098551",
+      "value": "{color.green.60}",
       "type": "color"
     },
     "positiveForeground": {
-      "value": "#ffffff",
+      "value": "{color.gray.0}",
       "type": "color"
     },
     "secondary": {
-      "value": "#eef0f3",
+      "value": "{color.gray.5}",
       "type": "color"
     },
     "secondaryForeground": {
-      "value": "#0a0b0d",
+      "value": "{color.gray.100}",
       "type": "color"
     },
     "transparent": {
-      "value": "#ffffff00",
+      "value": "rgba({color.gray.0}, 0)",
       "type": "color"
     },
     "elevation1": {
-      "value": "#ffffff",
+      "value": "{color.gray.0}",
       "type": "color"
     },
     "elevation2": {
-      "value": "#ffffff",
+      "value": "{color.gray.0}",
       "type": "color"
     }
   },
-  "colors": {
+  "color": {
     "blue": {
       "0": {
         "type": "color",
