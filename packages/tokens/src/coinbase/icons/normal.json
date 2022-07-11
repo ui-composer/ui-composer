@@ -1,0 +1,22 @@
+{
+  "normal": {
+    "icon": {
+      "l": {
+        "value": 32,
+        "type": "sizing"
+      },
+      "m": {
+        "value": 24,
+        "type": "sizing"
+      },
+      "s": {
+        "value": 16,
+        "type": "sizing"
+      },
+      "xs": {
+        "value": 12,
+        "type": "sizing"
+      }
+    }
+  }
+}

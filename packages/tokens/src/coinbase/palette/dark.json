@@ -1,0 +1,22 @@
+{
+  "dark": {
+    "palette": {
+      "secondary": {
+        "value": "{colors.gray.20}",
+        "type": "color"
+      },
+      "backgroundOverlay": {
+        "value": "rgba({colors.gray.0}, 0.5)",
+        "type": "color"
+      },
+      "elevation1": {
+        "value": "{colors.gray.5}",
+        "type": "color"
+      },
+      "elevation2": {
+        "value": "{colors.gray.10}",
+        "type": "color"
+      }
+    }
+  }
+}

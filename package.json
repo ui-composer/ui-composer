@@ -21,6 +21,7 @@
     "release:workspace": "./scripts/release/workspace.mjs",
     "app": "yarn workspace @ui-composer/app",
     "library": "yarn workspace ui-composer",
+    "tokens": "yarn workspace @ui-composer/tokens",
     "website": "yarn workspace @ui-composer/website",
     "debug": "echo $npm_package_version"
   },

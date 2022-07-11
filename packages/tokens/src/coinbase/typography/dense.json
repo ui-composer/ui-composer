@@ -1,0 +1,258 @@
+{
+  "dense": {
+    "typography": {
+      "display1": {
+        "fontSize": {
+          "value": "61",
+          "type": "fontSize"
+        },
+        "lineHeight": {
+          "value": "68",
+          "type": "lineHeight"
+        },
+        "fontFamily": {
+          "value": "Coinbase Display",
+          "type": "fontFamily"
+        },
+        "fontWeight": {
+          "value": "Regular",
+          "type": "fontWeight"
+        }
+      },
+      "display2": {
+        "fontSize": {
+          "value": "31",
+          "type": "fontSize"
+        },
+        "lineHeight": {
+          "value": "40",
+          "type": "lineHeight"
+        },
+        "fontFamily": {
+          "value": "Coinbase Display",
+          "type": "fontFamily"
+        },
+        "fontWeight": {
+          "value": "Regular",
+          "type": "fontWeight"
+        }
+      },
+      "display2Frontier": {
+        "fontSize": {
+          "value": "45",
+          "type": "fontSize"
+        },
+        "lineHeight": {
+          "value": "52",
+          "type": "lineHeight"
+        },
+        "fontFamily": {
+          "value": "Coinbase Display",
+          "type": "fontFamily"
+        },
+        "fontWeight": {
+          "value": "Regular",
+          "type": "fontWeight"
+        }
+      },
+      "display3": {
+        "fontSize": {
+          "value": "37",
+          "type": "fontSize"
+        },
+        "lineHeight": {
+          "value": "44",
+          "type": "lineHeight"
+        },
+        "fontFamily": {
+          "value": "Coinbase Display",
+          "type": "fontFamily"
+        },
+        "fontWeight": {
+          "value": "Regular",
+          "type": "fontWeight"
+        }
+      },
+      "title1": {
+        "fontSize": {
+          "value": "25",
+          "type": "fontSize"
+        },
+        "lineHeight": {
+          "value": "32",
+          "type": "lineHeight"
+        },
+        "fontFamily": {
+          "value": "Coinbase Display",
+          "type": "fontFamily"
+        },
+        "fontWeight": {
+          "value": "Medium",
+          "type": "fontWeight"
+        }
+      },
+      "title2": {
+        "fontSize": {
+          "value": "25",
+          "type": "fontSize"
+        },
+        "lineHeight": {
+          "value": "32",
+          "type": "lineHeight"
+        },
+        "fontFamily": {
+          "value": "Coinbase Display",
+          "type": "fontFamily"
+        },
+        "fontWeight": {
+          "value": "Regular",
+          "type": "fontWeight"
+        }
+      },
+      "title3": {
+        "fontSize": {
+          "value": "17",
+          "type": "fontSize"
+        },
+        "lineHeight": {
+          "value": "24",
+          "type": "lineHeight"
+        },
+        "fontFamily": {
+          "value": "Coinbase Sans",
+          "type": "fontFamily"
+        },
+        "fontWeight": {
+          "value": "Medium",
+          "type": "fontWeight"
+        }
+      },
+      "title4": {
+        "fontSize": {
+          "value": "17",
+          "type": "fontSize"
+        },
+        "lineHeight": {
+          "value": "24",
+          "type": "lineHeight"
+        },
+        "fontFamily": {
+          "value": "Coinbase Sans",
+          "type": "fontFamily"
+        },
+        "fontWeight": {
+          "value": "Regular",
+          "type": "fontWeight"
+        }
+      },
+      "headline": {
+        "fontSize": {
+          "value": "14",
+          "type": "fontSize"
+        },
+        "lineHeight": {
+          "value": "20",
+          "type": "lineHeight"
+        },
+        "fontFamily": {
+          "value": "Coinbase Sans",
+          "type": "fontFamily"
+        },
+        "fontWeight": {
+          "value": "Medium",
+          "type": "fontWeight"
+        }
+      },
+      "body": {
+        "fontSize": {
+          "value": "14",
+          "type": "fontSize"
+        },
+        "lineHeight": {
+          "value": "20",
+          "type": "lineHeight"
+        },
+        "fontFamily": {
+          "value": "Coinbase Sans",
+          "type": "fontFamily"
+        },
+        "fontWeight": {
+          "value": "Regular",
+          "type": "fontWeight"
+        }
+      },
+      "label1": {
+        "fontSize": {
+          "value": "11",
+          "type": "fontSize"
+        },
+        "lineHeight": {
+          "value": "16",
+          "type": "lineHeight"
+        },
+        "fontFamily": {
+          "value": "Coinbase Text",
+          "type": "fontFamily"
+        },
+        "fontWeight": {
+          "value": "Medium",
+          "type": "fontWeight"
+        }
+      },
+      "label2": {
+        "fontSize": {
+          "value": "11",
+          "type": "fontSize"
+        },
+        "lineHeight": {
+          "value": "16",
+          "type": "lineHeight"
+        },
+        "fontFamily": {
+          "value": "Coinbase Text",
+          "type": "fontFamily"
+        },
+        "fontWeight": {
+          "value": "Regular",
+          "type": "fontWeight"
+        }
+      },
+      "caption": {
+        "fontSize": {
+          "value": "10",
+          "type": "fontSize"
+        },
+        "lineHeight": {
+          "value": "12",
+          "type": "lineHeight"
+        },
+        "fontFamily": {
+          "value": "Coinbase Text",
+          "type": "fontFamily"
+        },
+        "fontWeight": {
+          "value": "Medium",
+          "type": "fontWeight"
+        }
+      },
+      "legal": {
+        "fontSize": {
+          "value": "10",
+          "type": "fontSize"
+        },
+        "lineHeight": {
+          "value": "12",
+          "type": "lineHeight"
+        },
+        "fontFamily": {
+          "value": "Coinbase Text",
+          "type": "fontFamily"
+        },
+        "fontWeight": {
+          "value": "Regular",
+          "type": "fontWeight"
+        }
+      }
+    }
+  }
+}
