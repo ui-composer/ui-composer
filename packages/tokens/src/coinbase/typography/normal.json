@@ -4,235 +4,235 @@
       "display1": {
         "fontSize": {
           "value": "64",
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": "72",
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontWeight": {
           "value": "Regular",
-          "type": "fontWeight"
+          "type": "fontWeights"
         },
         "fontFamily": {
           "value": "Inter",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         }
       },
       "display2": {
         "fontSize": {
           "value": "48",
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": "56",
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontWeight": {
           "value": "Regular",
-          "type": "fontWeight"
+          "type": "fontWeights"
         },
         "fontFamily": {
           "value": "Inter",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         }
       },
       "display3": {
         "fontSize": {
           "value": "40",
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": "48",
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontWeight": {
           "value": "Regular",
-          "type": "fontWeight"
+          "type": "fontWeights"
         },
         "fontFamily": {
           "value": "Inter",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         }
       },
       "title1": {
         "fontSize": {
           "value": "28",
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": "36",
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontWeight": {
           "value": "Medium",
-          "type": "fontWeight"
+          "type": "fontWeights"
         },
         "fontFamily": {
           "value": "Inter",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         }
       },
       "title2": {
         "fontSize": {
           "value": "28",
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": "36",
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontWeight": {
           "value": "Regular",
-          "type": "fontWeight"
+          "type": "fontWeights"
         },
         "fontFamily": {
           "value": "Inter",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         }
       },
       "title3": {
         "fontSize": {
           "value": "20",
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": "28",
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontWeight": {
           "value": "Medium",
-          "type": "fontWeight"
+          "type": "fontWeights"
         },
         "fontFamily": {
           "value": "Inter",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         }
       },
       "title4": {
         "fontSize": {
           "value": "20",
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": "28",
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontWeight": {
           "value": "Regular",
-          "type": "fontWeight"
+          "type": "fontWeights"
         },
         "fontFamily": {
           "value": "Inter",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         }
       },
       "headline": {
         "fontSize": {
           "value": "16",
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": "24",
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontWeight": {
           "value": "Medium",
-          "type": "fontWeight"
+          "type": "fontWeights"
         },
         "fontFamily": {
           "value": "Inter",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         }
       },
       "body": {
         "fontSize": {
           "value": "16",
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": "24",
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontWeight": {
           "value": "Regular",
-          "type": "fontWeight"
+          "type": "fontWeights"
         },
         "fontFamily": {
           "value": "Inter",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         }
       },
       "label1": {
         "fontSize": {
           "value": "14",
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": "20",
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontWeight": {
           "value": "Medium",
-          "type": "fontWeight"
+          "type": "fontWeights"
         },
         "fontFamily": {
           "value": "Inter",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         }
       },
       "label2": {
         "fontSize": {
           "value": "14",
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": "20",
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontWeight": {
           "value": "Regular",
-          "type": "fontWeight"
+          "type": "fontWeights"
         },
         "fontFamily": {
           "value": "Inter",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         }
       },
       "caption": {
         "fontSize": {
           "value": "13",
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": "16",
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontWeight": {
           "value": "Medium",
-          "type": "fontWeight"
+          "type": "fontWeights"
         },
         "fontFamily": {
           "value": "Inter",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         }
       },
       "legal": {
         "fontSize": {
           "value": "13",
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": "16",
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontWeight": {
           "value": "Regular",
-          "type": "fontWeight"
+          "type": "fontWeights"
         },
         "fontFamily": {
           "value": "Inter",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         }
       }
     }

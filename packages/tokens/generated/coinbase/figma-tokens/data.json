@@ -4,235 +4,235 @@
       "display1": {
         "fontSize": {
           "value": 64,
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": 72,
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontWeight": {
           "value": "Regular",
-          "type": "fontWeight"
+          "type": "fontWeights"
         },
         "fontFamily": {
           "value": "Inter",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         }
       },
       "display2": {
         "fontSize": {
           "value": 48,
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": 56,
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontWeight": {
           "value": "Regular",
-          "type": "fontWeight"
+          "type": "fontWeights"
         },
         "fontFamily": {
           "value": "Inter",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         }
       },
       "display3": {
         "fontSize": {
           "value": 40,
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": 48,
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontWeight": {
           "value": "Regular",
-          "type": "fontWeight"
+          "type": "fontWeights"
         },
         "fontFamily": {
           "value": "Inter",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         }
       },
       "title1": {
         "fontSize": {
           "value": 28,
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": 36,
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontWeight": {
           "value": "Medium",
-          "type": "fontWeight"
+          "type": "fontWeights"
         },
         "fontFamily": {
           "value": "Inter",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         }
       },
       "title2": {
         "fontSize": {
           "value": 28,
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": 36,
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontWeight": {
           "value": "Regular",
-          "type": "fontWeight"
+          "type": "fontWeights"
         },
         "fontFamily": {
           "value": "Inter",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         }
       },
       "title3": {
         "fontSize": {
           "value": 20,
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": 28,
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontWeight": {
           "value": "Medium",
-          "type": "fontWeight"
+          "type": "fontWeights"
         },
         "fontFamily": {
           "value": "Inter",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         }
       },
       "title4": {
         "fontSize": {
           "value": 20,
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": 28,
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontWeight": {
           "value": "Regular",
-          "type": "fontWeight"
+          "type": "fontWeights"
         },
         "fontFamily": {
           "value": "Inter",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         }
       },
       "headline": {
         "fontSize": {
           "value": 16,
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": 24,
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontWeight": {
           "value": "Medium",
-          "type": "fontWeight"
+          "type": "fontWeights"
         },
         "fontFamily": {
           "value": "Inter",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         }
       },
       "body": {
         "fontSize": {
           "value": 16,
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": 24,
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontWeight": {
           "value": "Regular",
-          "type": "fontWeight"
+          "type": "fontWeights"
         },
         "fontFamily": {
           "value": "Inter",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         }
       },
       "label1": {
         "fontSize": {
           "value": 14,
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": 20,
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontWeight": {
           "value": "Medium",
-          "type": "fontWeight"
+          "type": "fontWeights"
         },
         "fontFamily": {
           "value": "Inter",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         }
       },
       "label2": {
         "fontSize": {
           "value": 14,
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": 20,
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontWeight": {
           "value": "Regular",
-          "type": "fontWeight"
+          "type": "fontWeights"
         },
         "fontFamily": {
           "value": "Inter",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         }
       },
       "caption": {
         "fontSize": {
           "value": 13,
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": 16,
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontWeight": {
           "value": "Medium",
-          "type": "fontWeight"
+          "type": "fontWeights"
         },
         "fontFamily": {
           "value": "Inter",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         }
       },
       "legal": {
         "fontSize": {
           "value": 13,
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": 16,
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontWeight": {
           "value": "Regular",
-          "type": "fontWeight"
+          "type": "fontWeights"
         },
         "fontFamily": {
           "value": "Inter",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         }
       }
     },
@@ -310,253 +310,253 @@
       "display1": {
         "fontSize": {
           "value": 61,
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": 68,
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontFamily": {
           "value": "Coinbase Display",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         },
         "fontWeight": {
           "value": "Regular",
-          "type": "fontWeight"
+          "type": "fontWeights"
         }
       },
       "display2": {
         "fontSize": {
           "value": 31,
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": 40,
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontFamily": {
           "value": "Coinbase Display",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         },
         "fontWeight": {
           "value": "Regular",
-          "type": "fontWeight"
+          "type": "fontWeights"
         }
       },
       "display2Frontier": {
         "fontSize": {
           "value": 45,
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": 52,
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontFamily": {
           "value": "Coinbase Display",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         },
         "fontWeight": {
           "value": "Regular",
-          "type": "fontWeight"
+          "type": "fontWeights"
         }
       },
       "display3": {
         "fontSize": {
           "value": 37,
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": 44,
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontFamily": {
           "value": "Coinbase Display",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         },
         "fontWeight": {
           "value": "Regular",
-          "type": "fontWeight"
+          "type": "fontWeights"
         }
       },
       "title1": {
         "fontSize": {
           "value": 25,
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": 32,
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontFamily": {
           "value": "Coinbase Display",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         },
         "fontWeight": {
           "value": "Medium",
-          "type": "fontWeight"
+          "type": "fontWeights"
         }
       },
       "title2": {
         "fontSize": {
           "value": 25,
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": 32,
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontFamily": {
           "value": "Coinbase Display",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         },
         "fontWeight": {
           "value": "Regular",
-          "type": "fontWeight"
+          "type": "fontWeights"
         }
       },
       "title3": {
         "fontSize": {
           "value": 17,
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": 24,
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontFamily": {
           "value": "Coinbase Sans",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         },
         "fontWeight": {
           "value": "Medium",
-          "type": "fontWeight"
+          "type": "fontWeights"
         }
       },
       "title4": {
         "fontSize": {
           "value": 17,
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": 24,
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontFamily": {
           "value": "Coinbase Sans",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         },
         "fontWeight": {
           "value": "Regular",
-          "type": "fontWeight"
+          "type": "fontWeights"
         }
       },
       "headline": {
         "fontSize": {
           "value": 14,
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": 20,
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontFamily": {
           "value": "Coinbase Sans",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         },
         "fontWeight": {
           "value": "Medium",
-          "type": "fontWeight"
+          "type": "fontWeights"
         }
       },
       "body": {
         "fontSize": {
           "value": 14,
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": 20,
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontFamily": {
           "value": "Coinbase Sans",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         },
         "fontWeight": {
           "value": "Regular",
-          "type": "fontWeight"
+          "type": "fontWeights"
         }
       },
       "label1": {
         "fontSize": {
           "value": 11,
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": 16,
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontFamily": {
           "value": "Coinbase Text",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         },
         "fontWeight": {
           "value": "Medium",
-          "type": "fontWeight"
+          "type": "fontWeights"
         }
       },
       "label2": {
         "fontSize": {
           "value": 11,
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": 16,
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontFamily": {
           "value": "Coinbase Text",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         },
         "fontWeight": {
           "value": "Regular",
-          "type": "fontWeight"
+          "type": "fontWeights"
         }
       },
       "caption": {
         "fontSize": {
           "value": 10,
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": 12,
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontFamily": {
           "value": "Coinbase Text",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         },
         "fontWeight": {
           "value": "Medium",
-          "type": "fontWeight"
+          "type": "fontWeights"
         }
       },
       "legal": {
         "fontSize": {
           "value": 10,
-          "type": "fontSize"
+          "type": "fontSizes"
         },
         "lineHeight": {
           "value": 12,
-          "type": "lineHeight"
+          "type": "lineHeights"
         },
         "fontFamily": {
           "value": "Coinbase Text",
-          "type": "fontFamily"
+          "type": "fontFamilies"
         },
         "fontWeight": {
           "value": "Regular",
-          "type": "fontWeight"
+          "type": "fontWeights"
         }
       }
     },
@@ -632,102 +632,102 @@
   "light": {
     "palette": {
       "foreground": {
-        "value": "{colors.gray.100}",
+        "value": "{color.gray.100}",
         "type": "color",
         "failedToResolve": true
       },
       "foregroundMuted": {
-        "value": "{colors.gray.60}",
+        "value": "{color.gray.60}",
         "type": "color",
         "failedToResolve": true
       },
       "background": {
-        "value": "{colors.gray.0}",
+        "value": "{color.gray.0}",
         "type": "color",
         "failedToResolve": true
       },
       "backgroundAlternate": {
-        "value": "{colors.gray.5}",
+        "value": "{color.gray.5}",
         "type": "color",
         "failedToResolve": true
       },
       "backgroundOverlay": {
-        "value": "rgba({colors.gray.80}, 0.33)",
+        "value": "rgba({color.gray.80}, 0.33)",
         "type": "color",
         "failedToResolve": true
       },
       "line": {
-        "value": "rgba({colors.gray.60}, 0.2)",
+        "value": "rgba({color.gray.60}, 0.2)",
         "type": "color",
         "failedToResolve": true
       },
       "lineHeavy": {
-        "value": "rgba({colors.gray.60}, 0.66)",
+        "value": "rgba({color.gray.60}, 0.66)",
         "type": "color",
         "failedToResolve": true
       },
       "primary": {
-        "value": "{colors.blue.60}",
+        "value": "{color.blue.60}",
         "type": "color",
         "failedToResolve": true
       },
       "primaryWash": {
-        "value": "{colors.blue.0}",
+        "value": "{color.blue.0}",
         "type": "color",
         "failedToResolve": true
       },
       "primaryForeground": {
-        "value": "{colors.gray.0}",
+        "value": "{color.gray.0}",
         "type": "color",
         "failedToResolve": true
       },
       "negative": {
-        "value": "{colors.red.60}",
+        "value": "{color.red.60}",
         "type": "color",
         "failedToResolve": true
       },
       "negativeForeground": {
-        "value": "{colors.gray.0}",
+        "value": "{color.gray.0}",
         "type": "color",
         "failedToResolve": true
       },
       "positive": {
-        "value": "{colors.green.60}",
+        "value": "{color.green.60}",
         "type": "color",
         "failedToResolve": true
       },
       "positiveForeground": {
-        "value": "{colors.gray.0}",
+        "value": "{color.gray.0}",
         "type": "color",
         "failedToResolve": true
       },
       "secondary": {
-        "value": "{colors.gray.5}",
+        "value": "{color.gray.5}",
         "type": "color",
         "failedToResolve": true
       },
       "secondaryForeground": {
-        "value": "{colors.gray.100}",
+        "value": "{color.gray.100}",
         "type": "color",
         "failedToResolve": true
       },
       "transparent": {
-        "value": "rgba({colors.gray.0}, 0)",
+        "value": "rgba({color.gray.0}, 0)",
         "type": "color",
         "failedToResolve": true
       },
       "elevation1": {
-        "value": "{colors.gray.0}",
+        "value": "{color.gray.0}",
         "type": "color",
         "failedToResolve": true
       },
       "elevation2": {
-        "value": "{colors.gray.0}",
+        "value": "{color.gray.0}",
         "type": "color",
         "failedToResolve": true
       }
     },
-    "colors": {
+    "color": {
       "blue": {
         "0": {
           "type": "color",
@@ -1273,27 +1273,27 @@
   "dark": {
     "palette": {
       "secondary": {
-        "value": "{colors.gray.20}",
+        "value": "{color.gray.20}",
         "type": "color",
         "failedToResolve": true
       },
       "backgroundOverlay": {
-        "value": "rgba({colors.gray.0}, 0.5)",
+        "value": "rgba({color.gray.0}, 0.5)",
         "type": "color",
         "failedToResolve": true
       },
       "elevation1": {
-        "value": "{colors.gray.5}",
+        "value": "{color.gray.5}",
         "type": "color",
         "failedToResolve": true
       },
       "elevation2": {
-        "value": "{colors.gray.10}",
+        "value": "{color.gray.10}",
         "type": "color",
         "failedToResolve": true
       }
     },
-    "colors": {
+    "color": {
       "blue": {
         "0": {
           "type": "color",
