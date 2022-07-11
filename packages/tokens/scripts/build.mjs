@@ -80,9 +80,6 @@ await Promise.all(
                       destination: `generated/${name}/tokens/${groupName}.css`,
                       format: 'css/variables',
                       filter(token) {
-                        if (token.type === 'typography') {
-                          console.log(token);
-                        }
                         return token.type !== 'typography';
                       },
                       options: {
