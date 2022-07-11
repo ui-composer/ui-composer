@@ -1,0 +1,74 @@
+/**
+ * Do not edit directly
+ * Generated on Mon, 11 Jul 2022 03:18:02 GMT
+ */
+
+.coinbase-normal {
+  --icon-xs: 12;
+  --icon-s: 16;
+  --icon-m: 24;
+  --icon-l: 32;
+  --spacing-10: 80;
+  --spacing-9: 72;
+  --spacing-8: 64;
+  --spacing-7: 56;
+  --spacing-6: 48;
+  --spacing-5: 40;
+  --spacing-4: 32;
+  --spacing-3: 24;
+  --spacing-2: 16;
+  --spacing-1: 8;
+  --spacing-0: 0;
+  --typography-legal-font-family: Inter;
+  --typography-legal-font-weight: Regular;
+  --typography-legal-line-height: 16;
+  --typography-legal-font-size: 13;
+  --typography-caption-font-family: Inter;
+  --typography-caption-font-weight: Medium;
+  --typography-caption-line-height: 16;
+  --typography-caption-font-size: 13;
+  --typography-label2-font-family: Inter;
+  --typography-label2-font-weight: Regular;
+  --typography-label2-line-height: 20;
+  --typography-label2-font-size: 14;
+  --typography-label1-font-family: Inter;
+  --typography-label1-font-weight: Medium;
+  --typography-label1-line-height: 20;
+  --typography-label1-font-size: 14;
+  --typography-body-font-family: Inter;
+  --typography-body-font-weight: Regular;
+  --typography-body-line-height: 24;
+  --typography-body-font-size: 16;
+  --typography-headline-font-family: Inter;
+  --typography-headline-font-weight: Medium;
+  --typography-headline-line-height: 24;
+  --typography-headline-font-size: 16;
+  --typography-title4-font-family: Inter;
+  --typography-title4-font-weight: Regular;
+  --typography-title4-line-height: 28;
+  --typography-title4-font-size: 20;
+  --typography-title3-font-family: Inter;
+  --typography-title3-font-weight: Medium;
+  --typography-title3-line-height: 28;
+  --typography-title3-font-size: 20;
+  --typography-title2-font-family: Inter;
+  --typography-title2-font-weight: Regular;
+  --typography-title2-line-height: 36;
+  --typography-title2-font-size: 28;
+  --typography-title1-font-family: Inter;
+  --typography-title1-font-weight: Medium;
+  --typography-title1-line-height: 36;
+  --typography-title1-font-size: 28;
+  --typography-display3-font-family: Inter;
+  --typography-display3-font-weight: Regular;
+  --typography-display3-line-height: 48;
+  --typography-display3-font-size: 40;
+  --typography-display2-font-family: Inter;
+  --typography-display2-font-weight: Regular;
+  --typography-display2-line-height: 56;
+  --typography-display2-font-size: 48;
+  --typography-display1-font-family: Inter;
+  --typography-display1-font-weight: Regular;
+  --typography-display1-line-height: 72;
+  --typography-display1-font-size: 64;
+}

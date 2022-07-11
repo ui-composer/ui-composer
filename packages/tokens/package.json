@@ -1,0 +1,35 @@
+{
+  "name": "@ui-composer/tokens",
+  "version": "0.0.0",
+  "source": "src",
+  "files": [
+    "src",
+    "generated",
+    "package.json"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
+  "exports": {
+    "./coinbase/*": "./generated/coinbase/*.js"
+  },
+  "scripts": {
+    "build": "./scripts/build.mjs",
+    "clean": "yarn clean:workspace",
+    "lint": "yarn lint:workspace",
+    "version": "yarn version $npm_package_version --no-git-tag-version"
+  },
+  "devDependencies": {
+    "style-dictionary": "^3.7.1",
+    "token-transformer": "^0.0.24"
+  },
+  "author": "Katherine Martinez",
+  "license": "ISC",
+  "homepage": "https://github.com/ui-composer/ui-composer",
+  "contributors": [
+    {
+      "name": "Katherine Martinez",
+      "email": "kmartinezmedia@gmail.com"
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "light": {
+    "palette": {
+      "foreground": {
+        "value": "{colors.gray.100}",
+        "type": "color"
+      },
+      "foregroundMuted": {
+        "value": "{colors.gray.60}",
+        "type": "color"
+      },
+      "background": {
+        "value": "{colors.gray.0}",
+        "type": "color"
+      },
+      "backgroundAlternate": {
+        "value": "{colors.gray.5}",
+        "type": "color"
+      },
+      "backgroundOverlay": {
+        "value": "rgba({colors.gray.80}, 0.33)",
+        "type": "color"
+      },
+      "line": {
+        "value": "rgba({colors.gray.60}, 0.2)",
+        "type": "color"
+      },
+      "lineHeavy": {
+        "value": "rgba({colors.gray.60}, 0.66)",
+        "type": "color"
+      },
+      "primary": {
+        "value": "{colors.blue.60}",
+        "type": "color"
+      },
+      "primaryWash": {
+        "value": "{colors.blue.0}",
+        "type": "color"
+      },
+      "primaryForeground": {
+        "value": "{colors.gray.0}",
+        "type": "color"
+      },
+      "negative": {
+        "value": "{colors.red.60}",
+        "type": "color"
+      },
+      "negativeForeground": {
+        "value": "{colors.gray.0}",
+        "type": "color"
+      },
+      "positive": {
+        "value": "{colors.green.60}",
+        "type": "color"
+      },
+      "positiveForeground": {
+        "value": "{colors.gray.0}",
+        "type": "color"
+      },
+      "secondary": {
+        "value": "{colors.gray.5}",
+        "type": "color"
+      },
+      "secondaryForeground": {
+        "value": "{colors.gray.100}",
+        "type": "color"
+      },
+      "transparent": {
+        "value": "rgba({colors.gray.0}, 0)",
+        "type": "color"
+      },
+      "elevation1": {
+        "value": "{colors.gray.0}",
+        "type": "color"
+      },
+      "elevation2": {
+        "value": "{colors.gray.0}",
+        "type": "color"
+      }
+    }
+  }
+}
