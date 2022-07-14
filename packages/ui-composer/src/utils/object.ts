@@ -1,4 +1,6 @@
-import { AnyObject, StringKey } from '../types';
+type AnyObject = {
+  [key: string]: unknown;
+};
 
 export const emptyObject = {};
 
@@ -12,7 +14,7 @@ export function entries<T>(item: T) {
 
 export function mapKeys<
   T extends AnyObject,
-  K extends (value: T[keyof T], key: keyof T, obj: T) => StringKey<unknown>
+  K extends (value: T[keyof T], key: keyof T, obj: T) => string
 >(obj: T, callbackFn: K) {
   return Object.keys(obj).reduce((prev, key: keyof T) => {
     const newKey = callbackFn(obj[key], key, obj) as ReturnType<typeof callbackFn>;

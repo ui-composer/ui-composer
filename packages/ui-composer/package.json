@@ -10,12 +10,8 @@
   "sideEffects": [
     "*.css"
   ],
-  "exports": {
-    "./components/*": "./dist/components/*.js",
-    "./styles/*": "./dist/styles/*.js",
-    "./types/*": "./dist/types/*.js",
-    "./utils/*": "./dist/utils/*.js"
-  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "yarn build:workspace",
     "clean": "yarn clean:workspace",
@@ -25,14 +21,15 @@
   },
   "dependencies": {
     "@types/lodash": "^4.14.182",
+    "color-alpha": "^1.1.3",
     "csstype": "^3.1.0",
     "lodash": "^4.17.21",
-    "react-is": "^17.0.2",
     "type-fest": "^2.16.0"
   },
   "devDependencies": {
-    "@types/react": "^18.0.15",
-    "@types/react-dom": "^18.0.6",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.2",
+    "@types/react-native": "^0.69.1",
     "@vanilla-extract/css": "^1.7.2",
     "@vanilla-extract/css-utils": "^0.1.2",
     "@vanilla-extract/sprinkles": "^1.4.1",
@@ -41,14 +38,18 @@
     "react-native": "^0.69.1"
   },
   "peerDependencies": {
-    "@types/react": "^18.0.15",
-    "@types/react-dom": "^18.0.6",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.2",
+    "@types/react-native": "^0.69.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-native": "^0.69.1"
   },
   "peerDependenciesMeta": {
     "@types/react-dom": {
+      "optional": true
+    },
+    "@types/react-native": {
       "optional": true
     },
     "react-dom": {
