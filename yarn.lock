@@ -4543,9 +4543,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ui-composer/app@workspace:apps/app":
+"@ui-composer/config@workspace:packages/config":
   version: 0.0.0-use.local
-  resolution: "@ui-composer/app@workspace:apps/app"
+  resolution: "@ui-composer/config@workspace:packages/config"
+  languageName: unknown
+  linkType: soft
+
+"@ui-composer/mobile-app@workspace:apps/mobile-app":
+  version: 0.0.0-use.local
+  resolution: "@ui-composer/mobile-app@workspace:apps/mobile-app"
   dependencies:
     "@babel/core": ^7.12.9
     "@react-navigation/native": ^6.0.10
@@ -4560,12 +4566,6 @@ __metadata:
     react-native-reanimated: ~2.8.0
     react-native-safe-area-context: 4.2.4
     react-native-screens: ~3.11.1
-  languageName: unknown
-  linkType: soft
-
-"@ui-composer/config@workspace:packages/config":
-  version: 0.0.0-use.local
-  resolution: "@ui-composer/config@workspace:packages/config"
   languageName: unknown
   linkType: soft
 
