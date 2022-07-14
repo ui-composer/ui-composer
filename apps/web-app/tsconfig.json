@@ -21,7 +21,7 @@
     "preserveSymlinks": false,
     "importHelpers": true,
     "noEmitHelpers": true,
-    "resolveJsonModule": false,
+    "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
