@@ -1,10 +1,9 @@
 {
   "version": 2,
   "projects": {
-    "app": "apps/app",
+    "mobile-app": "apps/mobile-app",
     "config": "packages/config",
     "ui-composer": "packages/ui-composer",
-    "utils": "packages/utils",
     "website": "apps/website"
   }
 }

@@ -19,7 +19,7 @@
     "build:workspace": "./scripts/build/workspace.mjs",
     "release": "./scripts/release/workspaces.sh",
     "release:workspace": "./scripts/release/workspace.mjs",
-    "app": "yarn workspace @ui-composer/app",
+    "mobile-app": "yarn workspace @ui-composer/mobile-app",
     "library": "yarn workspace ui-composer",
     "tokens": "yarn workspace @ui-composer/tokens",
     "website": "yarn workspace @ui-composer/website",
