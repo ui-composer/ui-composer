@@ -2,6 +2,7 @@
   "version": 2,
   "projects": {
     "mobile-app": "apps/mobile-app",
+    "web-app": "apps/web-app",
     "config": "packages/config",
     "ui-composer": "packages/ui-composer",
     "website": "apps/website"
