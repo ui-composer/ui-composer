@@ -19,6 +19,7 @@ node_modules
 
 # production
 build
+!scripts/build
 dist
 lib
 typings

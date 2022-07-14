@@ -20,6 +20,7 @@
     "build": "yarn build:workspace",
     "clean": "yarn clean:workspace",
     "lint": "yarn lint:workspace",
+    "watch": "yarn watch:workspace",
     "version": "yarn version $npm_package_version --no-git-tag-version"
   },
   "dependencies": {

@@ -1,4 +1,5 @@
 #!/usr/bin/env zx
-const tsc = await $`yarn bin tsc`;
 
-await $`${tsc} --watch`;
+await $`concurrently 'tsc -b --watch' './scripts/watch/workspaces.sh'`;
+
+await $`yarn workspaces foreach --parallel $* run watch`;
