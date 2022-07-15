@@ -3,7 +3,8 @@
   "projects": {
     "mobile-app": "apps/mobile-app",
     "web-app": "apps/web-app",
-    "config": "packages/config",
+    "eslint": "packages/eslint",
+    "typescript": "packages/typescript",
     "ui-composer": "packages/ui-composer",
     "website": "apps/website"
   }

@@ -8,5 +8,4 @@ module.exports = {
       jsx: true,
     },
   },
-  extends: ['./packages/config/eslint/common'],
 };

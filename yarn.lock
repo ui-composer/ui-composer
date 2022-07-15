@@ -4411,9 +4411,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ui-composer/config@workspace:packages/config":
+"@ui-composer/eslint-config@workspace:*, @ui-composer/eslint-config@workspace:packages/eslint":
   version: 0.0.0-use.local
-  resolution: "@ui-composer/config@workspace:packages/config"
+  resolution: "@ui-composer/eslint-config@workspace:packages/eslint"
   languageName: unknown
   linkType: soft
 
@@ -4423,6 +4423,7 @@ __metadata:
   dependencies:
     "@babel/core": ^7.12.9
     "@react-navigation/native": ^6.0.10
+    "@ui-composer/eslint-config": "workspace:*"
     expo: ^45.0.0
     expo-app-loading: ~2.0.0
     expo-font: ~10.1.0
@@ -4474,12 +4475,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@ui-composer/typescript-config@workspace:packages/typescript":
+  version: 0.0.0-use.local
+  resolution: "@ui-composer/typescript-config@workspace:packages/typescript"
+  languageName: unknown
+  linkType: soft
+
 "@ui-composer/web-app@workspace:apps/web-app":
   version: 0.0.0-use.local
   resolution: "@ui-composer/web-app@workspace:apps/web-app"
   dependencies:
     "@types/react": ^17.0.2
     "@types/react-dom": ^17.0.2
+    "@ui-composer/eslint-config": "workspace:*"
     "@vitejs/plugin-react": ^2.0.0
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -4499,6 +4507,7 @@ __metadata:
     "@docusaurus/types": 2.0.0-beta.22
     "@mdx-js/react": ^1.6.22
     "@types/react": ^18.0.15
+    "@ui-composer/eslint-config": "workspace:*"
     clsx: ^1.2.1
     prism-react-renderer: ^1.3.5
     react: ^17.0.2
@@ -18494,6 +18503,7 @@ __metadata:
     "@types/react": ^17.0.2
     "@types/react-dom": ^17.0.2
     "@types/react-native": ^0.69.1
+    "@ui-composer/eslint-config": "workspace:*"
     color-alpha: ^1.1.3
     csstype: ^3.1.0
     esbuild: ^0.14.49
