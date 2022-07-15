@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { compose } from '../theme';
 
 export type HStackProps = React.ComponentProps<typeof HStack>;

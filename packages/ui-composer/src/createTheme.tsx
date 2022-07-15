@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { createElement, memo } from 'react';
 import alpha from 'color-alpha';
 import CSS from 'csstype';
 import mapValues from 'lodash/mapValues';
@@ -382,7 +382,7 @@ function createTheme<
 
       /** This is a Web HTML element */
       if (typeof Component === 'string') {
-        return React.createElement(Component, {
+        return createElement(Component, {
           style,
           ...nativeProps,
         });

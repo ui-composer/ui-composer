@@ -5,6 +5,9 @@
       "path": "apps/mobile-app"
     },
     {
+      "path": "apps/web-app"
+    },
+    {
       "path": "apps/website"
     },
     {

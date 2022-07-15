@@ -7,7 +7,6 @@
     "packages/*"
   ],
   "scripts": {
-    "setup": "./scripts/setup/workspaces.mjs",
     "clean": "./scripts/clean/workspaces.sh",
     "clean:workspace": "./scripts/clean/workspace.mjs",
     "format": "./scripts/format/workspaces.sh",
@@ -16,9 +15,7 @@
     "lint:workspace": "./scripts/lint/workspace.mjs",
     "build": "./scripts/build/workspaces.sh",
     "build.packages": "yarn build --no-private",
-    "build:workspace": "./scripts/build/workspace.mjs",
     "watch": "./scripts/watch/workspaces.mjs",
-    "watch:workspace": "./scripts/watch/workspace.mjs",
     "release": "./scripts/release/workspaces.sh",
     "release:workspace": "./scripts/release/workspace.mjs",
     "mobile-app": "yarn workspace @ui-composer/mobile-app",
@@ -33,10 +30,7 @@
     "@react-native-community/eslint-config": "^3.0.3",
     "@typescript-eslint/eslint-plugin": "^5.30.5",
     "@typescript-eslint/parser": "^5.30.5",
-    "@vanilla-extract/esbuild-plugin": "^2.1.0",
-    "autoprefixer": "^10.4.7",
     "concurrently": "^7.2.2",
-    "esbuild": "^0.14.49",
     "eslint": "^8.19.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-compat": "^4.0.2",
@@ -50,8 +44,6 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-native": "^4.0.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
-    "postcss": "^8.4.14",
-    "postcss-preset-env": "^7.7.2",
     "prettier": "^2.7.1",
     "typescript": "^4.7.4",
     "zx": "^7.0.7"
