@@ -1,5 +1,5 @@
 {
-  "extends": "./packages/config/typescript/tsconfig.base",
+  "extends": "./packages/typescript/configs/tsconfig.base",
   "compilerOptions": {
     // THIS MUST BE AT ROOT, if you set baseurl in sub-package it breaks intellisense jump to
     "baseUrl": ".",

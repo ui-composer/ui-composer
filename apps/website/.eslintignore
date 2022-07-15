@@ -1,0 +1,5 @@
+.cache-loader
+.docusaurus
+.eslintrc.js
+/build
+/node_modules

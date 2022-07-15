@@ -25,6 +25,7 @@
     "react-native-screens": "~3.11.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9"
+    "@babel/core": "^7.12.9",
+    "@ui-composer/eslint-config": "workspace:*"
   }
 }

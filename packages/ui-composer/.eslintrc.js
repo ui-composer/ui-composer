@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ['../../packages/config/eslint/web'],
+  extends: ['@ui-composer/eslint-config/web'],
 };
