@@ -21,13 +21,15 @@
     "style-dictionary": "^3.7.1",
     "token-transformer": "^0.0.24"
   },
-  "author": "Katherine Martinez",
-  "license": "ISC",
+  "author": "Katherine Martinez <kmartinezmedia@gmail.com>",
   "homepage": "https://github.com/ui-composer/ui-composer",
-  "contributors": [
-    {
-      "name": "Katherine Martinez",
-      "email": "kmartinezmedia@gmail.com"
-    }
-  ]
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ui-composer/ui-composer/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ui-composer/ui-composer",
+    "directory": "packages/tokens"
+  }
 }
