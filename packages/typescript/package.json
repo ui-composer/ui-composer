@@ -3,9 +3,19 @@
   "version": "0.0.1",
   "module": "commonjs",
   "description": "Configurations",
-  "license": "ISC",
   "files": [
     "configs",
     "package.json"
-  ]
+  ],
+  "author": "Katherine Martinez <kmartinezmedia@gmail.com>",
+  "homepage": "https://github.com/ui-composer/ui-composer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ui-composer/ui-composer/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ui-composer/ui-composer",
+    "directory": "packages/typescript"
+  }
 }
