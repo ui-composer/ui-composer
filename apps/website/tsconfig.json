@@ -1,13 +1,14 @@
 {
-  "extends": "../../tsconfig.composite.json",
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "jsx": "react",
-    "outDir": "build",
-    "rootDir": "."
+    "rootDir": ".",
+    "noEmit": true
   },
   "include": ["**/*"],
   "exclude": [
     ".docusaurus",
+    ".eslintrc.js",
     "build",
     "dist",
     "jest.config.js",

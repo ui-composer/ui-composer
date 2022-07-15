@@ -184,8 +184,8 @@ module.exports = {
     'react/no-unescaped-entities': 'off',
     'react/jsx-curly-brace-presence': ['error', { props: 'never' }],
     'react/jsx-boolean-value': 'error',
-    'react/react-in-jsx-scope': 'error',
-    'react/jsx-uses-react': 'error',
+    'react/react-in-jsx-scope': 'off',
+    'react/jsx-uses-react': 'off',
     // jsx components should have the correct file extensions
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md
     'react/jsx-filename-extension': [
