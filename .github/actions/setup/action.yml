@@ -16,5 +16,4 @@ runs:
         cache: yarn
 
     - name: 📦 Install dependencies
-      run: yarn install --frozen-lockfile --ignore-scripts
-      shell: bash
+      run: yarn
