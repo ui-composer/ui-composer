@@ -28,7 +28,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: 🏗 Setup
-        uses: ./github/actions/setup
+        uses: ./.github/actions/setup
 
       - name: Conventional Commits PR
         uses: beemojs/conventional-pr-action@v2.1.2
