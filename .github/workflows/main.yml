@@ -26,11 +26,11 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
       - uses: ./.github/actions/setup
 
       - name: 🚨 Lint commit message
-        uses: beemojs/conventional-pr-action@v2.1.2
+        uses: webiny/action-conventional-commits@v1.0.3
 
       - name: 🚨 Lint code
         run: |
