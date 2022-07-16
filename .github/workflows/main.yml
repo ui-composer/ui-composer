@@ -26,14 +26,13 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: 🏗 Setup
-        uses: ./.github/actions/setup
+      - uses: actions/checkout@master
+      - uses: ./.github/actions/setup
 
-      - name: Conventional Commits PR
+      - name: 🚨 Lint commit message
         uses: beemojs/conventional-pr-action@v2.1.2
 
-      - name: 🚨 Lint
+      - name: 🚨 Lint code
         run: |
           yarn tsc --noEmit
           yarn lint --max-warnings 0
