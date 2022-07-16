@@ -1,13 +1,11 @@
 {
   "name": "@ui-composer/monorepo",
   "private": true,
-  "version": "0.0.0",
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
   "scripts": {
-    "postinstall": "manypkg check",
     "clean": "./scripts/clean/workspaces.sh",
     "clean:workspace": "./scripts/clean/workspace.mjs",
     "format": "./scripts/format/workspaces.sh",
