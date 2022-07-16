@@ -1,0 +1,15 @@
+name: Setup Runtime
+description: Prepare Runtime in GitHub Actions
+
+inputs:
+  expo-version:
+    description: Version of Expo CLI to use
+    default: latest
+
+runs:
+  using: composite
+  steps:
+    - name: 🏗 Setup Expo
+      uses: expo/expo-github-action@v7
+      with:
+        expo-version: ${{ inputs.expo-version }}
