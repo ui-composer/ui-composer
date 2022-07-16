@@ -1,5 +1,5 @@
-name: Setup Runtime
-description: Prepare Runtime in GitHub Actions
+name: Setup mobile
+description: Prepare mobile app in GitHub Actions
 
 inputs:
   expo-version:
