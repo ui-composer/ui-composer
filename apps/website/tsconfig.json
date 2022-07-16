@@ -5,7 +5,9 @@
     "rootDir": ".",
     "noEmit": true
   },
-  "include": ["**/*"],
+  "include": [
+    "**/*"
+  ],
   "exclude": [
     ".docusaurus",
     ".eslintrc.js",
@@ -14,5 +16,6 @@
     "jest.config.js",
     "babel.config.js",
     "babel.build.config.js"
-  ]
+  ],
+  "references": []
 }
