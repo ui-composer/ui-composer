@@ -29,9 +29,6 @@ jobs:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/setup
 
-      - name: 🚨 Lint commit message
-        uses: webiny/action-conventional-commits@v1.0.3
-
       - name: 🚨 Lint code
         run: |
           yarn tsc --noEmit
