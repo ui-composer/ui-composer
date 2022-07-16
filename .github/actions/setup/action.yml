@@ -1,0 +1,20 @@
+name: Setup
+description: Setup node, yarn and install dependencies
+
+inputs:
+  node-version:
+    description: Version of Node to use
+    default: 16.x
+
+runs:
+  using: composite
+  steps:
+    - name: 🏗 Setup Node
+      uses: actions/setup-node@master
+      with:
+        node-version: ${{ inputs.node-version }}
+        cache: yarn
+
+    - name: 📦 Install dependencies
+      run: yarn
+      shell: bash
