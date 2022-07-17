@@ -10,23 +10,19 @@ runs:
   using: composite
   steps:
     - name: 🏗 Setup Node
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3.4.1
       with:
         node-version: ${{ inputs.node-version }}
         cache: yarn
 
     - name: 🏗 Find yarn cache
-      id: yarn-cache-path
-      run: echo "::set-output name=dir::$(yarn cache dir)"
-      shell: bash
-
-    - name: 🏗 Restore cache
-      uses: actions/cache@v2
+      uses: actions/cache@v3.0.5
       with:
-        path: ${{ steps.yarn-cache-path.outputs.dir }}
-        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-        restore-keys: ${{ runner.os }}-yarn-
+        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+        key: yarn-cache-folder-${{ hashFiles('**/yarn.lock', '.yarnrc.yml') }}
+        restore-keys: |
+          yarn-cache-folder-
 
     - name: 📦 Install dependencies
-      run: yarn
+      run: yarn install --immutable
       shell: bash
