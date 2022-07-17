@@ -1,3 +1,4 @@
+import React from 'react';
 import { Box, HStack, VStack } from 'ui-composer';
 
 function App() {

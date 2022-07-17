@@ -1,4 +1,4 @@
-import { createElement, memo } from 'react';
+import React, { createElement, memo } from 'react';
 import alpha from 'color-alpha';
 import CSS from 'csstype';
 import mapValues from 'lodash/mapValues';

@@ -2,16 +2,11 @@
   "extends": "../../tsconfig.composite",
   "compilerOptions": {
     "composite": true,
-    "jsx": "react-jsx",
+    "jsx": "react",
     "rootDir": "./src",
     "outDir": "./dist"
   },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist"
-  ],
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"],
   "references": []
 }
