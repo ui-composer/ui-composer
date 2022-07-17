@@ -30,6 +30,7 @@ typings
 .parcel-cache
 .docusaurus
 .next
+.expo
 
 # Typescript
 tsconfig.tsbuildinfo
