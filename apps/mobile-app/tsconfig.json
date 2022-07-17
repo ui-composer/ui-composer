@@ -18,5 +18,9 @@
     "jest.config.js",
     ".eslintrc.js"
   ],
-  "references": []
+  "references": [
+    {
+      "path": "../../packages/ui-composer"
+    }
+  ]
 }
