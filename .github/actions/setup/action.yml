@@ -10,10 +10,21 @@ runs:
   using: composite
   steps:
     - name: 🏗 Setup Node
-      uses: actions/setup-node@master
+      uses: actions/setup-node@v2
       with:
         node-version: ${{ inputs.node-version }}
         cache: yarn
+
+    - name: 🏗 Find yarn cache
+      id: yarn-cache-path
+      run: echo "::set-output name=dir::$(yarn cache dir)"
+
+    - name: 🏗 Restore cache
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ runner.os }}-yarn-
 
     - name: 📦 Install dependencies
       run: yarn
