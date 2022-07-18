@@ -5,10 +5,9 @@
   "main": "src/main.js",
   "scripts": {
     "clean": "yarn clean:workspace",
-    "expo": "yarn bin expo",
-    "android": "concurrently 'yarn workspace ui-composer watch' 'expo start --android'",
-    "ios": "concurrently 'yarn workspace ui-composer watch' 'expo start --ios'",
-    "web": "concurrently 'yarn workspace ui-composer watch' 'expo start --web'",
+    "android": "concurrently 'yarn workspace ui-composer watch' '$(yarn bin expo) start --android'",
+    "ios": "concurrently 'yarn workspace ui-composer watch' '$(yarn bin expo) start --ios'",
+    "web": "concurrently 'yarn workspace ui-composer watch' '$(yarn bin expo) start --web'",
     "lint": "yarn lint:workspace"
   },
   "dependencies": {
