@@ -1,59 +1,33 @@
 import React, { createElement, memo } from 'react';
-import alpha from 'color-alpha';
 import CSS from 'csstype';
-import mapValues from 'lodash/mapValues';
-import { Merge, ReadonlyDeep, StringKeyOf } from 'type-fest';
+import { Merge, StringKeyOf } from 'type-fest';
 
-import { Expand } from './types';
-
-type Stringify<T> = Extract<T, string>;
+import { getA11yProps } from './utils/getA11yProps';
+import { emptyObject } from './utils/object';
+import { createPalette } from './createPalette';
+import {
+  FlexProps,
+  PaletteConfig,
+  Stringify,
+  StringToNumberObject,
+  StringToStringObject,
+  TypographyConfig,
+} from './types';
 
 type DisplayProps = {
   display?: 'flex' | 'none';
+  block?: boolean;
+  opacity?: number;
 };
 
-type FlexProps = {
-  flex?: number | undefined;
-  flexBasis?: number | string | undefined;
-  flexDirection?: 'row' | 'column' | 'row-reverse' | 'column-reverse' | undefined;
-  flexGrow?: number | undefined;
-  flexShrink?: number | undefined;
-  flexWrap?: 'wrap' | 'nowrap' | 'wrap-reverse' | undefined;
-  alignContent?:
-    | 'flex-start'
-    | 'flex-end'
-    | 'center'
-    | 'stretch'
-    | 'space-between'
-    | 'space-around'
-    | undefined;
-  alignItems?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline' | undefined;
-  alignSelf?: 'auto' | 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline' | undefined;
-  justifyContent?:
-    | 'flex-start'
-    | 'flex-end'
-    | 'center'
-    | 'space-between'
-    | 'space-around'
-    | 'space-evenly'
-    | undefined;
+export type PsuedoStateProps = {
+  disabled?: boolean;
+  /** Is the element currenty loading. */
+  loading?: boolean;
+  pressed?: boolean;
 };
 
-type TypographyConfig = {
-  [alias: string]: {
-    fontFamily: string;
-    fontWeight: number;
-    lineHeight: number;
-    fontSize: number;
-  };
-};
-type StringToNumberObject = { [alias: string]: number };
-type StringToStringObject = { [alias: string]: string };
-type PaletteConfig<Colors extends StringToStringObject> = ReadonlyDeep<{
-  [alias: string]: Stringify<keyof Colors> | [Stringify<keyof Colors>, number];
-}>;
-
-function createTheme<
+export function createTheme<
   BorderRadius extends StringToNumberObject,
   BorderWidth extends StringToNumberObject | undefined,
   Colors extends StringToStringObject,
@@ -68,11 +42,10 @@ function createTheme<
   spacing: Spacing;
   typography: Typography;
 }) {
-  type PaletteToken = StringKeyOf<Palette>;
-  type PaletteProcessed = Record<PaletteToken, string>;
-
+  type PaletteToken = Stringify<keyof Palette>;
   type BackgroundColorProps = {
     backgroundColor?: PaletteToken;
+    dangerouslySetBackgroundColor?: string;
   };
 
   type BorderColorProps = {
@@ -83,6 +56,13 @@ function createTheme<
     borderBottomColor?: PaletteToken;
     borderStartColor?: PaletteToken;
     borderEndColor?: PaletteToken;
+    dangerouslySetBorderColor?: string;
+    dangerouslySetBorderColorVertical?: string;
+    dangerouslySetBorderColorHorizontal?: string;
+    dangerouslySetBorderTopColor?: string;
+    dangerouslySetBorderBottomColor?: string;
+    dangerouslySetBorderStartColor?: string;
+    dangerouslySetBorderEndColor?: string;
   };
 
   type BorderRadiusToken = StringKeyOf<BorderRadius>;
@@ -109,67 +89,51 @@ function createTheme<
 
   type ColorProps = {
     color?: PaletteToken;
+    dangerouslySetColor?: string;
   };
 
-  type SpacingToken = Extract<keyof Spacing, string | number>;
-  type SpacingProps = {
-    /** Apply inner spacing on all sides. */
-    spacing?: SpacingToken;
-    /** Apply inner spacing on the leading and trailing sides. */
-    spacingHorizontal?: SpacingToken;
-    /** Apply inner spacing on the top and bottom sides. */
-    spacingVertical?: SpacingToken;
-    /** Apply inner spacing on the bottom side. */
-    spacingBottom?: SpacingToken;
-    /** Apply inner spacing on the trailing side. */
-    spacingEnd?: SpacingToken;
-    /** Apply inner spacing on the leading side. */
-    spacingStart?: SpacingToken;
-    /** Apply inner spacing on the top side. */
-    spacingTop?: SpacingToken;
-    /** Apply negative outer spacing on all sides. */
-    offset?: SpacingToken;
-    /** Apply negative outer spacing on the top and bottom sides. */
-    offsetVertical?: SpacingToken;
-    /** Apply negative outer spacing on the leading and trailing sides. */
-    offsetHorizontal?: SpacingToken;
-    /** Apply negative outer spacing on the bottom side. */
-    offsetBottom?: SpacingToken;
-    /** Apply negative outer spacing on the trailing side. */
-    offsetEnd?: SpacingToken;
-    /** Apply negative outer spacing on the leading side. */
-    offsetStart?: SpacingToken;
-    /** Apply negative outer spacing on the top side. */
-    offsetTop?: SpacingToken;
+  type SpacingToken = Extract<keyof Spacing, number>;
+  type SpacingProps = import('./types').SpacingPropsGeneric<SpacingToken>;
+
+  type StyleProps = {
+    style?: CSS.Properties<number | string>;
   };
 
-  type ThemeableProps = Expand<
-    BackgroundColorProps &
-      ColorProps &
-      BorderColorProps &
-      BorderRadiusProps &
-      BorderWidthProps &
-      DisplayProps &
-      FlexProps &
-      SpacingProps
-  >;
+  type TypographyToken = Stringify<keyof Typography>;
+  type TypographyProps = import('./types').TypographyPropsGeneric<TypographyToken>;
 
-  const paletteProcessed: PaletteProcessed = mapValues(config.palette, val => {
-    if (typeof val === 'string') {
-      return config.colors[val];
-    }
-    const [colorAlias, opacity] = val;
-    const color = config.colors[colorAlias];
-    return alpha(color, opacity);
-  });
+  type DimensionProps = import('./types').DimensionProps;
+
+  type ThemeableProps = BackgroundColorProps &
+    ColorProps &
+    BorderColorProps &
+    BorderRadiusProps &
+    BorderWidthProps &
+    DimensionProps &
+    DisplayProps &
+    FlexProps &
+    SpacingProps &
+    PsuedoStateProps &
+    StyleProps &
+    TypographyProps;
+
+  const palette = createPalette(config);
 
   function compose<T extends React.ElementType | React.ComponentType>(
     Component: T,
     defaultProps?: ThemeableProps
   ) {
+    type NativeProps = React.ComponentProps<T>;
+    type EnhancedComponentProps = Merge<ThemeableProps, NativeProps>;
+
     function EnhancedComponent({
+      pressed = defaultProps?.pressed,
+      loading = defaultProps?.loading,
+      disabled = defaultProps?.disabled,
+      style: styleProp = defaultProps?.style ?? emptyObject,
       backgroundColor = defaultProps?.backgroundColor,
       color = defaultProps?.color,
+      block = defaultProps?.block,
       borderColor = defaultProps?.borderColor,
       borderColorVertical = defaultProps?.borderColorVertical ?? borderColor, // convenience
       borderColorHorizontal = defaultProps?.borderColorHorizontal ?? borderColor, // convenience
@@ -195,7 +159,7 @@ function createTheme<
       flex = defaultProps?.flex,
       flexBasis = defaultProps?.flexBasis,
       flexDirection = defaultProps?.flexDirection,
-      flexGrow = defaultProps?.flexGrow,
+      flexGrow = defaultProps?.flexGrow ?? block ? 1 : undefined,
       flexShrink = defaultProps?.flexShrink,
       flexWrap = defaultProps?.flexWrap,
       alignContent = defaultProps?.alignContent,
@@ -216,36 +180,102 @@ function createTheme<
       offsetBottom = defaultProps?.offsetBottom ?? offsetVertical,
       offsetStart = defaultProps?.offsetStart ?? offsetHorizontal,
       offsetEnd = defaultProps?.offsetEnd ?? offsetHorizontal,
+      opacity = defaultProps?.opacity,
+      textAlign = defaultProps?.textAlign,
+      lineHeight = defaultProps?.lineHeight,
+      fontFamily = defaultProps?.fontFamily,
+      fontSize = defaultProps?.fontSize,
+      fontWeight = defaultProps?.fontWeight,
+      height = defaultProps?.height,
+      width = defaultProps?.width,
+      maxHeight = defaultProps?.maxHeight,
+      maxWidth = defaultProps?.maxWidth,
+      minHeight = defaultProps?.minHeight,
+      minWidth = defaultProps?.minWidth,
+      dangerouslySetColor = defaultProps?.dangerouslySetColor,
+      dangerouslySetBackgroundColor = defaultProps?.dangerouslySetBackgroundColor,
+      dangerouslySetBorderColor = defaultProps?.dangerouslySetBorderColor,
+      dangerouslySetBorderColorVertical = defaultProps?.dangerouslySetBorderColorVertical ??
+        dangerouslySetBorderColor,
+      dangerouslySetBorderColorHorizontal = defaultProps?.dangerouslySetBorderColorHorizontal ??
+        dangerouslySetBorderColor,
+      dangerouslySetBorderTopColor = defaultProps?.dangerouslySetBorderTopColor ??
+        dangerouslySetBorderColorVertical,
+      dangerouslySetBorderBottomColor = defaultProps?.dangerouslySetBorderBottomColor ??
+        dangerouslySetBorderColorVertical,
+      dangerouslySetBorderStartColor = defaultProps?.dangerouslySetBorderStartColor ??
+        dangerouslySetBorderColorHorizontal,
+      dangerouslySetBorderEndColor = defaultProps?.dangerouslySetBorderEndColor ??
+        dangerouslySetBorderColorHorizontal,
       ...nativeProps
-    }: Merge<React.ComponentProps<T>, ThemeableProps>) {
+    }: EnhancedComponentProps) {
       const style: CSS.Properties<string | number> = {
         display,
+        ...styleProp,
       };
 
       if (backgroundColor) {
-        style.backgroundColor = paletteProcessed[backgroundColor];
+        style.backgroundColor = palette.rgbaStrings[backgroundColor];
+      }
+
+      if (dangerouslySetBackgroundColor) {
+        style.backgroundColor = dangerouslySetBackgroundColor;
+      }
+
+      if (pressed && backgroundColor) {
+        style.backgroundColor = palette.pseudoStyles[backgroundColor].pressed.backgroundColor;
+      }
+
+      if (disabled && backgroundColor) {
+        style.backgroundColor = palette.pseudoStyles[backgroundColor].disabled.backgroundColor;
+      }
+
+      if (loading && backgroundColor) {
+        style.backgroundColor = palette.pseudoStyles[backgroundColor].disabled.backgroundColor;
       }
 
       if (color) {
-        style.color = paletteProcessed[color];
+        style.color = palette.rgbaStrings[color];
+      }
+
+      if (dangerouslySetColor) {
+        style.color = dangerouslySetColor;
       }
 
       if (borderStartColor) {
         /** @todo figure out web version of RN's borderStartColor  */
-        style.borderLeftColor = paletteProcessed[borderStartColor];
+        style.borderLeftColor = palette.rgbaStrings[borderStartColor];
+      }
+
+      if (dangerouslySetBorderStartColor) {
+        /** @todo figure out web version of RN's borderStartColor  */
+        style.borderLeftColor = dangerouslySetBorderStartColor;
       }
 
       if (borderEndColor) {
         /** @todo figure out web version of RN's borderEndColor  */
-        style.borderRightColor = paletteProcessed[borderEndColor];
+        style.borderRightColor = palette.rgbaStrings[borderEndColor];
+      }
+
+      if (dangerouslySetBorderEndColor) {
+        /** @todo figure out web version of RN's borderEndColor  */
+        style.borderRightColor = dangerouslySetBorderEndColor;
       }
 
       if (borderTopColor) {
-        style.borderTopColor = paletteProcessed[borderTopColor];
+        style.borderTopColor = palette.rgbaStrings[borderTopColor];
+      }
+
+      if (dangerouslySetBorderTopColor) {
+        style.borderTopColor = dangerouslySetBorderTopColor;
       }
 
       if (borderBottomColor) {
-        style.borderBottomColor = paletteProcessed[borderBottomColor];
+        style.borderBottomColor = palette.rgbaStrings[borderBottomColor];
+      }
+
+      if (dangerouslySetBorderBottomColor) {
+        style.borderBottomColor = dangerouslySetBorderBottomColor;
       }
 
       if (borderBottomStartRadius) {
@@ -380,6 +410,54 @@ function createTheme<
         style.marginRight = config.spacing[offsetEnd];
       }
 
+      if (opacity) {
+        style.opacity = opacity;
+      }
+
+      if (textAlign) {
+        style.textAlign = textAlign;
+      }
+
+      if (fontFamily) {
+        style.fontFamily = config.typography[fontFamily].fontFamily;
+      }
+
+      if (fontWeight) {
+        style.fontWeight = config.typography[fontWeight].fontWeight;
+      }
+
+      if (lineHeight) {
+        style.lineHeight = config.typography[lineHeight].lineHeight;
+      }
+
+      if (fontSize) {
+        style.fontSize = config.typography[fontSize].fontSize;
+      }
+
+      if (height) {
+        style.height = height;
+      }
+
+      if (width) {
+        style.width = width;
+      }
+
+      if (maxHeight) {
+        style.maxHeight = maxHeight;
+      }
+
+      if (maxWidth) {
+        style.maxWidth = maxWidth;
+      }
+
+      if (minHeight) {
+        style.minHeight = minHeight;
+      }
+
+      if (minWidth) {
+        style.minWidth = minWidth;
+      }
+
       /** This is a Web HTML element */
       if (typeof Component === 'string') {
         return createElement(Component, {
@@ -388,18 +466,22 @@ function createTheme<
         });
       }
 
+      const accessibilityProps = getA11yProps({
+        disabled,
+        loading,
+      });
+
       // @ts-expect-error This is fine
-      return <Component style={style} {...nativeProps} />;
+      return <Component style={style} {...accessibilityProps} {...nativeProps} />;
     }
 
     return memo(EnhancedComponent);
   }
 
-  // const styler = createStyler(config);
-
   return {
     config,
     compose,
+    palette,
     types: {
       tokens: {
         backgroundColor: undefined as unknown as PaletteToken,
@@ -408,17 +490,21 @@ function createTheme<
         borderWidth: undefined as unknown as BorderWidthToken,
         color: undefined as unknown as PaletteToken,
         spacing: undefined as unknown as SpacingToken,
+        typography: undefined as unknown as TypographyToken,
       },
       props: {
+        all: {} as ThemeableProps,
         backgroundColorProps: {} as BackgroundColorProps,
         borderColorProps: {} as BorderColorProps,
         borderRadiusProps: {} as BorderRadiusProps,
         borderWidthProps: {} as BorderWidthProps,
         colorProps: {} as ColorProps,
+        displayProps: {} as DisplayProps,
+        flexProps: {} as FlexProps,
+        psuedoStateProps: {} as PsuedoStateProps,
         spacingProps: {} as SpacingProps,
+        typographyProps: {} as TypographyProps,
       },
     },
   };
 }
-
-export default createTheme;

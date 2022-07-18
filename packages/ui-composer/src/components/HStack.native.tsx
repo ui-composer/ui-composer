@@ -1,11 +1,9 @@
-import { View } from 'react-native';
+import { Animated } from 'react-native';
 
 import { compose } from '../theme';
 
 export type HStackProps = React.ComponentProps<typeof HStack>;
 
-const HStack = compose(View, { flexDirection: 'row' });
+export const HStack = compose(Animated.View, { flexDirection: 'row' });
 
 HStack.displayName = 'HStack';
-
-export default HStack;

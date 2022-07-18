@@ -1,11 +1,9 @@
-import { View } from 'react-native';
+import { Animated } from 'react-native';
 
 import { compose } from '../theme';
 
 export type BoxProps = React.ComponentProps<typeof Box>;
 
-const Box = compose(View);
+export const Box = compose(Animated.View);
 
 Box.displayName = 'Box';
-
-export default Box;
