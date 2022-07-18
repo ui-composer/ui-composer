@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.composite",
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./types"
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "types"],
+  "references": []
+}

@@ -4622,6 +4622,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ui-composer/cli@workspace:*, @ui-composer/cli@workspace:packages/cli":
+  version: 0.0.0-use.local
+  resolution: "@ui-composer/cli@workspace:packages/cli"
+  dependencies:
+    commander: ^9.4.0
+    esbuild: ^0.14.49
+    zx: ^7.0.7
+  bin:
+    ui-composer: ./src/bin.mjs
+  languageName: unknown
+  linkType: soft
+
 "@ui-composer/eslint-config@workspace:*, @ui-composer/eslint-config@workspace:packages/eslint":
   version: 0.0.0-use.local
   resolution: "@ui-composer/eslint-config@workspace:packages/eslint"
@@ -7566,6 +7578,13 @@ __metadata:
   version: 8.3.0
   resolution: "commander@npm:8.3.0"
   checksum: 0f82321821fc27b83bd409510bb9deeebcfa799ff0bf5d102128b500b7af22872c0c92cb6a0ebc5a4cf19c6b550fba9cedfa7329d18c6442a625f851377bacf0
+  languageName: node
+  linkType: hard
+
+"commander@npm:^9.4.0":
+  version: 9.4.0
+  resolution: "commander@npm:9.4.0"
+  checksum: a322de584a6ccd1ea83c24f6a660e52d16ffbe2613fcfbb8d2cc68bc9dec637492456d754fe8bb5b039ad843ed8e04fb0b107e581a75f62cde9e1a0ab1546e09
   languageName: node
   linkType: hard
 
@@ -22269,6 +22288,7 @@ __metadata:
     "@types/react": ^17.0.2
     "@types/react-dom": ^17.0.2
     "@types/react-native": ^0.68.2
+    "@ui-composer/cli": "workspace:*"
     "@ui-composer/eslint-config": "workspace:*"
     colord: ^2.9.2
     csstype: ^3.1.0

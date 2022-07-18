@@ -1,0 +1,38 @@
+{
+  "name": "@ui-composer/cli",
+  "version": "0.0.0",
+  "source": "src",
+  "type": "module",
+  "main": "./src/bin.mjs",
+  "bin": {
+    "ui-composer": "./src/bin.mjs"
+  },
+  "types": "./types",
+  "files": [
+    "src",
+    "types",
+    "package.json"
+  ],
+  "scripts": {
+    "debug": "ui-composer build",
+    "clean": "yarn clean:workspace",
+    "lint": "yarn lint:workspace --config .eslintrc",
+    "version": "yarn version $npm_package_version --no-git-tag-version"
+  },
+  "dependencies": {
+    "commander": "^9.4.0",
+    "esbuild": "^0.14.49",
+    "zx": "^7.0.7"
+  },
+  "author": "Katherine Martinez <kmartinezmedia@gmail.com>",
+  "homepage": "https://github.com/ui-composer/ui-composer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ui-composer/ui-composer/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ui-composer/ui-composer",
+    "directory": "packages/cli"
+  }
+}
