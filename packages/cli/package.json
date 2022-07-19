@@ -25,7 +25,6 @@
   "types": "./types",
   "files": [
     "src",
-    "bin",
     "types",
     "package.json",
     "oclif.manifest.json"
