@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "cli": "packages/cli",
     "mobile-app": "apps/mobile-app",
     "web-app": "apps/web-app",
     "eslint": "packages/eslint",

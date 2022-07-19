@@ -32,7 +32,7 @@ jobs:
       - name: 🚨 Lint code
         run: |
           yarn tsc --noEmit
-          yarn lint --max-warnings 0
+          yarn lint
 
       - name: 🛠 Build
         run: yarn build
