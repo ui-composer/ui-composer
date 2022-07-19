@@ -14,10 +14,10 @@
   "react-native": "./dist/index.native.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "ui-composer build",
+    "build": "ui-composer build --format esm",
     "clean": "yarn clean:workspace",
     "lint": "yarn lint:workspace",
-    "watch": "ui-composer build --watch",
+    "watch": "ui-composer build --format esm --watch",
     "version": "yarn version $npm_package_version --no-git-tag-version"
   },
   "dependencies": {
