@@ -39,7 +39,10 @@
     "@oclif/core": "^1.11.0",
     "@oclif/plugin-help": "^5.1.12",
     "@oclif/plugin-version": "^1.1.1",
+    "common-tags": "^1.8.2",
     "esbuild": "^0.14.49",
+    "humps": "^2.0.1",
+    "webfont": "^11.2.26",
     "zx": "^7.0.7"
   },
   "author": "Katherine Martinez <kmartinezmedia@gmail.com>",
@@ -54,6 +57,8 @@
     "directory": "packages/cli"
   },
   "devDependencies": {
+    "@types/common-tags": "^1",
+    "@types/humps": "^2",
     "oclif": "^3.1.1",
     "type-fest": "^2.16.0"
   }

@@ -1,9 +1,8 @@
 import { Command, Flags } from '@oclif/core';
 import esbuild from 'esbuild';
-import path from 'path';
 import { glob } from 'zx';
 
-export const DEFAULT_INCLUDE = '**/*.{js,mjs,cjs,ts,tsx,json,css}';
+export const DEFAULT_SRC = 'src/**/*.{js,mjs,cjs,ts,tsx,json,css}';
 export const DEFAULT_IGNORE = '**/*.d.ts';
 
 export default class Build extends Command {
@@ -12,10 +11,14 @@ export default class Build extends Command {
 
   static examples = ['<%= config.bin %> <%= command.id %>'];
 
+  static args = [
+    { name: 'src', description: 'Source directory to run build on', default: DEFAULT_SRC },
+  ];
+
   static flags = {
     cwd: Flags.string({
       description: 'Current working directory',
-      default: process.env.INIT_CWD,
+      default: process.env.INIT_CWD ?? process.cwd(),
       defaultHelp: 'process.env.INIT_CWD or process.cwd()',
     }),
     /** @return {import('@oclif/core/lib/interfaces').OptionFlag<import('esbuild').Format>} */
@@ -23,17 +26,18 @@ export default class Build extends Command {
       description: 'Format of the output',
       default: 'cjs',
     }),
-    include: Flags.string({
-      description: 'List of glob paths to compile. (comma separated)',
-      default: DEFAULT_INCLUDE,
-    }),
     ignore: Flags.string({
       description: 'List of glob paths to **not** compile. (comma separated)',
       default: DEFAULT_IGNORE,
     }),
-    'out-dir': Flags.string({
-      description: 'd',
+    dest: Flags.string({
+      char: 'd',
+      description: 'Destination for built files',
       default: 'dist',
+    }),
+    include: Flags.string({
+      description: 'List of extensions to compile. (comma separated)',
+      default: 'js,mjs,cjs,ts,tsx,json,css',
     }),
     'out-extension': Flags.string({
       description:
@@ -50,15 +54,14 @@ export default class Build extends Command {
     }),
   };
 
-  static args = [{ name: 'src', description: 'source directory to run build on', default: 'src' }];
-
   async run() {
     const { args, flags } = await this.parse(Build);
-    const files = await glob(flags.include, {
+    const files = await glob(args.src, {
       ignore: [flags.ignore],
-      cwd: path.join(flags.cwd, args.src),
+      cwd: flags.cwd,
       absolute: true,
     });
+
     console.log(flags, files);
 
     if (files) {
@@ -68,7 +71,7 @@ export default class Build extends Command {
           entryPoints: files,
           // @ts-expect-error - couldn't figure out correct jsdoc types in static flags
           format: flags.format,
-          outdir: flags['out-dir'],
+          outdir: flags.dest,
           outbase: args.src,
           watch: flags.watch,
         })
