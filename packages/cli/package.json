@@ -2,25 +2,44 @@
   "name": "@ui-composer/cli",
   "version": "0.0.0",
   "source": "src",
+  "main": "src/index.mjs",
   "type": "module",
-  "main": "./src/bin.mjs",
   "bin": {
-    "ui-composer": "./src/bin.mjs"
+    "ui-composer": "src/bin.mjs"
+  },
+  "oclif": {
+    "bin": "ui-composer",
+    "dirname": "oex",
+    "commands": "./src/commands",
+    "additionalHelpFlags": [
+      "-h"
+    ],
+    "additionalVersionFlags": [
+      "-v"
+    ],
+    "plugins": [
+      "@oclif/plugin-help",
+      "@oclif/plugin-version"
+    ]
   },
   "types": "./types",
   "files": [
     "src",
+    "bin",
     "types",
-    "package.json"
+    "package.json",
+    "oclif.manifest.json"
   ],
   "scripts": {
-    "debug": "ui-composer build",
+    "docs": "oclif manifest && oclif readme",
     "clean": "yarn clean:workspace",
     "lint": "yarn lint:workspace --config .eslintrc",
     "version": "yarn version $npm_package_version --no-git-tag-version"
   },
   "dependencies": {
-    "commander": "^9.4.0",
+    "@oclif/core": "^1.11.0",
+    "@oclif/plugin-help": "^5.1.12",
+    "@oclif/plugin-version": "^1.1.1",
     "esbuild": "^0.14.49",
     "zx": "^7.0.7"
   },
@@ -34,5 +53,9 @@
     "type": "git",
     "url": "https://github.com/ui-composer/ui-composer",
     "directory": "packages/cli"
+  },
+  "devDependencies": {
+    "oclif": "^3.1.1",
+    "type-fest": "^2.16.0"
   }
 }
