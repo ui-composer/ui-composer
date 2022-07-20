@@ -1,4 +1,4 @@
-export type SpacingPropsGeneric<SpacingToken extends number> = {
+export type SpacingConfig<SpacingToken extends number> = {
   /** Apply inner spacing on all sides. */
   spacing?: SpacingToken;
   /** Apply inner spacing on the leading and trailing sides. */

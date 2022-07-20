@@ -5,10 +5,10 @@ function App() {
   return (
     <VStack>
       <HStack>
-        <Box spacing={4} color="negativeForeground" backgroundColor="negative" flexGrow={1}>
+        <Box backgroundColor="negative" color="negativeForeground" flexGrow={1} spacing={4}>
           hi
         </Box>
-        <Box spacing={4} color="primaryForeground" backgroundColor="primary" flexGrow={1}>
+        <Box backgroundColor="primary" color="primaryForeground" flexGrow={1} spacing={4}>
           primary
         </Box>
       </HStack>

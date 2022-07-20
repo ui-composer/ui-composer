@@ -7,6 +7,7 @@
     "./common": "./configs/common.js",
     "./mobile": "./configs/mobile.js",
     "./node": "./configs/node.js",
+    "./react": "./configs/react.js",
     "./web": "./configs/web.js"
   },
   "author": "Katherine Martinez <kmartinezmedia@gmail.com>",

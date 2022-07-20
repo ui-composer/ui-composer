@@ -3,15 +3,21 @@ import { mapValues } from '../utils/object';
 
 import { typographyShared } from './typography-shared';
 
-const fontWeightMap = {
-  400: 'Regular',
-  500: 'Medium',
-  600: 'Semi-Bold',
-};
-
-export const typography: TypographyConfig = mapValues(typographyShared, val => {
-  return {
-    ...val,
-    fontFamily: `${val.fontFamily}-${fontWeightMap[val.fontWeight]}`,
+function transformVariants(variants: TypographyConfig['variants']) {
+  const fontWeightMap = {
+    400: 'Regular',
+    500: 'Medium',
+    600: 'Semi-Bold',
   };
-});
+  return mapValues(variants, ({ fontWeight = 400, ...variant }) => {
+    return {
+      ...variant,
+      fontWeight: fontWeightMap[fontWeight],
+    };
+  });
+}
+
+export const typography: TypographyConfig = {
+  ...typographyShared,
+  variants: transformVariants(typographyShared.variants),
+};

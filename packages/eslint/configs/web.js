@@ -1,9 +1,12 @@
-module.exports = {
+// @ts-check
+
+/** @type {import('eslint').ESLint.ConfigData} */
+const config = {
   env: {
     browser: true,
   },
   plugins: ['jsx-a11y'],
-  extends: ['./common', 'plugin:jsx-a11y/recommended', 'plugin:compat/recommended'],
+  extends: ['./common', './react', 'plugin:jsx-a11y/recommended', 'plugin:compat/recommended'],
   rules: {
     // jsx-a11y
     // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/master/docs/rules/label-has-associated-control.md
@@ -40,3 +43,5 @@ module.exports = {
     ],
   },
 };
+
+module.exports = config;

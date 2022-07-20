@@ -16,40 +16,40 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`ui-composer build [SRC]`](#ui-composer-build-src)
+* [`ui-composer esbuild`](#ui-composer-esbuild)
 * [`ui-composer help [COMMAND]`](#ui-composer-help-command)
+* [`ui-composer icons:convert [SRC]`](#ui-composer-iconsconvert-src)
+* [`ui-composer rename SRC`](#ui-composer-rename-src)
 * [`ui-composer version`](#ui-composer-version)
 
-## `ui-composer build [SRC]`
+## `ui-composer esbuild`
 
 Build project with ESBuild
 
 ```
 USAGE
-  $ ui-composer build [SRC] [--cwd <value>] [--format <value>] [--include <value>] [--ignore <value>]
-    [--out-dir <value>] [--out-extension <value>] [--delete-dir-on-start] [--watch]
-
-ARGUMENTS
-  SRC  [default: src] source directory to run build on
+  $ ui-composer esbuild [--cwd <value>] [--src <value>] [--format <value>] [--files <value>] [--ignore
+    <value>] [-d <value>] [--out-extension <value>] [--delete-dir-on-start] [--watch]
 
 FLAGS
+  -d, --dest=<value>       [default: dist] Destination for built files
   --cwd=<value>            [default: /Users/katherinemartinez/src/ui-composer/packages/cli] Current working directory
-  --delete-dir-on-start    Delete the out directory before compilation
-  --format=<value>         [default: cjs] Format of the output
+  --delete-dir-on-start    Delete the dest directory before compilation
+  --files=<value>          [default: **/*.{js,mjs,cjs,ts,tsx}] List of glob paths to compile. (comma separated)
+  --format=<value>         [default: esm] Format of the output
   --ignore=<value>         [default: **/*.d.ts] List of glob paths to **not** compile. (comma separated)
-  --include=<value>        [default: **/*.{js,mjs,cjs,ts,tsx,json,css}] List of glob paths to compile. (comma separated)
-  --out-dir=<value>        [default: dist] d
   --out-extension=<value>  [default: js] Customize the file extension of the files that esbuild generates to something
                            other than .js or .css. This option is useful if you are using esbuild to generate multiple
                            files and you have to use the outdir option instead of the outfile option
                            [link](https://esbuild.github.io/api/#out-extension)
+  --src=<value>            [default: src] Directory to target for build
   --watch                  Watch for changes and rebuild
 
 DESCRIPTION
   Build project with ESBuild
 
 EXAMPLES
-  $ ui-composer build
+  $ ui-composer esbuild
 ```
 
 ## `ui-composer help [COMMAND]`
@@ -71,6 +71,61 @@ DESCRIPTION
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.12/src/commands/help.ts)_
+
+## `ui-composer icons:convert [SRC]`
+
+Convert svg icons to icon font, generate typescript types and write to disk
+
+```
+USAGE
+  $ ui-composer icons:convert [SRC] -d <value> --fontName <value> [--cwd <value>] [--fontHeight <value>] [--format
+    woff|woff2|ttf|svg|eot] [--startUnicode <value>] [--normalize] [--skip-types]
+
+ARGUMENTS
+  SRC  [default: src/icons/**/*.svg] List of glob paths to convert (comma separated)
+
+FLAGS
+  -d, --dest=<value>      (required) [default: src/icons] Destination for generated font files
+  --cwd=<value>           [default: /Users/katherinemartinez/src/ui-composer/packages/cli] Current working directory
+  --fontHeight=<value>    [default: 4096] The font height of the generated font
+  --fontName=<value>      (required) The font family name of the generated font
+  --format=<option>...    [default: ttf] Format of the output (comma separated)
+                          <options: woff|woff2|ttf|svg|eot>
+  --normalize             Normalize icons by scaling them to the height of the highest icon.
+  --skip-types            Generate Typescript types for the icons
+  --startUnicode=<value>  [default: 61440] The start unicode of the generated font
+
+DESCRIPTION
+  Convert svg icons to icon font, generate typescript types and write to disk
+```
+
+## `ui-composer rename SRC`
+
+Rename files via cli
+
+```
+USAGE
+  $ ui-composer rename [SRC] [--cwd <value>] [--output <value>] [--ignore <value>] [--format
+    camelCase|kebab-case|snake_case|Pascal Case] [--sequential] [--replace <value>]
+
+ARGUMENTS
+  SRC  List of glob path(s) to rename
+
+FLAGS
+  --cwd=<value>      [default: /Users/katherinemartinez/src/ui-composer/packages/cli] Current working directory
+  --format=<option>  [default: kebab-case] Format the final output after any replacements
+                     <options: camelCase|kebab-case|snake_case|Pascal Case>
+  --ignore=<value>   List of glob paths to **not** rename. (comma separated)
+  --output=<value>   Destination for renamed files
+  --replace=<value>  Replace a string in the file name.
+  --sequential       Append numbers to the end of the file name after any replacements
+
+DESCRIPTION
+  Rename files via cli
+
+EXAMPLES
+  $ ui-composer rename
+```
 
 ## `ui-composer version`
 

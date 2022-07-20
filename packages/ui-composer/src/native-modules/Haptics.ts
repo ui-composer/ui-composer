@@ -9,23 +9,37 @@ const HapticsModule = (NativeModules.Haptics || {
   notificationAsync: (type: string) => Promise<void>;
 };
 
-const notification = async (type: 'success' | 'warning' | 'error'): Promise<void> =>
-  HapticsModule.notificationAsync(type);
+async function notification(type: 'success' | 'warning' | 'error'): Promise<void> {
+  return HapticsModule.notificationAsync(type);
+}
 
-const successNotification = async () => notification('success');
+async function successNotification() {
+  return notification('success');
+}
 
-const warningNotification = async () => notification('warning');
+async function warningNotification() {
+  return notification('warning');
+}
 
-const errorNotification = async () => notification('error');
+async function errorNotification() {
+  return notification('error');
+}
 
-const impact = async (style: 'light' | 'medium' | 'heavy'): Promise<void> =>
-  HapticsModule.impactAsync(style);
+async function impact(style: 'light' | 'medium' | 'heavy'): Promise<void> {
+  return HapticsModule.impactAsync(style);
+}
 
-const lightImpact = async () => impact('light');
+async function lightImpact() {
+  return impact('light');
+}
 
-const normalImpact = async () => impact('medium');
+async function normalImpact() {
+  return impact('medium');
+}
 
-const heavyImpact = async () => impact('heavy');
+async function heavyImpact() {
+  return impact('heavy');
+}
 
 export const Haptics = {
   successNotification,
