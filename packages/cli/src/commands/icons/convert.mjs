@@ -4,8 +4,6 @@ import fs from 'fs';
 import path from 'path';
 import { webfont } from 'webfont';
 
-console.log(webfont);
-
 export default class IconsConvert extends Command {
   static id = 'icons:convert';
   static description =

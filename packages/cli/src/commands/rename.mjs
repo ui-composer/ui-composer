@@ -76,8 +76,6 @@ export default class Rename extends Command {
 
     const renamedFiles = [];
 
-    // console.log({ flags, args, files });
-
     /** @returns {Promise<string>[]} */
     const promises = [];
 

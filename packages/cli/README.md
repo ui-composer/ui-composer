@@ -16,42 +16,40 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`ui-composer build [SRC]`](#ui-composer-build-src)
+* [`ui-composer esbuild`](#ui-composer-esbuild)
 * [`ui-composer help [COMMAND]`](#ui-composer-help-command)
 * [`ui-composer icons:convert [SRC]`](#ui-composer-iconsconvert-src)
 * [`ui-composer rename SRC`](#ui-composer-rename-src)
 * [`ui-composer version`](#ui-composer-version)
 
-## `ui-composer build [SRC]`
+## `ui-composer esbuild`
 
 Build project with ESBuild
 
 ```
 USAGE
-  $ ui-composer build [SRC] [--cwd <value>] [--format <value>] [--ignore <value>] [-d <value>] [--include
-    <value>] [--out-extension <value>] [--delete-dir-on-start] [--watch]
-
-ARGUMENTS
-  SRC  [default: src/**/*.{js,mjs,cjs,ts,tsx,json,css}] Source directory to run build on
+  $ ui-composer esbuild [--cwd <value>] [--src <value>] [--format <value>] [--files <value>] [--ignore
+    <value>] [-d <value>] [--out-extension <value>] [--delete-dir-on-start] [--watch]
 
 FLAGS
   -d, --dest=<value>       [default: dist] Destination for built files
   --cwd=<value>            [default: /Users/katherinemartinez/src/ui-composer/packages/cli] Current working directory
-  --delete-dir-on-start    Delete the out directory before compilation
-  --format=<value>         [default: cjs] Format of the output
+  --delete-dir-on-start    Delete the dest directory before compilation
+  --files=<value>          [default: **/*.{js,mjs,cjs,ts,tsx}] List of glob paths to compile. (comma separated)
+  --format=<value>         [default: esm] Format of the output
   --ignore=<value>         [default: **/*.d.ts] List of glob paths to **not** compile. (comma separated)
-  --include=<value>        [default: js,mjs,cjs,ts,tsx,json,css] List of extensions to compile. (comma separated)
   --out-extension=<value>  [default: js] Customize the file extension of the files that esbuild generates to something
                            other than .js or .css. This option is useful if you are using esbuild to generate multiple
                            files and you have to use the outdir option instead of the outfile option
                            [link](https://esbuild.github.io/api/#out-extension)
+  --src=<value>            [default: src] Directory to target for build
   --watch                  Watch for changes and rebuild
 
 DESCRIPTION
   Build project with ESBuild
 
 EXAMPLES
-  $ ui-composer build
+  $ ui-composer esbuild
 ```
 
 ## `ui-composer help [COMMAND]`
@@ -103,7 +101,7 @@ DESCRIPTION
 
 ## `ui-composer rename SRC`
 
-Build project with ESBuild
+Rename files via cli
 
 ```
 USAGE
@@ -123,7 +121,7 @@ FLAGS
   --sequential       Append numbers to the end of the file name after any replacements
 
 DESCRIPTION
-  Build project with ESBuild
+  Rename files via cli
 
 EXAMPLES
   $ ui-composer rename

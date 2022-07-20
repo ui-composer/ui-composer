@@ -5068,7 +5068,8 @@ __metadata:
     webfont: ^11.2.26
     zx: ^7.0.7
   bin:
-    ui-composer: src/bin.mjs
+    ui-composer-cli: src/bin.mjs
+    ui-composer-cli-esbuild: src/scripts/esbuild.mjs
   languageName: unknown
   linkType: soft
 

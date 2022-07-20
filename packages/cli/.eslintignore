@@ -3,3 +3,4 @@
 /node_modules
 /src/bin.mjs
 /types
+*.md

@@ -15,7 +15,7 @@
     "disableSourceOfProjectReferenceRedirect": false,
     "allowJs": true,
     "checkJs": true,
-    "moduleResolution": "node",
+    "moduleResolution": "nodenext",
     "preserveSymlinks": false,
     "importHelpers": true,
     "noEmitHelpers": true,

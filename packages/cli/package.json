@@ -6,7 +6,8 @@
   "module": "src/index.mjs",
   "type": "module",
   "bin": {
-    "ui-composer": "src/bin.mjs"
+    "ui-composer-cli": "src/bin.mjs",
+    "ui-composer-cli-esbuild": "src/scripts/esbuild.mjs"
   },
   "oclif": {
     "bin": "ui-composer",
@@ -31,6 +32,7 @@
     "oclif.manifest.json"
   ],
   "scripts": {
+    "help": "ui-composer --help",
     "docs": "oclif manifest && oclif readme",
     "clean": "yarn clean:workspace",
     "lint": "yarn lint:workspace --config .eslintrc",

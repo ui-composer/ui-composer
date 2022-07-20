@@ -130,7 +130,7 @@ const config = {
     // prevent accidental redudent import paths
     'import/no-useless-path-segments': 'error',
     'import/no-default-export': 'off',
-    'import/no-relative-parent-imports': 'error',
+    'import/no-relative-parent-imports': 'off',
     'import/first': 'error',
     'import/newline-after-import': 'error',
     'import/no-duplicates': 'error',
