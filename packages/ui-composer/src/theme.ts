@@ -1,4 +1,5 @@
-import { light as colors } from './tokens/colors';
+import { light as colors } from './tokens/color';
+import { icon } from './tokens/icon';
 import { light as palette } from './tokens/palette';
 import { typography } from './tokens/typography';
 import { createTheme } from './createTheme';
@@ -29,12 +30,13 @@ const spacing = {
 export const theme = createTheme({
   borderRadius,
   colors,
+  icon,
   palette,
   spacing,
   typography,
 });
 
 export type ThemableTokens = typeof theme.types.tokens;
-export type ThemeableProps = typeof theme.types.props.all;
+export type ThemeableProps = typeof theme.types.props;
 
 export const compose = theme.compose;

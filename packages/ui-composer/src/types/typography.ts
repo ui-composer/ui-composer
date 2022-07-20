@@ -1,18 +1,12 @@
-export type TypographyConfigurableValues = {
+export type TextConfig = {
   fontFamily: string;
-  fontWeight: number;
-  lineHeight: number;
+  fontWeight?: number;
+  lineHeight?: number;
   fontSize: number;
 };
 
 export type TypographyConfig = {
-  [alias: string]: TypographyConfigurableValues;
-};
-
-export type TypographyPropsGeneric<TextVariant> = {
-  textAlign?: 'auto' | 'left' | 'right' | 'center' | 'justify';
-  fontFamily?: TextVariant;
-  fontWeight?: TextVariant;
-  lineHeight?: TextVariant;
-  fontSize?: TextVariant;
+  variants: {
+    [alias: string]: TextConfig;
+  };
 };

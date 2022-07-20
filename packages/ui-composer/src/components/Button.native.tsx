@@ -6,8 +6,9 @@ import { Pressable, PressableProps } from './Pressable.native';
 import { Text, TextProps } from './Text.native';
 
 type ButtonVariant = 'primary' | 'secondary' | 'positive' | 'negative';
-type ButtonVariantsConfig = Record<ButtonVariant, ThemeableProps>;
+type ButtonVariantsConfig = Record<ButtonVariant, ThemeableProps['all']>;
 
+/** @todo move to tokens configuration */
 const variants: ButtonVariantsConfig = {
   primary: {
     color: 'primaryForeground',

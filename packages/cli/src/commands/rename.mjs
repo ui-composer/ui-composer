@@ -31,9 +31,9 @@ const formatters = {
   snake_case: snakeCase,
 };
 
-export default class Build extends Command {
+export default class Rename extends Command {
   static id = 'rename';
-  static description = 'Build project with ESBuild';
+  static description = 'Rename files via cli';
 
   static examples = ['<%= config.bin %> <%= command.id %>'];
 
@@ -68,7 +68,7 @@ export default class Build extends Command {
   };
 
   async run() {
-    const { args, flags } = await this.parse(Build);
+    const { args, flags } = await this.parse(Rename);
     const files = await glob(args.src, {
       cwd: flags.cwd,
       absolute: true,

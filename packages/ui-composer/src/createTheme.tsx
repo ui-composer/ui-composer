@@ -1,13 +1,15 @@
 import React, { createElement, memo } from 'react';
 import CSS from 'csstype';
-import { Merge, StringKeyOf } from 'type-fest';
+import { Merge, ReadonlyDeep, StringKeyOf } from 'type-fest';
 
 import { getA11yProps } from './utils/getA11yProps';
 import { emptyObject } from './utils/object';
 import { createPalette } from './createPalette';
 import {
+  DimensionProps,
+  Expand,
   FlexProps,
-  PaletteConfig,
+  SpacingConfig,
   Stringify,
   StringToNumberObject,
   StringToStringObject,
@@ -31,14 +33,22 @@ export function createTheme<
   BorderRadius extends StringToNumberObject,
   BorderWidth extends StringToNumberObject | undefined,
   Colors extends StringToStringObject,
+  Icon extends TypographyConfig,
   Spacing extends StringToNumberObject,
   Typography extends TypographyConfig,
-  Palette extends PaletteConfig<Colors>
+  PaletteValue extends Stringify<keyof Colors> | [Stringify<keyof Colors>, number],
+  Palette extends ReadonlyDeep<{
+    [alias: string]: PaletteValue;
+  }> & {
+    background: PaletteValue;
+    foreground: PaletteValue;
+  }
 >(config: {
   colors: Colors;
   palette: Palette;
   borderRadius: BorderRadius;
   borderWidth?: BorderWidth;
+  icon: Icon;
   spacing: Spacing;
   typography: Typography;
 }) {
@@ -92,30 +102,52 @@ export function createTheme<
     dangerouslySetColor?: string;
   };
 
+  type IconVariant = Stringify<keyof Icon['variants']>;
+  type IconFontFamily = Icon['variants'][IconVariant]['fontFamily'];
+  type IconFontWeight = Icon['variants'][IconVariant]['fontWeight'];
+
   type SpacingToken = Extract<keyof Spacing, number>;
-  type SpacingProps = import('./types').SpacingPropsGeneric<SpacingToken>;
+  type SpacingProps = SpacingConfig<SpacingToken>;
 
   type StyleProps = {
     style?: CSS.Properties<number | string>;
   };
 
-  type TypographyToken = Stringify<keyof Typography>;
-  type TypographyProps = import('./types').TypographyPropsGeneric<TypographyToken>;
+  type TextVariant = Stringify<keyof Typography['variants']>;
+  type TextFontFamily = Typography['variants'][TextVariant]['fontFamily'];
+  type TextFontWeight = Typography['variants'][TextVariant]['fontWeight'];
+  type TextLineHeight = Typography['variants'][TextVariant]['lineHeight'];
+  type TextFontSize = Typography['variants'][TextVariant]['fontSize'];
 
-  type DimensionProps = import('./types').DimensionProps;
+  type FontFamily = TextFontFamily | IconFontFamily;
+  type FontWeight = TextFontWeight | IconFontWeight;
 
-  type ThemeableProps = BackgroundColorProps &
-    ColorProps &
-    BorderColorProps &
-    BorderRadiusProps &
-    BorderWidthProps &
-    DimensionProps &
-    DisplayProps &
-    FlexProps &
-    SpacingProps &
-    PsuedoStateProps &
-    StyleProps &
-    TypographyProps;
+  type TypographyProps = {
+    textAlign?: 'auto' | 'left' | 'right' | 'center' | 'justify';
+    fontFamily?: FontFamily;
+    fontWeight?: FontWeight;
+    lineHeight?: TextLineHeight;
+    fontSize?: TextFontSize;
+    dangerouslySetFontFamily?: string;
+    dangerouslySetFontWeight?: number | string;
+    dangerouslySetLineHeight?: number;
+    dangerouslySetFontSize?: number;
+  };
+
+  type ThemeableProps = Expand<
+    BackgroundColorProps &
+      ColorProps &
+      BorderColorProps &
+      BorderRadiusProps &
+      BorderWidthProps &
+      DimensionProps &
+      DisplayProps &
+      FlexProps &
+      SpacingProps &
+      PsuedoStateProps &
+      StyleProps &
+      TypographyProps
+  >;
 
   const palette = createPalette(config);
 
@@ -207,6 +239,10 @@ export function createTheme<
         dangerouslySetBorderColorHorizontal,
       dangerouslySetBorderEndColor = defaultProps?.dangerouslySetBorderEndColor ??
         dangerouslySetBorderColorHorizontal,
+      dangerouslySetFontFamily = defaultProps?.dangerouslySetFontFamily,
+      dangerouslySetFontWeight = defaultProps?.dangerouslySetFontWeight,
+      dangerouslySetLineHeight = defaultProps?.dangerouslySetLineHeight,
+      dangerouslySetFontSize = defaultProps?.dangerouslySetFontSize,
       ...nativeProps
     }: EnhancedComponentProps) {
       const style: CSS.Properties<string | number> = {
@@ -422,16 +458,32 @@ export function createTheme<
         style.fontFamily = config.typography[fontFamily].fontFamily;
       }
 
+      if (dangerouslySetFontFamily) {
+        style.fontFamily = dangerouslySetFontFamily;
+      }
+
       if (fontWeight) {
         style.fontWeight = config.typography[fontWeight].fontWeight;
+      }
+
+      if (dangerouslySetFontWeight) {
+        style.fontWeight = dangerouslySetFontWeight;
       }
 
       if (lineHeight) {
         style.lineHeight = config.typography[lineHeight].lineHeight;
       }
 
+      if (dangerouslySetLineHeight) {
+        style.lineHeight = dangerouslySetLineHeight;
+      }
+
       if (fontSize) {
         style.fontSize = config.typography[fontSize].fontSize;
+      }
+
+      if (dangerouslySetFontSize) {
+        style.fontSize = dangerouslySetFontSize;
       }
 
       if (height) {
@@ -490,20 +542,21 @@ export function createTheme<
         borderWidth: undefined as unknown as BorderWidthToken,
         color: undefined as unknown as PaletteToken,
         spacing: undefined as unknown as SpacingToken,
-        typography: undefined as unknown as TypographyToken,
+        iconVariant: undefined as unknown as IconVariant,
+        textVariant: undefined as unknown as TextVariant,
       },
       props: {
         all: {} as ThemeableProps,
-        backgroundColorProps: {} as BackgroundColorProps,
-        borderColorProps: {} as BorderColorProps,
-        borderRadiusProps: {} as BorderRadiusProps,
-        borderWidthProps: {} as BorderWidthProps,
-        colorProps: {} as ColorProps,
-        displayProps: {} as DisplayProps,
-        flexProps: {} as FlexProps,
-        psuedoStateProps: {} as PsuedoStateProps,
-        spacingProps: {} as SpacingProps,
-        typographyProps: {} as TypographyProps,
+        backgroundColor: {} as BackgroundColorProps,
+        borderColor: {} as BorderColorProps,
+        borderRadius: {} as BorderRadiusProps,
+        borderWidth: {} as BorderWidthProps,
+        color: {} as ColorProps,
+        display: {} as DisplayProps,
+        flex: {} as FlexProps,
+        psuedoState: {} as PsuedoStateProps,
+        spacing: {} as SpacingProps,
+        typography: {} as TypographyProps,
       },
     },
   };

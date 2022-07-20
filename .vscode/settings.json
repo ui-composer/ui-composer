@@ -3,6 +3,7 @@
   "javascript.validate.enable": true,
   "typescript.tsdk": ".yarn/sdks/typescript/lib",
   "typescript.preferences.quoteStyle": "single",
+  "typescript.preferences.importModuleSpecifier": "project-relative",
   // Prettier
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"

@@ -1,24 +1,16 @@
-module.exports = {
-  plugins: [
-    'react',
-    'prefer-arrow',
-    'import',
-    'prettier',
-    '@typescript-eslint',
-    'simple-import-sort',
-  ],
+// @ts-check
+
+/** @type {import('eslint').ESLint.ConfigData} */
+const config = {
+  plugins: ['prefer-arrow', 'import', 'prettier', '@typescript-eslint', 'simple-import-sort'],
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
     'prettier',
-    'plugin:react/recommended',
   ],
   settings: {
-    react: {
-      version: 'detect',
-    },
     // Without these settings for the import rule, the plugin wasn't correctly
     // finding typescript declaration files. Related:
     // https://github.com/benmosher/eslint-plugin-import/issues/1285
@@ -182,49 +174,16 @@ module.exports = {
     // https://eslint.org/docs/rules/prefer-template
     'prefer-template': 'error',
     radix: 'error',
-    'react/no-unescaped-entities': 'off',
-    'react/jsx-curly-brace-presence': ['error', { props: 'never' }],
-    'react/jsx-boolean-value': 'error',
-    'react/react-in-jsx-scope': 'error',
-    'react/jsx-uses-react': 'error',
-    // jsx components should have the correct file extensions
-    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md
-    'react/jsx-filename-extension': [
-      'error',
-      {
-        extensions: ['.jsx', '.tsx', '.mdx'],
-      },
-    ],
-    // allow multiple react components in a file
-    'react/no-multi-comp': 'off',
-    // disable because this doesn't recognize React.memo. It only looks for shouldComponentUpdate
-    'react/require-optimization': 'off',
-    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prop-types.md
-    // Types can be infered, this rule blocks that. Example:
-    //
-    // ```What they want
-    // interface Props { A: string }
-    //
-    // const Component = ({ A }: Props) => {};
-    // ```
-    //
-    // ```What we want
-    // interface Props { A: string }
-    //
-    // const Component: React.FC<Props> = ({ A }) => {};
-    // ```
-    'react/prop-types': 'off',
-    // disable prop sorting
-    'react/jsx-sort-props': 'off',
-    // https://eslint.org/docs/rules/require-await
-    'require-await': 'off',
-    'space-before-function-paren': 'off',
-    'space-in-parens': ['off', 'never'],
-    'spaced-comment': 'off',
     // defer sorting to import/sort
     'sort-imports': 'off',
     'use-isnan': 'error',
     'valid-typeof': 'error',
+    // https://eslint.org/docs/rules/require-await
+    'require-await': 'off',
+    'func-style': ['error', 'declaration', { allowArrowFunctions: false }],
+    'space-before-function-paren': 'off',
+    'space-in-parens': ['off', 'never'],
+    'spaced-comment': 'off',
     'simple-import-sort/imports': [
       'error',
       {
@@ -245,30 +204,6 @@ module.exports = {
       },
     ],
   },
-  overrides: [
-    {
-      files: ['**/*.native.ts', '**/*.native.tsx'],
-      extends: ['./mobile'],
-    },
-    // Jest configs
-    // {
-    //   files: [
-    //     '**/*.test.ts',
-    //     '**/*.test.tsx',
-    //     '**/__tests__/*.ts',
-    //     '**/__tests__/*.tsx',
-    //     '**/jest/**',
-    //   ],
-    //   extends: ['plugin:@cbhq/testing', 'plugin:@cbhq/node'],
-    //   rules: {
-    //     'import/no-extraneous-dependencies': 'off',
-    //     'react/jsx-uses-react': 0,
-    //     'react/react-in-jsx-scope': 0,
-    //     'no-restricted-globals': 'off',
-    //   },
-    //   env: {
-    //     'jest/globals': true,
-    //   },
-    // },
-  ],
 };
+
+module.exports = config;
