@@ -1,5 +1,3 @@
-#!/usr/bin/env zx
-
 import path from 'path';
 import styleDictionaryPackage from 'style-dictionary';
 

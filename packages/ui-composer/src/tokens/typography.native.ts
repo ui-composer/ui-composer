@@ -12,7 +12,7 @@ function transformVariants(variants: TypographyConfig['variants']) {
   return mapValues(variants, ({ fontWeight = 400, ...variant }) => {
     return {
       ...variant,
-      fontWeight: fontWeightMap[fontWeight],
+      fontFamily: `${variant.fontFamily}-${fontWeightMap[fontWeight]}`,
     };
   });
 }

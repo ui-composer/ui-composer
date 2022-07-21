@@ -14,7 +14,7 @@
   "react-native": "./dist/index.native.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "ui-composer-cli-esbuild",
+    "build": "yarn lint && ui-composer-cli-esbuild",
     "watch": "ui-composer-cli-esbuild --watch",
     "clean": "yarn clean:workspace",
     "lint": "yarn lint:workspace",
@@ -28,23 +28,23 @@
     "type-fest": "^2.16.0"
   },
   "devDependencies": {
-    "@types/react": "^17.0.2",
-    "@types/react-dom": "^17.0.2",
-    "@types/react-native": "^0.68.2",
+    "@types/react": "18.0.0",
+    "@types/react-dom": "18.0.0",
+    "@types/react-native": "0.69.1",
     "@ui-composer/cli": "workspace:*",
     "@ui-composer/eslint-config": "workspace:*",
-    "esbuild": "^0.14.49",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-native": "^0.68.2"
+    "eslint": "^8.19.0",
+    "react": "18.0.0",
+    "react-dom": "18.0.0",
+    "react-native": "0.69.1"
   },
   "peerDependencies": {
-    "@types/react": "^17.0.2",
-    "@types/react-dom": "^17.0.2",
-    "@types/react-native": "^0.68.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-native": "^0.68.2"
+    "@types/react": "18.0.0",
+    "@types/react-dom": "18.0.0",
+    "@types/react-native": "0.69.1",
+    "react": "18.0.0",
+    "react-dom": "18.0.0",
+    "react-native": "0.69.1"
   },
   "peerDependenciesMeta": {
     "@types/react-dom": {

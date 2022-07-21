@@ -2,7 +2,6 @@
   "name": "@ui-composer/cli",
   "version": "0.0.0",
   "source": "src",
-  "main": "src/index.mjs",
   "module": "src/index.mjs",
   "type": "module",
   "bin": {
@@ -45,8 +44,14 @@
     "common-tags": "^1.8.2",
     "esbuild": "^0.14.49",
     "humps": "^2.0.1",
+    "oclif": "^3.1.1",
     "webfont": "^11.2.26",
     "zx": "^7.0.7"
+  },
+  "devDependencies": {
+    "@types/common-tags": "^1",
+    "@types/humps": "^2",
+    "type-fest": "^2.16.0"
   },
   "author": "Katherine Martinez <kmartinezmedia@gmail.com>",
   "homepage": "https://github.com/ui-composer/ui-composer",
@@ -58,11 +63,5 @@
     "type": "git",
     "url": "https://github.com/ui-composer/ui-composer",
     "directory": "packages/cli"
-  },
-  "devDependencies": {
-    "@types/common-tags": "^1",
-    "@types/humps": "^2",
-    "oclif": "^3.1.1",
-    "type-fest": "^2.16.0"
   }
 }

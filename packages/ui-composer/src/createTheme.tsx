@@ -455,7 +455,7 @@ export function createTheme<
       }
 
       if (fontFamily) {
-        style.fontFamily = config.typography[fontFamily].fontFamily;
+        style.fontFamily = fontFamily;
       }
 
       if (dangerouslySetFontFamily) {
@@ -463,7 +463,7 @@ export function createTheme<
       }
 
       if (fontWeight) {
-        style.fontWeight = config.typography[fontWeight].fontWeight;
+        style.fontWeight = fontWeight;
       }
 
       if (dangerouslySetFontWeight) {
@@ -471,7 +471,7 @@ export function createTheme<
       }
 
       if (lineHeight) {
-        style.lineHeight = config.typography[lineHeight].lineHeight;
+        style.lineHeight = lineHeight;
       }
 
       if (dangerouslySetLineHeight) {
@@ -479,7 +479,7 @@ export function createTheme<
       }
 
       if (fontSize) {
-        style.fontSize = config.typography[fontSize].fontSize;
+        style.fontSize = fontSize;
       }
 
       if (dangerouslySetFontSize) {

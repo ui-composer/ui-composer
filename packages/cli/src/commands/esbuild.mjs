@@ -13,7 +13,8 @@ export default class Build extends Command {
 
   async run() {
     const esbuildPath = new URL('../scripts/esbuild.mjs', import.meta.url);
+    const CUSTOM_ARGS = process.argv.slice(2);
     $.verbose = false;
-    $`zx ${esbuildPath} ${process.argv}`;
+    $`zx ${esbuildPath} ${CUSTOM_ARGS}`;
   }
 }
