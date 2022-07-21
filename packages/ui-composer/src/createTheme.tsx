@@ -119,6 +119,7 @@ export function createTheme<
   type TextLineHeight = Typography['variants'][TextVariant]['lineHeight'];
   type TextFontSize = Typography['variants'][TextVariant]['fontSize'];
 
+  type FontSize = TextFontSize | IconFontSize;
   type FontFamily = TextFontFamily | IconFontFamily;
   type FontWeight = TextFontWeight | IconFontWeight;
 
@@ -127,7 +128,7 @@ export function createTheme<
     fontFamily?: FontFamily;
     fontWeight?: FontWeight;
     lineHeight?: TextLineHeight;
-    fontSize?: TextFontSize;
+    fontSize?: FontSize;
     dangerouslySetFontFamily?: string;
     dangerouslySetFontWeight?: number | string;
     dangerouslySetLineHeight?: number;

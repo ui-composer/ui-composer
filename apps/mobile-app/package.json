@@ -8,10 +8,9 @@
     "lint": "yarn lint:workspace",
     "rn": "$(npx react-native run-ios)",
     "expo": "$(yarn bin expo)",
-    "start": "EXPO_USE_BETA_CLI=1 EXPO_BETA=1 concurrently 'yarn workspace ui-composer watch' '$(yarn bin expo) start $*'",
-    "android": "yarn start --android",
-    "ios": "yarn start --ios",
-    "web": "yarn start --web",
+    "start": "EXPO_USE_BETA_CLI=1 EXPO_BETA=1 concurrently 'yarn workspace ui-composer watch' '$(yarn bin expo) start -c $*'",
+    "android": "yarn start --android $*",
+    "ios": "yarn start --ios $*",
     "build.ios": "eas build --platform ios --local",
     "build.anroid": "eas build --platform android --local",
     "bundlesize": "npx react-native-bundle-visualizer"
