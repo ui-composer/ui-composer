@@ -5,11 +5,7 @@
     "noEmit": true,
     "module": "ESNext",
     "target": "ESNext",
-    "lib": [
-      "es2021",
-      "dom",
-      "esnext"
-    ]
+    "lib": ["es2021", "dom", "esnext"]
   },
   "exclude": [
     "node_modules",

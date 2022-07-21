@@ -1,4 +1,3 @@
-#!/usr/bin/env zx
 import esbuild from 'esbuild';
 import path from 'path';
 import { argv, fs, glob } from 'zx';

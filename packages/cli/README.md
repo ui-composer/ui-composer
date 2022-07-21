@@ -1,5 +1,8 @@
 @ui-composer/cli
 
+# Contributing
+Always be cautious of the transitive size of dependencies. [packagephobia](https://packagephobia.com/) is a great resource for determining if a package is lean. Try to minimize adding dependencies to the CLI.
+
 # Usage
 <!-- usage -->
 ```sh-session
@@ -16,11 +19,14 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`ui-composer esbuild`](#ui-composer-esbuild)
-* [`ui-composer help [COMMAND]`](#ui-composer-help-command)
-* [`ui-composer icons:convert [SRC]`](#ui-composer-iconsconvert-src)
-* [`ui-composer rename SRC`](#ui-composer-rename-src)
-* [`ui-composer version`](#ui-composer-version)
+- [Contributing](#contributing)
+- [Usage](#usage)
+- [Commands](#commands)
+  - [`ui-composer esbuild`](#ui-composer-esbuild)
+  - [`ui-composer help [COMMAND]`](#ui-composer-help-command)
+  - [`ui-composer icons:convert [SRC]`](#ui-composer-iconsconvert-src)
+  - [`ui-composer rename SRC`](#ui-composer-rename-src)
+  - [`ui-composer version`](#ui-composer-version)
 
 ## `ui-composer esbuild`
 

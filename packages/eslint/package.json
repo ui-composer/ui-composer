@@ -8,7 +8,8 @@
     "./mobile": "./configs/mobile.js",
     "./node": "./configs/node.js",
     "./react": "./configs/react.js",
-    "./web": "./configs/web.js"
+    "./web": "./configs/web.js",
+    "./package.json": "./package.json"
   },
   "author": "Katherine Martinez <kmartinezmedia@gmail.com>",
   "homepage": "https://github.com/ui-composer/ui-composer",

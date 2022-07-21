@@ -2,10 +2,12 @@
 coverage
 dist
 node_modules
+/apps/*.md
 /apps/**/.docusaurus
 /apps/**/.eslintrc.js
 /apps/**/.next
 /apps/**/node_modules
+/packages/*.md
 /packages/**/.eslintrc.js
 /packages/**/dist
 /packages/**/node_modules

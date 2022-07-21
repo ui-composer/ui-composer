@@ -107,6 +107,8 @@ const config = {
       'error',
       'never',
       {
+        // Expo using .fx to denote file with side effects
+        fx: 'always',
         native: 'always',
         woff: 'always',
         woff2: 'always',
