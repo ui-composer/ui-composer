@@ -104,6 +104,7 @@ export function createTheme<
 
   type IconVariant = Stringify<keyof Icon['variants']>;
   type IconFontFamily = Icon['variants'][IconVariant]['fontFamily'];
+  type IconFontSize = Icon['variants'][IconVariant]['fontSize'];
   type IconFontWeight = Icon['variants'][IconVariant]['fontWeight'];
 
   type SpacingToken = Extract<keyof Spacing, number>;
