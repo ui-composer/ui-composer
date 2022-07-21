@@ -17,7 +17,7 @@ export const BUILD_FLAGS = {
   }),
   files: Flags.string({
     description: 'List of glob paths to compile. (comma separated)',
-    default: '**/*.{js,mjs,cjs,ts,tsx}',
+    default: '**/*.{js,mjs,cjs,ts,tsx,ttf,svg,woff,woff2,eot,otf}',
   }),
   ignore: Flags.string({
     description: 'List of glob paths to **not** compile. (comma separated)',

@@ -117,6 +117,7 @@ const config = {
         png: 'always',
         jpg: 'always',
         macro: 'always',
+        ttf: 'always',
       },
     ],
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/named.md

@@ -104,6 +104,7 @@ export function createTheme<
 
   type IconVariant = Stringify<keyof Icon['variants']>;
   type IconFontFamily = Icon['variants'][IconVariant]['fontFamily'];
+  type IconFontSize = Icon['variants'][IconVariant]['fontSize'];
   type IconFontWeight = Icon['variants'][IconVariant]['fontWeight'];
 
   type SpacingToken = Extract<keyof Spacing, number>;
@@ -119,6 +120,7 @@ export function createTheme<
   type TextLineHeight = Typography['variants'][TextVariant]['lineHeight'];
   type TextFontSize = Typography['variants'][TextVariant]['fontSize'];
 
+  type FontSize = TextFontSize | IconFontSize;
   type FontFamily = TextFontFamily | IconFontFamily;
   type FontWeight = TextFontWeight | IconFontWeight;
 
@@ -127,7 +129,7 @@ export function createTheme<
     fontFamily?: FontFamily;
     fontWeight?: FontWeight;
     lineHeight?: TextLineHeight;
-    fontSize?: TextFontSize;
+    fontSize?: FontSize;
     dangerouslySetFontFamily?: string;
     dangerouslySetFontWeight?: number | string;
     dangerouslySetLineHeight?: number;

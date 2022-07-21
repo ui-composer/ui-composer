@@ -10,6 +10,7 @@ SplashScreen.preventAutoHideAsync();
 
 export default function App() {
   const [fontsLoaded] = useFonts({
+    'Material-Symbols-Outlined': require('./assets/icons/material/MaterialSymbolsOutline.ttf'),
     'Sofia-Regular': require('./assets/fonts/SofiaProRegular.otf'),
     'Sofia-Medium': require('./assets/fonts/SofiaProMedium.otf'),
     'Sofia-Semi-Bold': require('./assets/fonts/SofiaProSemiBold.otf'),

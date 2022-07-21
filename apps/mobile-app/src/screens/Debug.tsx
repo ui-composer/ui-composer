@@ -1,15 +1,24 @@
-import React, { memo } from 'react';
-import { Button, VStack, VStackProps } from 'ui-composer';
+import React, { memo, useMemo } from 'react';
+import { ScrollView } from 'react-native';
+import { Button, HStack, Icon, VStack, VStackProps } from 'ui-composer';
+
+import materialSymbolsOutlined from '../assets/icons/material/material-symbols-outlined';
 
 const Debug = memo((props: VStackProps) => {
+  const icons = useMemo(
+    () => materialSymbolsOutlined.map(name => <Icon key={name} name={name} />),
+    []
+  );
   return (
-    <VStack alignItems="center" flexGrow={1} justifyContent="center" {...props}>
-      {/* <Text variant="" /> */}
-      <Button variant="primary">Primary</Button>
-      <Button variant="secondary">Secondary</Button>
-      <Button variant="positive">Positive</Button>
-      <Button variant="negative">Negative</Button>
-    </VStack>
+    <ScrollView>
+      <HStack flexWrap="wrap">{icons}</HStack>
+      <VStack alignItems="center" flexGrow={1} justifyContent="center" {...props}>
+        <Button variant="primary">Primary</Button>
+        <Button variant="secondary">Secondary</Button>
+        <Button variant="positive">Positive</Button>
+        <Button variant="negative">Negative</Button>
+      </VStack>
+    </ScrollView>
   );
 });
 
