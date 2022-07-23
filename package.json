@@ -15,6 +15,7 @@
     "release": "./scripts/release/workspaces.sh",
     "release:workspace": "./scripts/release/workspace.mjs",
     "cli": "yarn workspace @ui-composer/cli",
+    "figma-plugin": "yarn workspace @ui-composer/figma-plugin",
     "mobile-app": "yarn workspace @ui-composer/mobile-app",
     "web-app": "yarn workspace @ui-composer/web-app",
     "library": "yarn workspace ui-composer",
