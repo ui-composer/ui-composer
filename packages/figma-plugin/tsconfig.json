@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.base",
+  "compilerOptions": {
+    "jsx": "react",
+    "noEmit": true,
+    "isolatedModules": false
+  },
+  "include": ["src"],
+  "exclude": ["dist", "node_modules", "public"],
+  "references": [
+    {
+      "path": "../ui-composer"
+    }
+  ]
+}

@@ -2,6 +2,7 @@
   "version": 2,
   "projects": {
     "cli": "packages/cli",
+    "figma-plugin": "packages/figma-plugin",
     "mobile-app": "apps/mobile-app",
     "web-app": "apps/web-app",
     "eslint": "packages/eslint",
