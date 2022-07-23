@@ -16,9 +16,6 @@ figma.showUI(__html__);
 // callback. The callback will be passed the "pluginMessage" property of the
 // posted message.
 figma.ui.onmessage = (msg: FigmaMessage) => {
-  if (msg.type === 'open') {
-  }
-
   if (msg.type === 'close') {
     figma.closePlugin();
   }

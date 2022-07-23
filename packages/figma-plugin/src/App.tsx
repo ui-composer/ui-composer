@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect } from 'react';
 
-import { UIMessage } from './types/Messages';
+import { UIMessage } from './types';
 
 type PostMessageFunction = (message: UIMessage) => void;
 
