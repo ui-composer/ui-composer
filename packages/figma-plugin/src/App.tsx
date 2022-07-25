@@ -1,30 +1,26 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { HStack } from 'ui-composer';
 
-import { UIMessage } from './types';
-
-type PostMessageFunction = (message: UIMessage) => void;
+import { init, postMessage } from './events/events-ui';
 
 function App() {
-  const postMessage: PostMessageFunction = useCallback(message => {
-    parent.postMessage({ pluginMessage: message }, '*');
-  }, []);
-
   useEffect(() => {
-    if (typeof parent !== 'undefined') {
-      postMessage({ type: 'open' });
-    }
+    init();
+    postMessage('loaded');
   }, []);
 
   return (
     <div className="App">
-      <h1>Hello</h1>
-      <button
-        onClick={() => {
-          postMessage({ type: 'close' });
-        }}
-      >
-        Close
-      </button>
+      <HStack>
+        <h1>Hello</h1>
+        <button
+          onClick={() => {
+            postMessage('close');
+          }}
+        >
+          Close
+        </button>
+      </HStack>
     </div>
   );
 }
