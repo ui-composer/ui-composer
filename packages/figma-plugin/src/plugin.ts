@@ -6,8 +6,6 @@
 // full browser environment (see documentation).
 import { init } from './events/events-native';
 
-console.log(this);
-
 // This shows the HTML page in "ui.html".
 figma.showUI(__html__);
 
