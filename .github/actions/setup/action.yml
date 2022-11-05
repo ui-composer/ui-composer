@@ -1,5 +1,5 @@
 name: Setup
-description: Setup git, node, yarn and install dependencies
+description: Setup nx, node, yarn and install dependencies
 
 inputs:
   node-version:

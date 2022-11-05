@@ -36,11 +36,11 @@ jobs:
       - name: 🏡 Workspace
         run: yarn nx workspace-lint
 
-      - name: 🧹 Format'
+      - name: 🧹 Format
         run: yarn nx format:check
 
-      - name: 🧽 Lint
-        run: yarn nx affected --target=lint
+      # - name: 🧽 Lint
+      #   run: yarn nx affected --target=lint
 
       - name: 🛁 Typecheck
         run: yarn nx affected --target=typecheck
