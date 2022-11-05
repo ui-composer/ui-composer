@@ -26,19 +26,18 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
 
-      - name: ':nx: Workspace'
+      - name: 🏡 Workspace
         run: yarn nx workspace-lint
 
-      - name: ':prettier: Format'
+      - name: 🧹 Format'
         run: yarn nx format:check
 
-      - name: ':eslint: Lint'
+      - name: 🧽 Lint
         run: yarn nx affected --target=lint
 
-      - name: ':typescript: Typecheck'
+      - name: 🛁 Typecheck
         run: yarn nx affected --target=typecheck
 
       - name: 🛠 Build

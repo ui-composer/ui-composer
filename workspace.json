@@ -2,9 +2,9 @@
   "version": 2,
   "projects": {
     "cli": "packages/cli",
+    "eslint": "packages/eslint",
     "figma-plugin": "apps/figma-plugin",
     "mobile-app": "apps/mobile-app",
-    "eslint": "packages/eslint",
     "typescript": "packages/typescript",
     "ui-composer": "packages/ui-composer",
     "web-app": "apps/web-app",
