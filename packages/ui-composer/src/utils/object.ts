@@ -4,11 +4,11 @@ type AnyObject = {
 
 export const emptyObject = {};
 
-export function keys<T>(obj: T) {
+export function keys<T extends Record<string, unknown>>(obj: T) {
   return Object.keys(obj) as Array<keyof T>;
 }
 
-export function entries<T>(item: T) {
+export function entries<T extends Record<string, unknown>>(item: T) {
   return Object.entries(item) as Array<[keyof T, T[keyof T]]>;
 }
 

@@ -26,6 +26,7 @@ build
 !scripts/build
 dist
 lib
+dts
 typings
 
 # Generated files

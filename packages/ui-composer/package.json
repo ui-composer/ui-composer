@@ -3,33 +3,41 @@
   "version": "0.0.0",
   "source": "src",
   "files": [
-    "src",
     "dist",
-    "package.json"
+    "dts/**/*.d.ts",
+    "lib/**/*.{js,map}",
+    "package.json",
+    "src",
+    "src/**/*.{ts,tsx,json}"
   ],
   "sideEffects": [
     "*.css"
   ],
   "module": "./dist/index.js",
   "react-native": "./dist/index.native.js",
-  "types": "./dist/index.d.ts",
+  "types": "./dts/index.d.ts",
+  "packemon": [
+    {
+      "bundle": false,
+      "platform": "native"
+    }
+  ],
   "dependencies": {
     "@types/lodash": "^4.14.182",
-    "colord": "^2.9.2",
-    "csstype": "^3.1.0",
+    "colord": "^2.9.3",
+    "csstype": "^3.1.1",
     "lodash": "^4.17.21",
     "type-fest": "^2.16.0"
   },
   "devDependencies": {
-    "@types/react": "18.0.0",
-    "@types/react-dom": "18.0.0",
-    "@types/react-native": "0.69.1",
-    "@ui-composer/cli": "workspace:*",
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "@types/react-native": "*",
     "@ui-composer/eslint-config": "workspace:*",
-    "eslint": "^8.19.0",
-    "react": "18.0.0",
-    "react-dom": "18.0.0",
-    "react-native": "0.69.1"
+    "eslint": "*",
+    "react": "*",
+    "react-dom": "*",
+    "react-native": "*"
   },
   "peerDependencies": {
     "@types/react": "18.0.0",
@@ -63,5 +71,14 @@
     "type": "git",
     "url": "https://github.com/ui-composer/ui-composer",
     "directory": "packages/ui-composer"
+  },
+  "main": "./lib/index.js",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dts/index.d.ts",
+      "react-native": "./lib/index.js",
+      "default": "./lib/index.js"
+    }
   }
 }

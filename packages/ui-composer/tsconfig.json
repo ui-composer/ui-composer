@@ -3,19 +3,9 @@
   "compilerOptions": {
     "composite": true,
     "jsx": "react",
-    "rootDir": "./src",
-    "outDir": "./dist"
+    "rootDir": "src",
+    "outDir": "dts"
   },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist"
-  ],
-  "references": [
-    {
-      "path": "../cli"
-    }
-  ]
+  "include": ["src"],
+  "exclude": ["node_modules", "dts"]
 }
