@@ -2,11 +2,6 @@
   "name": "@ui-composer/figma-plugin",
   "private": true,
   "version": "0.0.0",
-  "scripts": {
-    "build": "./scripts/build.mjs",
-    "preview": "vite preview",
-    "start": "./scripts/watch.mjs"
-  },
   "dependencies": {
     "react": "18.0.0",
     "react-dom": "18.0.0",

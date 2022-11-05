@@ -1,0 +1,6 @@
+{
+  "root": "apps/mobile-app",
+  "sourceRoot": "apps/mobile-app/src",
+  "projectType": "application",
+  "targets": {}
+}

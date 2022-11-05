@@ -10,17 +10,7 @@
     "clean": "./scripts/clean/workspaces.sh",
     "clean:workspace": "./scripts/clean/workspace.mjs",
     "format": "./scripts/format/workspaces.sh",
-    "lint:workspace": "TIMING=1 eslint $INIT_CWD",
-    "build.packages": "yarn build --no-private",
-    "release": "./scripts/release/workspaces.sh",
-    "release:workspace": "./scripts/release/workspace.mjs",
-    "cli": "yarn workspace @ui-composer/cli",
-    "figma-plugin": "yarn workspace @ui-composer/figma-plugin",
-    "mobile-app": "yarn workspace @ui-composer/mobile-app",
-    "web-app": "yarn workspace @ui-composer/web-app",
-    "library": "yarn workspace ui-composer",
-    "tokens": "yarn workspace @ui-composer/tokens",
-    "website": "yarn workspace @ui-composer/website"
+    "lint:workspace": "TIMING=1 eslint $INIT_CWD"
   },
   "resolutions": {
     "react": "18.0.0",
@@ -30,9 +20,29 @@
     "@types/react-dom": "18.0.0",
     "@types/react-native": "0.69.1"
   },
-  "dependencies": {
+  "engines": {
+    "node": "18.12.*"
+  },
+  "packageManager": "yarn@3.2.1",
+  "author": "Katherine Martinez <kmartinezmedia@gmail.com>",
+  "homepage": "https://github.com/ui-composer/ui-composer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ui-composer/ui-composer/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ui-composer/ui-composer"
+  },
+  "manypkg": {
+    "ignoredRules": [
+      "INTERNAL_MISMATCH"
+    ]
+  },
+  "devDependencies": {
     "@manypkg/cli": "^0.19.1",
     "@monorepo-utils/workspaces-to-typescript-project-references": "^2.8.2",
+    "@nrwl/expo": "^15.0.10",
     "@react-native-community/eslint-config": "^3.0.3",
     "@typescript-eslint/eslint-plugin": "^5.30.5",
     "@typescript-eslint/parser": "^5.30.5",
@@ -50,27 +60,14 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-native": "^4.0.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
+    "nx": "15.0.10",
     "prettier": "^2.7.1",
     "typescript": "^4.7.4",
     "zx": "^7.0.7"
   },
-  "engines": {
-    "node": "16.16.*"
-  },
-  "packageManager": "yarn@3.2.1",
-  "author": "Katherine Martinez <kmartinezmedia@gmail.com>",
-  "homepage": "https://github.com/ui-composer/ui-composer",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ui-composer/ui-composer/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ui-composer/ui-composer"
-  },
-  "manypkg": {
-    "ignoredRules": [
-      "INTERNAL_MISMATCH"
-    ]
+  "pluginsConfig": {
+    "@nrwl/js": {
+      "analyzeSourceFiles": false
+    }
   }
 }

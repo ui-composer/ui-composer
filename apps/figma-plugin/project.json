@@ -1,0 +1,29 @@
+{
+  "root": "apps/figma-plugin",
+  "sourceRoot": "apps/figma-plugin/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "outputs": ["{projectRoot}/dist"],
+      "options": {
+        "cwd": "apps/figma-plugin",
+        "commands": ["./scripts/build.mjs"]
+      }
+    },
+    "preview": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/figma-plugin",
+        "commands": ["vite preview"]
+      }
+    },
+    "start": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/figma-plugin",
+        "commands": ["./scripts/start.mjs"]
+      }
+    }
+  }
+}

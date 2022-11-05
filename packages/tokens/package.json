@@ -13,10 +13,6 @@
   "exports": {
     "./coinbase/*": "./generated/coinbase/*.js"
   },
-  "scripts": {
-    "build": "zx ./scripts/build.mjs",
-    "version": "yarn version $npm_package_version --no-git-tag-version"
-  },
   "devDependencies": {
     "style-dictionary": "^3.7.1",
     "token-transformer": "^0.0.24",
