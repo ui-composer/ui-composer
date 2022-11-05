@@ -1,26 +1,38 @@
 {
   "name": "ui-composer",
   "version": "0.0.0",
-  "source": "src",
-  "files": [
-    "dist",
-    "dts/**/*.d.ts",
-    "lib/**/*.{js,map}",
-    "package.json",
-    "src",
-    "src/**/*.{ts,tsx,json}"
-  ],
   "sideEffects": [
     "*.css"
   ],
-  "module": "./dist/index.js",
-  "react-native": "./dist/index.native.js",
-  "types": "./dts/index.d.ts",
   "packemon": [
     {
       "bundle": false,
-      "platform": "native"
+      "platform": [
+        "native",
+        "browser"
+      ]
     }
+  ],
+  "module": "./esm/index.js",
+  "browser": "./lib/browser/index.js",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dts/index.d.ts",
+      "browser": {
+        "module": "./esm/index.js",
+        "import": "./esm/index.js",
+        "default": "./lib/browser/index.js"
+      },
+      "react-native": "./lib/native/index.js",
+      "default": "./lib/browser/index.js"
+    }
+  },
+  "files": [
+    "dts/**/*.d.ts",
+    "esm/**/*.{js,map}",
+    "lib/**/*.{js,map}",
+    "src/**/*.{ts,tsx,json}"
   ],
   "dependencies": {
     "@types/lodash": "^4.14.182",
@@ -72,13 +84,6 @@
     "url": "https://github.com/ui-composer/ui-composer",
     "directory": "packages/ui-composer"
   },
-  "main": "./lib/index.js",
-  "exports": {
-    "./package.json": "./package.json",
-    ".": {
-      "types": "./dts/index.d.ts",
-      "react-native": "./lib/index.js",
-      "default": "./lib/index.js"
-    }
-  }
+  "types": "./dts/index.d.ts",
+  "main": "./lib/native/index.js"
 }

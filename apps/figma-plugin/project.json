@@ -6,23 +6,31 @@
     "build": {
       "executor": "nx:run-commands",
       "outputs": ["{projectRoot}/dist"],
+      "dependsOn": ["^build"],
       "options": {
         "cwd": "apps/figma-plugin",
-        "commands": ["./scripts/build.mjs"]
+        "commands": ["vite build", "esbuild ./src/plugin.ts --bundle --outfile=dist/plugin.js"],
+        "parallel": true
       }
     },
     "preview": {
       "executor": "nx:run-commands",
+      "dependsOn": ["^build"],
       "options": {
         "cwd": "apps/figma-plugin",
         "commands": ["vite preview"]
       }
     },
-    "start": {
+    "watch": {
       "executor": "nx:run-commands",
+      "dependsOn": ["^build"],
       "options": {
         "cwd": "apps/figma-plugin",
-        "commands": ["./scripts/start.mjs"]
+        "commands": [
+          "yarn nx run ui-composer:watch",
+          "esbuild ./src/plugin.ts --bundle --outfile=dist/plugin.js --watch && vite dev"
+        ],
+        "parallel": true
       }
     }
   }

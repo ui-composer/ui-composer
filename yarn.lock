@@ -5198,7 +5198,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nrwl/expo@npm:*":
+"@nrwl/expo@npm:15.0.10":
   version: 15.0.10
   resolution: "@nrwl/expo@npm:15.0.10"
   dependencies:
@@ -7881,7 +7881,7 @@ __metadata:
     esbuild: "*"
     react: "*"
     react-dom: "*"
-    ui-composer: "workspace:*"
+    ui-composer: "workspace:^"
     vite: "*"
     vite-plugin-singlefile: ^0.12.3
     zx: "*"
@@ -7916,7 +7916,7 @@ __metadata:
     "@manypkg/cli": ^0.19.2
     "@monorepo-utils/workspaces-to-typescript-project-references": ^2.8.2
     "@nrwl/detox": 15.0.10
-    "@nrwl/expo": "*"
+    "@nrwl/expo": 15.0.10
     "@nrwl/jest": 15.0.10
     "@nrwl/web": 15.0.10
     "@react-native-community/eslint-config": ^3.0.3
@@ -31401,7 +31401,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ui-composer@workspace:*, ui-composer@workspace:packages/ui-composer":
+"ui-composer@workspace:*, ui-composer@workspace:^, ui-composer@workspace:packages/ui-composer":
   version: 0.0.0-use.local
   resolution: "ui-composer@workspace:packages/ui-composer"
   dependencies:

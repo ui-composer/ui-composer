@@ -5,10 +5,10 @@
   "targets": {
     "build": {
       "executor": "nx:run-commands",
-      "outputs": ["{projectRoot}/lib", "{projectRoot}/dts"],
+      "outputs": ["{projectRoot}/lib", "{projectRoot}/dts", "{projectRoot}/esm"],
       "options": {
         "cwd": "packages/ui-composer",
-        "commands": ["packemon build --addEngines --addExports --declaration"]
+        "commands": ["packemon build --addFiles --addEngines --addExports --declaration"]
       },
       "dependsOn": ["^build"]
     },

@@ -5,7 +5,7 @@
   "dependencies": {
     "react": "*",
     "react-dom": "*",
-    "ui-composer": "workspace:*"
+    "ui-composer": "workspace:^"
   },
   "devDependencies": {
     "@figma/plugin-typings": "*",

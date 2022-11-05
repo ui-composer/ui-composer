@@ -29,8 +29,17 @@ jobs:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
 
-      - name: 🛠 Build typescript
-        run: yarn tsc -b
+      - name: ':nx: Workspace'
+        run: yarn nx workspace-lint
 
-      - name: 🛠 Build apps/packages
-        run: CI=true yarn build
+      - name: ':prettier: Format'
+        run: yarn nx format:check
+
+      - name: ':eslint: Lint'
+        run: yarn nx affected --target=lint
+
+      - name: ':typescript: Typecheck'
+        run: yarn nx affected --target=typecheck
+
+      - name: 🛠 Build
+        run: yarn nx affected --target=build
