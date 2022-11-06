@@ -40,12 +40,15 @@
     ".git": true,
     ".parcel-cache": true,
     "**/.git": false,
-    "**/dist": false,
     "**/tsconfig.tsbuildinfo": true
   },
   "search.exclude": {
     "**/.yarn": true,
-    "**/.pnp.*": true
+    "**/.pnp.*": true,
+    "**/dist": true,
+    "**/dts": true,
+    "**/esm": true,
+    "**/lib": true
   },
   "eslint.nodePath": ".yarn/sdks",
   "prettier.prettierPath": ".yarn/sdks/prettier/index.js"

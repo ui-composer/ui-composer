@@ -1,13 +1,13 @@
 import React, { memo } from 'react';
 
-import { ThemableTokens, theme } from '../theme';
-import { IconName } from '../types';
+import { theme } from '../theme';
+import { IconName, IconVariant } from '../types';
 
 import { TextBase, TextBaseProps } from './Text.native';
 
 export type IconProps = TextBaseProps & {
   /** @default base */
-  variant?: ThemableTokens['iconVariant'];
+  variant?: IconVariant;
   name: IconName;
 };
 

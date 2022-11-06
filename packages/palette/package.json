@@ -1,0 +1,50 @@
+{
+  "name": "@ui-composer/palette",
+  "version": "0.0.1",
+  "packemon": [
+    {
+      "bundle": false,
+      "platform": [
+        "native",
+        "browser"
+      ]
+    }
+  ],
+  "types": "./dts/index.d.ts",
+  "main": "./lib/native/index.js",
+  "module": "./esm/index.js",
+  "browser": "./lib/browser/index.js",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dts/index.d.ts",
+      "browser": {
+        "module": "./esm/index.js",
+        "import": "./esm/index.js",
+        "default": "./lib/browser/index.js"
+      },
+      "react-native": "./lib/native/index.js",
+      "default": "./lib/browser/index.js"
+    }
+  },
+  "files": [
+    "dts/**/*.d.ts",
+    "esm/**/*.{js,map}",
+    "lib/**/*.{js,map}",
+    "src/**/*.{ts,tsx,json}"
+  ],
+  "dependencies": {
+    "colord": "^2.9.3"
+  },
+  "author": "Katherine Martinez <kmartinezmedia@gmail.com>",
+  "homepage": "https://github.com/ui-composer/ui-composer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ui-composer/ui-composer/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ui-composer/ui-composer",
+    "directory": "packages/palette"
+  }
+}

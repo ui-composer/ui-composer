@@ -2,6 +2,7 @@ import React, { memo } from 'react';
 import { Animated } from 'react-native';
 
 import { compose, theme } from '../theme';
+import { TextVariant } from '../types';
 
 const variants = theme.config.typography.variants;
 
@@ -9,7 +10,6 @@ const variants = theme.config.typography.variants;
  * @note fontWeight font-weight is configured via font file in react native
  */
 export type TextBaseProps = Omit<React.ComponentProps<typeof TextBase>, 'fontWeight'>;
-export type TextVariant = Extract<keyof typeof variants, string>;
 export type TextProps = TextBaseProps & {
   /** @default body */
   variant?: TextVariant;

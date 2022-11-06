@@ -1,5 +1,7 @@
 import { NativeModules } from 'react-native';
-import noop from 'lodash/noop';
+
+// eslint-disable-next-line func-style
+const noop = () => {};
 
 const HapticsModule = (NativeModules.Haptics || {
   impactAsync: noop,

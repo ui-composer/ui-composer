@@ -2,11 +2,6 @@
   "extends": "./packages/typescript/configs/tsconfig.base",
   "compilerOptions": {
     "baseUrl": ".",
-    "rootDir": ".",
-    "paths": {
-      "@site/*": ["./apps/website/*"],
-      "@ui-composer/website/*": ["./apps/website/*"],
-      "ui-composer/*": ["./packages/react/src/*"]
-    }
+    "rootDir": "."
   }
 }

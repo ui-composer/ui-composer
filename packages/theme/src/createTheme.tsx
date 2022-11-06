@@ -1,33 +1,27 @@
 import React, { createElement, memo } from 'react';
 import CSS from 'csstype';
-import { Merge, ReadonlyDeep, StringKeyOf } from 'type-fest';
+import { Merge, StringKeyOf } from 'type-fest';
 
-import { getA11yProps } from './utils/getA11yProps';
-import { emptyObject } from './utils/object';
-import { createPalette } from './createPalette';
+import { createPalette, PaletteConfig } from '@ui-composer/palette';
+
 import {
+  ComposerComponent,
   DimensionProps,
+  DisplayProps,
   Expand,
   FlexProps,
+  PsuedoStateProps,
   SpacingConfig,
   Stringify,
   StringToNumberObject,
   StringToStringObject,
   TypographyConfig,
-} from './types';
+} from './types/index';
+import { getA11yProps } from './utils/getA11yProps';
 
-type DisplayProps = {
-  display?: 'flex' | 'none';
-  block?: boolean;
-  opacity?: number;
-};
+const emptyObject = {};
 
-export type PsuedoStateProps = {
-  disabled?: boolean;
-  /** Is the element currenty loading. */
-  loading?: boolean;
-  pressed?: boolean;
-};
+export type { Merge as MergeProps };
 
 export function createTheme<
   BorderRadius extends StringToNumberObject,
@@ -36,13 +30,8 @@ export function createTheme<
   Icon extends TypographyConfig,
   Spacing extends StringToNumberObject,
   Typography extends TypographyConfig,
-  PaletteValue extends Stringify<keyof Colors> | [Stringify<keyof Colors>, number],
-  Palette extends ReadonlyDeep<{
-    [alias: string]: PaletteValue;
-  }> & {
-    background: PaletteValue;
-    foreground: PaletteValue;
-  }
+  PaletteAlias extends string,
+  Palette extends PaletteConfig<Colors, PaletteAlias>
 >(config: {
   colors: Colors;
   palette: Palette;
@@ -153,14 +142,11 @@ export function createTheme<
 
   const palette = createPalette(config);
 
-  function compose<T extends React.ElementType | React.ComponentType>(
-    Component: T,
-    defaultProps?: ThemeableProps
-  ) {
-    type NativeProps = React.ComponentProps<T>;
-    type EnhancedComponentProps = Merge<ThemeableProps, NativeProps>;
-
-    function EnhancedComponent({
+  function processProps<
+    T extends ComposerComponent,
+    Props extends Merge<ThemeableProps, React.ComponentProps<T>>
+  >(props: Props, defaultProps?: Props) {
+    const {
       pressed = defaultProps?.pressed,
       loading = defaultProps?.loading,
       disabled = defaultProps?.disabled,
@@ -245,272 +231,292 @@ export function createTheme<
       dangerouslySetFontWeight = defaultProps?.dangerouslySetFontWeight,
       dangerouslySetLineHeight = defaultProps?.dangerouslySetLineHeight,
       dangerouslySetFontSize = defaultProps?.dangerouslySetFontSize,
-      ...nativeProps
-    }: EnhancedComponentProps) {
-      const style: CSS.Properties<string | number> = {
-        display,
-        ...styleProp,
-      };
+      ...other
+    } = props;
+    const style: CSS.Properties<string | number> = {
+      display,
+      ...styleProp,
+    };
 
-      if (backgroundColor) {
-        style.backgroundColor = palette.rgbaStrings[backgroundColor];
-      }
+    if (backgroundColor) {
+      style.backgroundColor = palette.rgbaStrings[backgroundColor];
+    }
 
-      if (dangerouslySetBackgroundColor) {
-        style.backgroundColor = dangerouslySetBackgroundColor;
-      }
+    if (dangerouslySetBackgroundColor) {
+      style.backgroundColor = dangerouslySetBackgroundColor;
+    }
 
-      if (pressed && backgroundColor) {
-        style.backgroundColor = palette.pseudoStyles[backgroundColor].pressed.backgroundColor;
-      }
+    if (pressed && backgroundColor) {
+      style.backgroundColor = palette.pseudoStyles[backgroundColor].pressed.backgroundColor;
+    }
 
-      if (disabled && backgroundColor) {
-        style.backgroundColor = palette.pseudoStyles[backgroundColor].disabled.backgroundColor;
-      }
+    if (disabled && backgroundColor) {
+      style.backgroundColor = palette.pseudoStyles[backgroundColor].disabled.backgroundColor;
+    }
 
-      if (loading && backgroundColor) {
-        style.backgroundColor = palette.pseudoStyles[backgroundColor].disabled.backgroundColor;
-      }
+    if (loading && backgroundColor) {
+      style.backgroundColor = palette.pseudoStyles[backgroundColor].disabled.backgroundColor;
+    }
 
-      if (color) {
-        style.color = palette.rgbaStrings[color];
-      }
+    if (color) {
+      style.color = palette.rgbaStrings[color];
+    }
 
-      if (dangerouslySetColor) {
-        style.color = dangerouslySetColor;
-      }
+    if (dangerouslySetColor) {
+      style.color = dangerouslySetColor;
+    }
 
-      if (borderStartColor) {
-        /** @todo figure out web version of RN's borderStartColor  */
-        style.borderLeftColor = palette.rgbaStrings[borderStartColor];
-      }
+    if (borderStartColor) {
+      /** @todo figure out web version of RN's borderStartColor  */
+      style.borderLeftColor = palette.rgbaStrings[borderStartColor];
+    }
 
-      if (dangerouslySetBorderStartColor) {
-        /** @todo figure out web version of RN's borderStartColor  */
-        style.borderLeftColor = dangerouslySetBorderStartColor;
-      }
+    if (dangerouslySetBorderStartColor) {
+      /** @todo figure out web version of RN's borderStartColor  */
+      style.borderLeftColor = dangerouslySetBorderStartColor;
+    }
 
-      if (borderEndColor) {
-        /** @todo figure out web version of RN's borderEndColor  */
-        style.borderRightColor = palette.rgbaStrings[borderEndColor];
-      }
+    if (borderEndColor) {
+      /** @todo figure out web version of RN's borderEndColor  */
+      style.borderRightColor = palette.rgbaStrings[borderEndColor];
+    }
 
-      if (dangerouslySetBorderEndColor) {
-        /** @todo figure out web version of RN's borderEndColor  */
-        style.borderRightColor = dangerouslySetBorderEndColor;
-      }
+    if (dangerouslySetBorderEndColor) {
+      /** @todo figure out web version of RN's borderEndColor  */
+      style.borderRightColor = dangerouslySetBorderEndColor;
+    }
 
-      if (borderTopColor) {
-        style.borderTopColor = palette.rgbaStrings[borderTopColor];
-      }
+    if (borderTopColor) {
+      style.borderTopColor = palette.rgbaStrings[borderTopColor];
+    }
 
-      if (dangerouslySetBorderTopColor) {
-        style.borderTopColor = dangerouslySetBorderTopColor;
-      }
+    if (dangerouslySetBorderTopColor) {
+      style.borderTopColor = dangerouslySetBorderTopColor;
+    }
 
-      if (borderBottomColor) {
-        style.borderBottomColor = palette.rgbaStrings[borderBottomColor];
-      }
+    if (borderBottomColor) {
+      style.borderBottomColor = palette.rgbaStrings[borderBottomColor];
+    }
 
-      if (dangerouslySetBorderBottomColor) {
-        style.borderBottomColor = dangerouslySetBorderBottomColor;
-      }
+    if (dangerouslySetBorderBottomColor) {
+      style.borderBottomColor = dangerouslySetBorderBottomColor;
+    }
 
-      if (borderBottomStartRadius) {
-        /** @todo figure out web version of RN's borderBottomStartRadius  */
-        style.borderBottomLeftRadius = config.borderRadius[borderBottomStartRadius];
-      }
+    if (borderBottomStartRadius) {
+      /** @todo figure out web version of RN's borderBottomStartRadius  */
+      style.borderBottomLeftRadius = config.borderRadius[borderBottomStartRadius];
+    }
 
-      if (borderBottomEndRadius) {
-        /** @todo figure out web version of RN's borderBottomEndRadius  */
-        style.borderBottomRightRadius = config.borderRadius[borderBottomEndRadius];
-      }
+    if (borderBottomEndRadius) {
+      /** @todo figure out web version of RN's borderBottomEndRadius  */
+      style.borderBottomRightRadius = config.borderRadius[borderBottomEndRadius];
+    }
 
-      if (borderTopWidth) {
-        style.borderTopWidth = config.borderWidth
-          ? config.borderWidth[borderTopWidth]
-          : borderTopWidth;
-      }
+    if (borderTopWidth) {
+      style.borderTopWidth = config.borderWidth
+        ? config.borderWidth[borderTopWidth]
+        : borderTopWidth;
+    }
 
-      if (borderBottomWidth) {
-        style.borderBottomWidth = config.borderWidth
-          ? config.borderWidth[borderBottomWidth]
-          : borderBottomWidth;
-      }
+    if (borderBottomWidth) {
+      style.borderBottomWidth = config.borderWidth
+        ? config.borderWidth[borderBottomWidth]
+        : borderBottomWidth;
+    }
 
-      if (borderStartWidth) {
-        /** @todo figure out web version of RN's borderStartWidth  */
-        style.borderLeftWidth = config.borderWidth
-          ? config.borderWidth[borderStartWidth]
-          : borderStartWidth;
-      }
+    if (borderStartWidth) {
+      /** @todo figure out web version of RN's borderStartWidth  */
+      style.borderLeftWidth = config.borderWidth
+        ? config.borderWidth[borderStartWidth]
+        : borderStartWidth;
+    }
 
-      if (borderEndWidth) {
-        /** @todo figure out web version of RN's borderEndWidth  */
-        style.borderRightWidth = config.borderWidth
-          ? config.borderWidth[borderEndWidth]
-          : borderEndWidth;
-      }
+    if (borderEndWidth) {
+      /** @todo figure out web version of RN's borderEndWidth  */
+      style.borderRightWidth = config.borderWidth
+        ? config.borderWidth[borderEndWidth]
+        : borderEndWidth;
+    }
 
-      if (borderTopStartRadius) {
-        /** @todo figure out web version of RN's borderTopStartRadius  */
-        style.borderTopLeftRadius = config.borderRadius[borderTopStartRadius];
-      }
+    if (borderTopStartRadius) {
+      /** @todo figure out web version of RN's borderTopStartRadius  */
+      style.borderTopLeftRadius = config.borderRadius[borderTopStartRadius];
+    }
 
-      if (borderTopEndRadius) {
-        /** @todo figure out web version of RN's borderTopEndRadius  */
-        style.borderTopRightRadius = config.borderRadius[borderTopEndRadius];
-      }
+    if (borderTopEndRadius) {
+      /** @todo figure out web version of RN's borderTopEndRadius  */
+      style.borderTopRightRadius = config.borderRadius[borderTopEndRadius];
+    }
 
-      if (borderBottomStartRadius) {
-        /** @todo figure out web version of RN's borderBottomStartRadius  */
-        style.borderBottomLeftRadius = config.borderRadius[borderBottomStartRadius];
-      }
+    if (borderBottomStartRadius) {
+      /** @todo figure out web version of RN's borderBottomStartRadius  */
+      style.borderBottomLeftRadius = config.borderRadius[borderBottomStartRadius];
+    }
 
-      if (borderBottomEndRadius) {
-        /** @todo figure out web version of RN's borderBottomEndRadius  */
-        style.borderBottomRightRadius = config.borderRadius[borderBottomEndRadius];
-      }
+    if (borderBottomEndRadius) {
+      /** @todo figure out web version of RN's borderBottomEndRadius  */
+      style.borderBottomRightRadius = config.borderRadius[borderBottomEndRadius];
+    }
 
-      if (flex) {
-        style.flex = flex;
-      }
+    if (flex) {
+      style.flex = flex;
+    }
 
-      if (flexBasis) {
-        style.flexBasis = flexBasis;
-      }
+    if (flexBasis) {
+      style.flexBasis = flexBasis;
+    }
 
-      if (flexDirection) {
-        style.flexDirection = flexDirection;
-      }
+    if (flexDirection) {
+      style.flexDirection = flexDirection;
+    }
 
-      if (flexGrow) {
-        style.flexGrow = flexGrow;
-      }
+    if (flexGrow) {
+      style.flexGrow = flexGrow;
+    }
 
-      if (flexShrink) {
-        style.flexShrink = flexShrink;
-      }
+    if (flexShrink) {
+      style.flexShrink = flexShrink;
+    }
 
-      if (flexWrap) {
-        style.flexWrap = flexWrap;
-      }
+    if (flexWrap) {
+      style.flexWrap = flexWrap;
+    }
 
-      if (alignContent) {
-        style.alignContent = alignContent;
-      }
+    if (alignContent) {
+      style.alignContent = alignContent;
+    }
 
-      if (alignItems) {
-        style.alignItems = alignItems;
-      }
+    if (alignItems) {
+      style.alignItems = alignItems;
+    }
 
-      if (alignSelf) {
-        style.alignSelf = alignSelf;
-      }
+    if (alignSelf) {
+      style.alignSelf = alignSelf;
+    }
 
-      if (justifyContent) {
-        style.justifyContent = justifyContent;
-      }
+    if (justifyContent) {
+      style.justifyContent = justifyContent;
+    }
 
-      if (spacingTop) {
-        style.paddingTop = config.spacing[spacingTop];
-      }
+    if (spacingTop) {
+      style.paddingTop = config.spacing[spacingTop];
+    }
 
-      if (spacingBottom) {
-        style.paddingBottom = config.spacing[spacingBottom];
-      }
+    if (spacingBottom) {
+      style.paddingBottom = config.spacing[spacingBottom];
+    }
 
-      if (spacingStart) {
-        /** @todo figure out web version of RN's paddingStart  */
-        style.paddingLeft = config.spacing[spacingStart];
-      }
+    if (spacingStart) {
+      /** @todo figure out web version of RN's paddingStart  */
+      style.paddingLeft = config.spacing[spacingStart];
+    }
 
-      if (spacingEnd) {
-        /** @todo figure out web version of RN's paddingEnd  */
-        style.paddingRight = config.spacing[spacingEnd];
-      }
+    if (spacingEnd) {
+      /** @todo figure out web version of RN's paddingEnd  */
+      style.paddingRight = config.spacing[spacingEnd];
+    }
 
-      if (offsetTop) {
-        style.marginTop = config.spacing[offsetTop];
-      }
+    if (offsetTop) {
+      style.marginTop = config.spacing[offsetTop];
+    }
 
-      if (offsetBottom) {
-        style.marginBottom = config.spacing[offsetBottom];
-      }
+    if (offsetBottom) {
+      style.marginBottom = config.spacing[offsetBottom];
+    }
 
-      if (offsetStart) {
-        /** @todo figure out web version of RN's paddingEnd  */
-        style.marginLeft = config.spacing[offsetStart];
-      }
+    if (offsetStart) {
+      /** @todo figure out web version of RN's paddingEnd  */
+      style.marginLeft = config.spacing[offsetStart];
+    }
 
-      if (offsetEnd) {
-        /** @todo figure out web version of RN's paddingEnd  */
-        style.marginRight = config.spacing[offsetEnd];
-      }
+    if (offsetEnd) {
+      /** @todo figure out web version of RN's paddingEnd  */
+      style.marginRight = config.spacing[offsetEnd];
+    }
 
-      if (opacity) {
-        style.opacity = opacity;
-      }
+    if (opacity) {
+      style.opacity = opacity;
+    }
 
-      if (textAlign) {
-        style.textAlign = textAlign;
-      }
+    if (textAlign) {
+      style.textAlign = textAlign;
+    }
 
-      if (fontFamily) {
-        style.fontFamily = fontFamily;
-      }
+    if (fontFamily) {
+      style.fontFamily = fontFamily;
+    }
 
-      if (dangerouslySetFontFamily) {
-        style.fontFamily = dangerouslySetFontFamily;
-      }
+    if (dangerouslySetFontFamily) {
+      style.fontFamily = dangerouslySetFontFamily;
+    }
 
-      if (fontWeight) {
-        style.fontWeight = fontWeight;
-      }
+    if (fontWeight) {
+      style.fontWeight = fontWeight;
+    }
 
-      if (dangerouslySetFontWeight) {
-        style.fontWeight = dangerouslySetFontWeight;
-      }
+    if (dangerouslySetFontWeight) {
+      style.fontWeight = dangerouslySetFontWeight;
+    }
 
-      if (lineHeight) {
-        style.lineHeight = lineHeight;
-      }
+    if (lineHeight) {
+      style.lineHeight = lineHeight;
+    }
 
-      if (dangerouslySetLineHeight) {
-        style.lineHeight = dangerouslySetLineHeight;
-      }
+    if (dangerouslySetLineHeight) {
+      style.lineHeight = dangerouslySetLineHeight;
+    }
 
-      if (fontSize) {
-        style.fontSize = fontSize;
-      }
+    if (fontSize) {
+      style.fontSize = fontSize;
+    }
 
-      if (dangerouslySetFontSize) {
-        style.fontSize = dangerouslySetFontSize;
-      }
+    if (dangerouslySetFontSize) {
+      style.fontSize = dangerouslySetFontSize;
+    }
 
-      if (height) {
-        style.height = height;
-      }
+    if (height) {
+      style.height = height;
+    }
 
-      if (width) {
-        style.width = width;
-      }
+    if (width) {
+      style.width = width;
+    }
 
-      if (maxHeight) {
-        style.maxHeight = maxHeight;
-      }
+    if (maxHeight) {
+      style.maxHeight = maxHeight;
+    }
 
-      if (maxWidth) {
-        style.maxWidth = maxWidth;
-      }
+    if (maxWidth) {
+      style.maxWidth = maxWidth;
+    }
 
-      if (minHeight) {
-        style.minHeight = minHeight;
-      }
+    if (minHeight) {
+      style.minHeight = minHeight;
+    }
 
-      if (minWidth) {
-        style.minWidth = minWidth;
-      }
+    if (minWidth) {
+      style.minWidth = minWidth;
+    }
+
+    const a11y = getA11yProps({
+      disabled,
+      loading,
+    });
+
+    const nativeProps = { ...a11y, ...other };
+
+    return {
+      style,
+      nativeProps,
+    };
+  }
+
+  function compose<
+    T extends ComposerComponent,
+    Props extends Merge<ThemeableProps, React.ComponentProps<T>>
+  >(Component: T, defaultProps?: Props) {
+    function EnhancedComponent(props: Props) {
+      const { style, nativeProps } = processProps(props, defaultProps);
 
       /** This is a Web HTML element */
       if (typeof Component === 'string') {
@@ -519,14 +525,8 @@ export function createTheme<
           ...nativeProps,
         });
       }
-
-      const accessibilityProps = getA11yProps({
-        disabled,
-        loading,
-      });
-
       // @ts-expect-error This is fine
-      return <Component style={style} {...accessibilityProps} {...nativeProps} />;
+      return <Component style={style} {...nativeProps} />;
     }
 
     return memo(EnhancedComponent);
@@ -534,9 +534,10 @@ export function createTheme<
 
   return {
     config,
+    processProps,
     compose,
     palette,
-    types: {
+    types: Object.freeze({
       tokens: {
         backgroundColor: undefined as unknown as PaletteToken,
         borderColor: undefined as unknown as PaletteToken,
@@ -560,6 +561,6 @@ export function createTheme<
         spacing: {} as SpacingProps,
         typography: {} as TypographyProps,
       },
-    },
+    }),
   };
 }

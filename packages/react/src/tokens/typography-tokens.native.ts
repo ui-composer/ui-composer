@@ -1,5 +1,4 @@
-import type { TypographyConfig } from '../types/TypographyConfig';
-import { mapValues } from '../utils/object';
+import type { TypographyConfig } from '@ui-composer/theme';
 
 import { typographyShared } from './typography-tokens-shared';
 
@@ -9,12 +8,16 @@ function transformVariants(variants: TypographyConfig['variants']) {
     500: 'Medium',
     600: 'Semi-Bold',
   };
-  return mapValues(variants, ({ fontWeight = 400, ...variant }) => {
-    return {
-      ...variant,
-      fontFamily: `${variant.fontFamily}-${fontWeightMap[fontWeight]}`,
-    };
-  });
+
+  const modifiedEntries = Object.entries(variants).map(
+    ([key, { fontWeight = 400, ...variant }]) => {
+      return [
+        key,
+        { ...variant, fontFamily: `${variant.fontFamily}-${fontWeightMap[fontWeight]}` },
+      ];
+    }
+  );
+  return Object.fromEntries(modifiedEntries);
 }
 
 export const typography: TypographyConfig = {

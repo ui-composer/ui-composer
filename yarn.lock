@@ -7754,21 +7754,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ui-composer/figma-plugin@workspace:apps/figma-plugin":
+"@ui-composer/palette@workspace:^, @ui-composer/palette@workspace:packages/palette":
   version: 0.0.0-use.local
-  resolution: "@ui-composer/figma-plugin@workspace:apps/figma-plugin"
+  resolution: "@ui-composer/palette@workspace:packages/palette"
   dependencies:
-    "@figma/plugin-typings": ^1.55.1
-    "@types/react": 18.0.20
-    "@types/react-dom": 18.0.8
-    "@ui-composer/react": "workspace:^"
-    "@vitejs/plugin-react-refresh": ^1.3.6
-    eslint: ^8.26.0
-    react: 18.2.0
-    react-dom: 18.2.0
-    vite: ^3.2.2
-    vite-plugin-singlefile: ^0.12.3
-    zx: ^7.0.7
+    colord: ^2.9.3
   languageName: unknown
   linkType: soft
 
@@ -7781,13 +7771,11 @@ __metadata:
     "@types/react-dom": 18.0.8
     "@types/react-native": 0.69.8
     "@ui-composer/eslint-config": "workspace:*"
-    colord: ^2.9.3
-    csstype: ^3.1.1
+    "@ui-composer/theme": "workspace:^"
     lodash: ^4.17.21
     react: 18.2.0
     react-dom: 18.2.0
     react-native: 0.69.6
-    type-fest: ^2.16.0
   peerDependencies:
     "@types/react": ^18.0.0
     "@types/react-dom": ^18.0.0
@@ -7807,6 +7795,24 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@ui-composer/theme@workspace:^, @ui-composer/theme@workspace:packages/theme":
+  version: 0.0.0-use.local
+  resolution: "@ui-composer/theme@workspace:packages/theme"
+  dependencies:
+    "@types/react": 18.0.20
+    "@types/react-dom": 18.0.8
+    "@types/react-native": 0.69.8
+    "@ui-composer/eslint-config": "workspace:*"
+    "@ui-composer/palette": "workspace:^"
+    csstype: ^3.1.1
+    react: 18.2.0
+    type-fest: ^2.16.0
+  peerDependencies:
+    "@types/react": ^18.0.0
+    react: ^18.0.0
+  languageName: unknown
+  linkType: soft
+
 "@ui-composer/tokens@workspace:packages/tokens":
   version: 0.0.0-use.local
   resolution: "@ui-composer/tokens@workspace:packages/tokens"
@@ -7820,22 +7826,6 @@ __metadata:
 "@ui-composer/typescript-config@workspace:packages/typescript":
   version: 0.0.0-use.local
   resolution: "@ui-composer/typescript-config@workspace:packages/typescript"
-  languageName: unknown
-  linkType: soft
-
-"@ui-composer/web-app@workspace:apps/web-app":
-  version: 0.0.0-use.local
-  resolution: "@ui-composer/web-app@workspace:apps/web-app"
-  dependencies:
-    "@types/react": 18.0.20
-    "@types/react-dom": 18.0.8
-    "@ui-composer/eslint-config": "workspace:*"
-    "@ui-composer/react": "workspace:*"
-    "@vitejs/plugin-react": ^2.0.0
-    react: 18.2.0
-    react-dom: 18.2.0
-    vite: ^3.2.2
-    web-vitals: ^1.0.1
   languageName: unknown
   linkType: soft
 
@@ -15503,6 +15493,24 @@ __metadata:
   checksum: 4090bd66193693dcda605e44d6b8715d8fb5c92a67acd57826e55cf816a342f550d57e5638f822b39366e1b2fdb244e99b3068a37213aa1d6c1bf602b8fde5ae
   languageName: node
   linkType: hard
+
+"figma-plugin@workspace:apps/figma-plugin":
+  version: 0.0.0-use.local
+  resolution: "figma-plugin@workspace:apps/figma-plugin"
+  dependencies:
+    "@figma/plugin-typings": ^1.55.1
+    "@types/react": 18.0.20
+    "@types/react-dom": 18.0.8
+    "@ui-composer/react": "workspace:^"
+    "@vitejs/plugin-react-refresh": ^1.3.6
+    eslint: ^8.26.0
+    react: 18.2.0
+    react-dom: 18.2.0
+    vite: ^3.2.2
+    vite-plugin-singlefile: ^0.12.3
+    zx: ^7.0.7
+  languageName: unknown
+  linkType: soft
 
 "figures@npm:3.2.0, figures@npm:^3.0.0, figures@npm:^3.2.0":
   version: 3.2.0
@@ -31907,6 +31915,22 @@ __metadata:
   checksum: 814e9d1ddcc9798f7377ffa448a5a3892232b9275ebb30a41b529607691c0491de47cba426e917a4d08ded3ee7e9ba2f3fe32e62ee3cd9c7d3bafb7754bd553c
   languageName: node
   linkType: hard
+
+"web-app@workspace:apps/web-app":
+  version: 0.0.0-use.local
+  resolution: "web-app@workspace:apps/web-app"
+  dependencies:
+    "@types/react": 18.0.20
+    "@types/react-dom": 18.0.8
+    "@ui-composer/eslint-config": "workspace:*"
+    "@ui-composer/react": "workspace:*"
+    "@vitejs/plugin-react": ^2.0.0
+    react: 18.2.0
+    react-dom: 18.2.0
+    vite: ^3.2.2
+    web-vitals: ^1.0.1
+  languageName: unknown
+  linkType: soft
 
 "web-namespaces@npm:^1.0.0":
   version: 1.1.4
