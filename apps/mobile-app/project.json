@@ -31,7 +31,7 @@
         "platform": "android"
       }
     },
-    "build": {
+    "build-eas": {
       "executor": "@nrwl/expo:build",
       "dependsOn": ["^build"],
       "options": {}

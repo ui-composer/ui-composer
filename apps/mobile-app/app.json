@@ -27,6 +27,11 @@
         "backgroundColor": "#FFFFFF"
       },
       "package": "com.uicomposer.playground"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "7565d7e9-10f2-429c-a945-4e9073582953"
+      }
     }
   }
 }
