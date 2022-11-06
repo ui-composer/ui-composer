@@ -6,7 +6,7 @@
     "paths": {
       "@site/*": ["./apps/website/*"],
       "@ui-composer/website/*": ["./apps/website/*"],
-      "ui-composer/*": ["./packages/ui-composer/src/*"]
+      "ui-composer/*": ["./packages/react/src/*"]
     }
   }
 }

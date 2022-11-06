@@ -9,7 +9,7 @@
   "exclude": ["dist", "node_modules", "public"],
   "references": [
     {
-      "path": "../../packages/ui-composer"
+      "path": "../../packages/react"
     }
   ]
 }

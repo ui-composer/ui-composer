@@ -13,7 +13,7 @@
   ],
   "references": [
     {
-      "path": "../../packages/ui-composer"
+      "path": "../../packages/react"
     }
   ]
 }

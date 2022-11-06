@@ -1,13 +1,13 @@
 {
-  "root": "packages/ui-composer",
-  "sourceRoot": "packages/ui-composer/src",
+  "root": "packages/react",
+  "sourceRoot": "packages/react/src",
   "projectType": "library",
   "targets": {
     "build": {
       "executor": "nx:run-commands",
       "outputs": ["{projectRoot}/lib", "{projectRoot}/dts", "{projectRoot}/esm"],
       "options": {
-        "cwd": "packages/ui-composer",
+        "cwd": "packages/react",
         "commands": ["packemon build --addFiles --addEngines --addExports --declaration"]
       },
       "dependsOn": ["^build"]
@@ -15,14 +15,14 @@
     "release": {
       "executor": "nx:run-commands",
       "options": {
-        "cwd": "packages/ui-composer",
+        "cwd": "packages/react",
         "commands": ["yarn version $npm_package_version --no-git-tag-version"]
       }
     },
     "watch": {
       "executor": "nx:run-commands",
       "options": {
-        "cwd": "packages/ui-composer",
+        "cwd": "packages/react",
         "commands": ["packemon watch"]
       },
       "dependsOn": ["^build"]

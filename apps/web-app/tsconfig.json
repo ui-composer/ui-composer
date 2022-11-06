@@ -4,17 +4,11 @@
     "jsx": "react-jsx",
     "noEmit": true
   },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "dist",
-    "node_modules",
-    "public"
-  ],
+  "include": ["src"],
+  "exclude": ["dist", "node_modules", "public"],
   "references": [
     {
-      "path": "../../packages/ui-composer"
+      "path": "../../packages/react"
     }
   ]
 }
