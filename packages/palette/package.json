@@ -1,9 +1,6 @@
 {
-  "name": "@ui-composer/react",
+  "name": "@ui-composer/palette",
   "version": "0.0.0",
-  "sideEffects": [
-    "*.css"
-  ],
   "packemon": [
     {
       "bundle": false,
@@ -35,43 +32,7 @@
     "src/**/*.{ts,tsx,json}"
   ],
   "dependencies": {
-    "@types/lodash": "^4.14.182",
-    "@ui-composer/theme": "workspace:^",
-    "colord": "^2.9.3",
-    "csstype": "^3.1.1",
-    "lodash": "^4.17.21",
-    "type-fest": "^2.16.0"
-  },
-  "devDependencies": {
-    "@types/react": "18.0.20",
-    "@types/react-dom": "18.0.8",
-    "@types/react-native": "0.69.8",
-    "@ui-composer/eslint-config": "workspace:*",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-native": "0.69.6"
-  },
-  "peerDependencies": {
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
-    "@types/react-native": "^0.69.1",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-native": "^0.69.1"
-  },
-  "peerDependenciesMeta": {
-    "@types/react-dom": {
-      "optional": true
-    },
-    "@types/react-native": {
-      "optional": true
-    },
-    "react-dom": {
-      "optional": true
-    },
-    "react-native": {
-      "optional": true
-    }
+    "colord": "^2.9.3"
   },
   "author": "Katherine Martinez <kmartinezmedia@gmail.com>",
   "homepage": "https://github.com/ui-composer/ui-composer",

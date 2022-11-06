@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 
-import { ThemeableProps } from '../theme';
+import { ThemeableProps } from '../types';
 
 import { Pressable, PressableProps } from './Pressable.native';
 import { Text, TextProps } from './Text.native';

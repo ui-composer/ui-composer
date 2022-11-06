@@ -1,4 +1,3 @@
-export { createTheme } from './createTheme';
 export * from './components/Box.native';
 export * from './components/Button.native';
 export * from './components/HStack.native';

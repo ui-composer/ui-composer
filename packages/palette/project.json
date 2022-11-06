@@ -1,13 +1,13 @@
 {
-  "root": "packages/react",
-  "sourceRoot": "packages/react/src",
+  "root": "packages/theme",
+  "sourceRoot": "packages/theme/src",
   "projectType": "library",
   "targets": {
     "build": {
       "executor": "nx:run-commands",
       "outputs": ["{projectRoot}/lib", "{projectRoot}/dts", "{projectRoot}/esm"],
       "options": {
-        "cwd": "packages/react",
+        "cwd": "packages/theme",
         "commands": ["packemon build --addFiles --addEngines --addExports --declaration"]
       },
       "dependsOn": ["^build"]
@@ -15,15 +15,15 @@
     "release": {
       "executor": "nx:run-commands",
       "options": {
-        "cwd": "packages/react",
+        "cwd": "packages/theme",
         "commands": ["yarn version $npm_package_version --no-git-tag-version"]
       }
     },
     "watch": {
       "executor": "nx:run-commands",
       "options": {
-        "cwd": "packages/react",
-        "commands": ["nx run theme:watch", "packemon watch"]
+        "cwd": "packages/theme",
+        "commands": ["packemon watch"]
       },
       "dependsOn": ["^build"]
     }

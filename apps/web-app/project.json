@@ -2,5 +2,39 @@
   "root": "apps/web-app",
   "sourceRoot": "apps/web-app/src",
   "projectType": "application",
-  "targets": {}
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "outputs": ["{projectRoot}/dist"],
+      "dependsOn": ["^build"],
+      "options": {
+        "cwd": "apps/web-app",
+        "commands": ["vite build"]
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["^build"],
+      "options": {
+        "cwd": "apps/web-app",
+        "commands": ["yarn lint:workspace"]
+      }
+    },
+    "preview": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["^build"],
+      "options": {
+        "cwd": "apps/web-app",
+        "commands": ["vite preview"]
+      }
+    },
+    "start": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["^build"],
+      "options": {
+        "cwd": "apps/web-app",
+        "commands": ["nx run react:watch", "vite dev"]
+      }
+    }
+  }
 }

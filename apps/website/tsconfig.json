@@ -2,12 +2,14 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "jsx": "react",
+    "baseUrl": ".",
     "rootDir": ".",
-    "noEmit": true
+    "noEmit": true,
+    "paths": {
+      "@site/*": ["./*"]
+    }
   },
-  "include": [
-    "**/*"
-  ],
+  "include": ["**/*"],
   "exclude": [
     ".docusaurus",
     ".eslintrc.js",

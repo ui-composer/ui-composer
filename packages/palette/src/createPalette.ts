@@ -1,46 +1,63 @@
 import { colord, extend } from 'colord';
 import mixPlugin from 'colord/plugins/mix';
-import mapValues from 'lodash/mapValues';
-
-import type { PaletteConfig, StringToStringObject } from './types';
 
 extend([mixPlugin]);
 
+type ColorsConfig<ColorAlias extends string = string> = Record<ColorAlias, string>;
+
+type PaletteValue<Colors extends ColorsConfig> = Readonly<keyof Colors | [keyof Colors, number]>;
+
+export type PaletteConfig<
+  Colors extends ColorsConfig,
+  PaletteAlias extends string = string
+> = Readonly<Record<PaletteAlias, PaletteValue<Colors>>>;
+
+// export type PaletteConfig<Colors extends ColorsConfig> = {
+//   [alias: string]: keyof Colors | [keyof Colors, number];
+//   background: keyof Colors | [keyof Colors, number];
+//   foreground: keyof Colors | [keyof Colors, number];
+// };
+
 export function createPalette<
-  Colors extends StringToStringObject,
+  Colors extends ColorsConfig,
   Palette extends PaletteConfig<Colors>
 >(config: { colors: Colors; palette: Palette }) {
   return {
-    getPaletteTuple: function getPaletteTuple(val: Palette[keyof Palette]): [keyof Colors, number] {
+    getPaletteTuple: function getPaletteTuple(val: PaletteValue<Colors>): [keyof Colors, number] {
       if (typeof val === 'string') {
         return [val, 1];
       }
       return [val[0], val[1]];
     },
-    getColorStep: function getColorStep(val: keyof Colors) {
+    getColorStep: function getColorStep(val: [keyof Colors, number]) {
       const [_, step = 100] = String(val).match(/[a-z]+|[^a-z]+/gi) ?? [];
       return Number(step);
     },
     get tuples() {
-      return mapValues(config.palette, val => {
-        return this.getPaletteTuple(val);
+      const modifiedEntries = Object.entries(config.palette).map(([key, val]) => {
+        return [key, this.getPaletteTuple(val)] as const;
       });
+      return Object.fromEntries(modifiedEntries);
     },
     get tints() {
-      return mapValues(this.tuples, ([colorAlias]) => {
-        return this.getColorStep(colorAlias);
+      const modifiedEntries = Object.entries(this.tuples).map(([key, val]) => {
+        return [key, this.getColorStep(val)];
       });
+      return Object.fromEntries(modifiedEntries);
     },
     get rgbaStrings() {
-      return mapValues(this.tuples, ([colorAlias, opacity]) => {
+      const modifiedEntries = Object.entries(this.tuples).map(([key, val]) => {
+        const [colorAlias, opacity] = val;
         const color = config.colors[colorAlias];
-        return colord(color).alpha(opacity).toRgbString();
+        const asRgbaString = colord(color).alpha(opacity).toRgbString();
+        return [key, asRgbaString];
       });
+      return Object.fromEntries(modifiedEntries);
     },
     get pseudoStyles() {
-      return mapValues(config.palette, (_, paletteAlias) => {
-        const colorRgbaString = this.rgbaStrings[paletteAlias];
-        const tint = this.tints[paletteAlias];
+      const modifiedEntries = Object.keys(config.palette).map(key => {
+        const colorRgbaString = this.rgbaStrings[key];
+        const tint = this.tints[key];
         const backgroundRgbaString = this.rgbaStrings.background;
         const foregroundRgbaString = tint > 60 ? backgroundRgbaString : this.rgbaStrings.foreground;
 
@@ -56,7 +73,7 @@ export function createPalette<
           hovered: foregroundRgbaString,
         };
 
-        return {
+        const pseudoStyles = {
           disabled: {
             contentOpacity: opacity.disabled,
             backgroundColor: colord(underlay.disabled)
@@ -72,7 +89,11 @@ export function createPalette<
             backgroundColor: colord(underlay.hovered).mix(colorRgbaString, opacity.hovered).toHex(),
           },
         };
+
+        return [key, pseudoStyles];
       });
+
+      return Object.fromEntries(modifiedEntries);
     },
     opacities: {
       hovered: {

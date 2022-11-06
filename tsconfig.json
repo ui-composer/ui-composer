@@ -17,7 +17,13 @@
       "path": "packages/cli"
     },
     {
+      "path": "packages/palette"
+    },
+    {
       "path": "packages/react"
+    },
+    {
+      "path": "packages/theme"
     }
   ]
 }

@@ -5,7 +5,9 @@
     "eslint": "packages/eslint",
     "figma-plugin": "apps/figma-plugin",
     "mobile-app": "apps/mobile-app",
+    "palette": "packages/palette",
     "react": "packages/react",
+    "theme": "packages/theme",
     "typescript": "packages/typescript",
     "web-app": "apps/web-app",
     "website": "apps/website"
