@@ -7895,9 +7895,6 @@ __metadata:
     "@react-navigation/native": ^6.0.10
     "@ui-composer/eslint-config": "workspace:*"
     expo: "*"
-    expo-font: "*"
-    expo-splash-screen: "*"
-    expo-status-bar: "*"
     react: "*"
     react-dom: "*"
     react-native: "*"
@@ -15382,17 +15379,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo-font@npm:*, expo-font@npm:~11.0.1":
-  version: 11.0.1
-  resolution: "expo-font@npm:11.0.1"
-  dependencies:
-    fontfaceobserver: ^2.1.0
-  peerDependencies:
-    expo: "*"
-  checksum: 9a04b1fac7834641ddf001a365ddbbfac11b7a2377686e3765fba4b415189e107d7f494488a590458d724ce792ae98b7b9ab5bf25b99e0f84b60c4c0a97f263f
-  languageName: node
-  linkType: hard
-
 "expo-font@npm:~10.2.1":
   version: 10.2.1
   resolution: "expo-font@npm:10.2.1"
@@ -15401,6 +15387,17 @@ __metadata:
   peerDependencies:
     expo: "*"
   checksum: fa82616614b393ecb8e7dce91de8043c0e7b5ebc2145ec816b37179bef5ac2b81fdf3ea750b93d47e3702978f08f6b40373c91844098cc62ed43b42d7d73ed63
+  languageName: node
+  linkType: hard
+
+"expo-font@npm:~11.0.1":
+  version: 11.0.1
+  resolution: "expo-font@npm:11.0.1"
+  dependencies:
+    fontfaceobserver: ^2.1.0
+  peerDependencies:
+    expo: "*"
+  checksum: 9a04b1fac7834641ddf001a365ddbbfac11b7a2377686e3765fba4b415189e107d7f494488a590458d724ce792ae98b7b9ab5bf25b99e0f84b60c4c0a97f263f
   languageName: node
   linkType: hard
 
@@ -15503,18 +15500,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo-splash-screen@npm:*":
-  version: 0.17.3
-  resolution: "expo-splash-screen@npm:0.17.3"
-  dependencies:
-    "@expo/configure-splash-screen": ^0.6.0
-    "@expo/prebuild-config": 5.0.6
-  peerDependencies:
-    expo: "*"
-  checksum: 0d48e64b58b64d1a5e4c1ce06ca053ac52fde7efc926841692672ca2c46691d169293a6b4007f6d00fd99a6641bb55839ea3f6b1adcf140658ad653f9cd993b3
-  languageName: node
-  linkType: hard
-
 "expo-splash-screen@npm:~0.16.2":
   version: 0.16.2
   resolution: "expo-splash-screen@npm:0.16.2"
@@ -15527,7 +15512,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo-status-bar@npm:*, expo-status-bar@npm:~1.4.2":
+"expo-status-bar@npm:~1.4.2":
   version: 1.4.2
   resolution: "expo-status-bar@npm:1.4.2"
   checksum: ec61ceb71a4d72592c12f05ca6988a84fea55b77d2cd384d4c6bdb41002b98ef19a5f5af7c327a9e569f0e4754cc75af4d4da6131a9bb781cb4dd8e8bd2f0387
