@@ -18,7 +18,6 @@ You can configure a different icon font by...
 
 Always be cautious of the transitive size of dependencies. [packagephobia](https://packagephobia.com/) is a great resource for determining if a package is lean. Try to minimize adding dependencies to the CLI.
 
-
 ## Side Effects
 
 UI Composer is optimized for tree-shaking, you should always make sure to list whatever files in your module have side effects. In UI Composer modules we use the `.fx.*` extension on these files (this makes it easier to target them with `sideEffects`).
