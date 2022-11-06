@@ -1,6 +1,6 @@
 {
-  "root": "packages/theme",
-  "sourceRoot": "packages/theme/src",
+  "root": "packages/palette",
+  "sourceRoot": "packages/palette/src",
   "projectType": "library",
   "targets": {
     "build": {
