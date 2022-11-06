@@ -4,7 +4,7 @@ description: Setup nx, node, yarn and install dependencies
 inputs:
   node-version:
     description: Version of Node to use
-    default: 16.x
+    default: 16..x
 
 runs:
   using: composite
@@ -14,7 +14,8 @@ runs:
     - name: 🏗 Setup Node
       uses: actions/setup-node@v3.4.1
       with:
-        node-version: ${{ inputs.node-version }}
+        # node-version: ${{ inputs.node-version }}
+        node-version: 16.13.2
         cache: yarn
 
     - name: 🏗 Find yarn cache
