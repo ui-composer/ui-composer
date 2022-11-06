@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.composite",
+  "compilerOptions": {
+    "jsx": "react",
+    "rootDir": "src",
+    "outDir": "dts"
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "lib", "dts"],
+  "references": []
+}

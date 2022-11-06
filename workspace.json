@@ -7,6 +7,7 @@
     "mobile-app": "apps/mobile-app",
     "palette": "packages/palette",
     "react": "packages/react",
+    "style-plugin": "packages/style-plugin",
     "theme": "packages/theme",
     "typescript": "packages/typescript",
     "web-app": "apps/web-app",
