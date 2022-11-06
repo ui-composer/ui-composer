@@ -7795,6 +7795,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@ui-composer/style-plugin@workspace:packages/style-plugin":
+  version: 0.0.0-use.local
+  resolution: "@ui-composer/style-plugin@workspace:packages/style-plugin"
+  languageName: unknown
+  linkType: soft
+
 "@ui-composer/theme@workspace:^, @ui-composer/theme@workspace:packages/theme":
   version: 0.0.0-use.local
   resolution: "@ui-composer/theme@workspace:packages/theme"
