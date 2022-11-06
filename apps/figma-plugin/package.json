@@ -3,18 +3,18 @@
   "private": true,
   "version": "0.0.0",
   "dependencies": {
-    "react": "*",
-    "react-dom": "*",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "ui-composer": "workspace:^"
   },
   "devDependencies": {
-    "@figma/plugin-typings": "*",
-    "@types/react": "*",
-    "@types/react-dom": "*",
+    "@figma/plugin-typings": "^1.55.1",
+    "@types/react": "18.0.20",
+    "@types/react-dom": "18.0.8",
     "@vitejs/plugin-react-refresh": "^1.3.6",
-    "esbuild": "*",
-    "vite": "*",
+    "eslint": "^8.26.0",
+    "vite": "^3.2.2",
     "vite-plugin-singlefile": "^0.12.3",
-    "zx": "*"
+    "zx": "^7.0.7"
   }
 }

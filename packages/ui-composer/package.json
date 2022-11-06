@@ -42,15 +42,21 @@
     "type-fest": "^2.16.0"
   },
   "devDependencies": {
-    "@ui-composer/eslint-config": "workspace:*"
+    "@types/react": "18.0.20",
+    "@types/react-dom": "18.0.8",
+    "@types/react-native": "0.69.8",
+    "@ui-composer/eslint-config": "workspace:*",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-native": "0.69.6"
   },
   "peerDependencies": {
-    "@types/react": "18.0.0",
-    "@types/react-dom": "18.0.0",
-    "@types/react-native": "0.69.1",
-    "react": "18.0.0",
-    "react-dom": "18.0.0",
-    "react-native": "0.69.1"
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@types/react-native": "^0.69.1",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-native": "^0.69.1"
   },
   "peerDependenciesMeta": {
     "@types/react-dom": {

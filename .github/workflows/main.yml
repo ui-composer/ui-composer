@@ -36,6 +36,9 @@ jobs:
       - name: 🏡 Workspace
         run: yarn nx workspace-lint
 
+      - name: 📦 manypkg
+        run: yarn manypkg check
+
       - name: 🧹 Format
         run: yarn nx format:check
 

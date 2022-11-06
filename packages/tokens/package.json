@@ -16,7 +16,7 @@
   "devDependencies": {
     "style-dictionary": "^3.7.1",
     "token-transformer": "^0.0.24",
-    "zx": "*"
+    "zx": "^7.0.7"
   },
   "author": "Katherine Martinez <kmartinezmedia@gmail.com>",
   "homepage": "https://github.com/ui-composer/ui-composer",
