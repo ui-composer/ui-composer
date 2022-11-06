@@ -10,9 +10,9 @@
     "start": "concurrently 'yarn workspace ui-composer watch' 'vite dev'"
   },
   "dependencies": {
+    "@ui-composer/react": "workspace:*",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "ui-composer": "workspace:*",
     "web-vitals": "^1.0.1"
   },
   "devDependencies": {

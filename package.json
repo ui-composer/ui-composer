@@ -1,5 +1,5 @@
 {
-  "name": "@ui-composer/monorepo",
+  "name": "ui-composer",
   "version": "0.0.0",
   "private": true,
   "workspaces": [

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { HStack } from 'ui-composer';
+
+import { HStack } from '@ui-composer/react';
 
 import { init, postMessage } from './events/events-ui';
 

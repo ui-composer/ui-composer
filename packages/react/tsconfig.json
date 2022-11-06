@@ -7,5 +7,6 @@
     "outDir": "dts"
   },
   "include": ["src"],
-  "exclude": ["node_modules", "dts"]
+  "exclude": ["node_modules", "dts"],
+  "references": []
 }

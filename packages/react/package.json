@@ -1,5 +1,5 @@
 {
-  "name": "ui-composer",
+  "name": "@ui-composer/react",
   "version": "0.0.0",
   "sideEffects": [
     "*.css"
@@ -81,7 +81,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/ui-composer/ui-composer",
-    "directory": "packages/ui-composer"
+    "directory": "packages/react"
   },
   "types": "./dts/index.d.ts",
   "main": "./lib/native/index.js"

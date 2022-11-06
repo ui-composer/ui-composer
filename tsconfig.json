@@ -2,6 +2,9 @@
   "files": [],
   "references": [
     {
+      "path": "apps/figma-plugin"
+    },
+    {
       "path": "apps/mobile-app"
     },
     {
@@ -14,10 +17,7 @@
       "path": "packages/cli"
     },
     {
-      "path": "apps/figma-plugin"
-    },
-    {
-      "path": "packages/ui-composer"
+      "path": "packages/react"
     }
   ]
 }

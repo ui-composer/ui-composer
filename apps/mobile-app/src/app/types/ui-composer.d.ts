@@ -1,3 +1,3 @@
-declare module 'ui-composer' {
-  export * from 'ui-composer/index.native';
+declare module '@ui-composer/react' {
+  export * from '@ui-composer/react/index.native';
 }
