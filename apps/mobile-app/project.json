@@ -1,6 +1,127 @@
 {
-  "root": "apps/mobile-app",
+  "name": "mobile-app",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/mobile-app/src",
   "projectType": "application",
-  "targets": {}
+  "targets": {
+    "start": {
+      "executor": "@nrwl/expo:start",
+      "dependsOn": ["^build"],
+      "options": {
+        "port": 8081
+      }
+    },
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nx start mobile-app"
+      }
+    },
+    "run-ios": {
+      "executor": "@nrwl/expo:run",
+      "dependsOn": ["^build"],
+      "options": {
+        "platform": "ios"
+      }
+    },
+    "run-android": {
+      "executor": "@nrwl/expo:run",
+      "dependsOn": ["^build"],
+      "options": {
+        "platform": "android"
+      }
+    },
+    "build": {
+      "executor": "@nrwl/expo:build",
+      "dependsOn": ["^build"],
+      "options": {}
+    },
+    "build-list": {
+      "executor": "@nrwl/expo:build-list",
+      "options": {}
+    },
+    "download": {
+      "executor": "@nrwl/expo:download",
+      "options": {
+        "output": "apps/mobile-app/dist"
+      }
+    },
+    "build-ios": {
+      "executor": "@nrwl/expo:build-ios",
+      "dependsOn": ["^build"],
+      "options": {}
+    },
+    "build-android": {
+      "executor": "@nrwl/expo:build-android",
+      "dependsOn": ["^build"],
+      "options": {}
+    },
+    "build-status": {
+      "executor": "@nrwl/expo:build-status",
+      "options": {}
+    },
+    "sync-deps": {
+      "executor": "@nrwl/expo:sync-deps",
+      "options": {}
+    },
+    "ensure-symlink": {
+      "executor": "@nrwl/expo:ensure-symlink",
+      "options": {}
+    },
+    "publish": {
+      "executor": "@nrwl/expo:publish",
+      "options": {}
+    },
+    "publish-set": {
+      "executor": "@nrwl/expo:publish-set",
+      "options": {}
+    },
+    "rollback": {
+      "executor": "@nrwl/expo:rollback",
+      "options": {}
+    },
+    "prebuild": {
+      "executor": "@nrwl/expo:prebuild",
+      "dependsOn": ["^build"],
+      "options": {}
+    },
+    "eject": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nx prebuild mobile-app"
+      }
+    },
+    "install": {
+      "executor": "@nrwl/expo:install",
+      "options": {}
+    },
+    "update": {
+      "executor": "@nrwl/expo:update",
+      "options": {}
+    },
+    "export": {
+      "executor": "@nrwl/expo:export",
+      "dependsOn": ["^build"],
+      "options": {
+        "platform": "all",
+        "outputDir": "../../dist/apps/mobile-app"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/mobile-app/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/mobile-app/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
 }

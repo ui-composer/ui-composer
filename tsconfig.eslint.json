@@ -3,6 +3,12 @@
   "compilerOptions": {
     "noEmit": true
   },
-  "include": ["apps", "packages", "scripts"],
-  "exclude": ["**/dist/**/*", "**/lib/**/*", "**/node_modules/**/*", "**/.eslintrc.js"]
+  "include": ["apps", "libs", "packages", "scripts"],
+  "exclude": [
+    "**/dts/**/*",
+    "**/esm/**/*",
+    "**/lib/**/*",
+    "**/node_modules/**/*",
+    "**/.eslintrc.js"
+  ]
 }

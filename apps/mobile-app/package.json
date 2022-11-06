@@ -1,33 +1,28 @@
 {
-  "name": "@ui-composer/mobile-app",
-  "version": "0.0.0",
+  "name": "mobile-app",
+  "version": "0.0.1",
   "private": true,
-  "main": "src/main.js",
-  "scripts": {
-    "clean": "yarn clean:workspace",
-    "lint": "yarn lint:workspace",
-    "rn": "$(npx react-native run-ios)",
-    "expo": "$(yarn bin expo)",
-    "start": "EXPO_USE_BETA_CLI=1 EXPO_BETA=1 concurrently 'yarn workspace ui-composer watch' '$(yarn bin expo) start -c $*'",
-    "android": "yarn start --android $*",
-    "ios": "yarn start --ios $*",
-    "build.ios": "eas build --platform ios --local",
-    "build.anroid": "eas build --platform android --local",
-    "bundlesize": "npx react-native-bundle-visualizer"
-  },
   "dependencies": {
-    "@react-navigation/native": "^6.0.10",
+    "@expo/metro-config": "*",
+    "@nrwl/expo": "*",
+    "@testing-library/jest-native": "*",
+    "@testing-library/react-native": "*",
     "expo": "*",
+    "expo-font": "*",
+    "expo-splash-screen": "*",
+    "expo-status-bar": "*",
+    "expo-system-ui": "*",
     "react": "*",
-    "react-dom": "*",
     "react-native": "*",
-    "react-native-reanimated": "~2.9.1",
-    "react-native-safe-area-context": "4.3.1",
-    "react-native-screens": "~3.15.0",
+    "react-native-svg": "*",
+    "react-native-web": "*",
     "ui-composer": "workspace:*"
   },
   "devDependencies": {
     "@ui-composer/eslint-config": "workspace:*",
-    "react-native-bundle-visualizer": "^3.1.1"
+    "react-native-bundle-visualizer": "*"
+  },
+  "scripts": {
+    "eas-build-pre-install": "cd ../../ && cp yarn.lock ./apps/mobile-app/"
   }
 }

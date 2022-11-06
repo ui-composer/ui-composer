@@ -42,14 +42,7 @@
     "type-fest": "^2.16.0"
   },
   "devDependencies": {
-    "@types/react": "*",
-    "@types/react-dom": "*",
-    "@types/react-native": "*",
-    "@ui-composer/eslint-config": "workspace:*",
-    "eslint": "*",
-    "react": "*",
-    "react-dom": "*",
-    "react-native": "*"
+    "@ui-composer/eslint-config": "workspace:*"
   },
   "peerDependencies": {
     "@types/react": "18.0.0",
