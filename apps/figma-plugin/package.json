@@ -3,9 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "dependencies": {
+    "@ui-composer/react": "workspace:^",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "ui-composer": "workspace:^"
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@figma/plugin-typings": "^1.55.1",
