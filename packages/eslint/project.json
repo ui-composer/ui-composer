@@ -1,0 +1,6 @@
+{
+  "root": "packages/eslint",
+  "sourceRoot": "packages/eslint/configs",
+  "projectType": "library",
+  "targets": {}
+}

@@ -1,0 +1,31 @@
+{
+  "root": "packages/ui-composer",
+  "sourceRoot": "packages/ui-composer/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "outputs": ["{projectRoot}/lib", "{projectRoot}/dts", "{projectRoot}/esm"],
+      "options": {
+        "cwd": "packages/ui-composer",
+        "commands": ["packemon build --addFiles --addEngines --addExports --declaration"]
+      },
+      "dependsOn": ["^build"]
+    },
+    "release": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/ui-composer",
+        "commands": ["yarn version $npm_package_version --no-git-tag-version"]
+      }
+    },
+    "watch": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/ui-composer",
+        "commands": ["packemon watch"]
+      },
+      "dependsOn": ["^build"]
+    }
+  }
+}

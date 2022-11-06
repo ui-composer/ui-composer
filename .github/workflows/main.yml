@@ -26,11 +26,24 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
       - uses: ./.github/actions/setup
 
-      - name: 🛠 Build typescript
-        run: yarn tsc -b
+      - name: 🏡 Workspace
+        run: yarn nx workspace-lint
 
-      - name: 🛠 Build apps/packages
-        run: CI=true yarn build
+      - name: 🧹 Format
+        run: yarn nx format:check
+
+      # - name: 🧽 Lint
+      #   run: yarn nx affected --target=lint
+
+      - name: 🛁 Typecheck
+        run: yarn nx affected --target=typecheck
+
+      - name: 🛠 Build
+        run: yarn nx affected --target=build

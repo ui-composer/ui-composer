@@ -1,0 +1,12 @@
+{
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx/tasks-runners/default",
+      "options": {
+        "cacheDirectory": ".nx",
+        "cacheableOperations": ["lint", "build", "build-ios", "build-android"]
+      }
+    }
+  },
+  "defaultBase": "main"
+}

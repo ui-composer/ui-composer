@@ -19,7 +19,7 @@
     "preserveSymlinks": false,
     "importHelpers": true,
     "noEmitHelpers": true,
-    "resolveJsonModule": true,
+    "resolveJsonModule": false,
     "declaration": false,
     "isolatedModules": true,
     "esModuleInterop": true,

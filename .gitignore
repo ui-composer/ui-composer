@@ -14,6 +14,9 @@ node_modules
 /.pnp
 .pnp.*
 
+# NX
+.nx
+
 # testing
 /coverage
 .env
@@ -23,6 +26,8 @@ build
 !scripts/build
 dist
 lib
+esm
+dts
 typings
 
 # Generated files

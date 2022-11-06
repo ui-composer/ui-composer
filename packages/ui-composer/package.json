@@ -1,42 +1,55 @@
 {
   "name": "ui-composer",
   "version": "0.0.0",
-  "source": "src",
-  "files": [
-    "src",
-    "dist",
-    "package.json"
-  ],
   "sideEffects": [
     "*.css"
   ],
-  "module": "./dist/index.js",
-  "react-native": "./dist/index.native.js",
-  "types": "./dist/index.d.ts",
-  "scripts": {
-    "build": "yarn lint && ui-composer-cli-esbuild",
-    "watch": "ui-composer-cli-esbuild --watch",
-    "clean": "yarn clean:workspace",
-    "lint": "yarn lint:workspace",
-    "version": "yarn version $npm_package_version --no-git-tag-version"
+  "packemon": [
+    {
+      "bundle": false,
+      "platform": [
+        "native",
+        "browser"
+      ]
+    }
+  ],
+  "module": "./esm/index.js",
+  "browser": "./lib/browser/index.js",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dts/index.d.ts",
+      "browser": {
+        "module": "./esm/index.js",
+        "import": "./esm/index.js",
+        "default": "./lib/browser/index.js"
+      },
+      "react-native": "./lib/native/index.js",
+      "default": "./lib/browser/index.js"
+    }
   },
+  "files": [
+    "dts/**/*.d.ts",
+    "esm/**/*.{js,map}",
+    "lib/**/*.{js,map}",
+    "src/**/*.{ts,tsx,json}"
+  ],
   "dependencies": {
     "@types/lodash": "^4.14.182",
-    "colord": "^2.9.2",
-    "csstype": "^3.1.0",
+    "colord": "^2.9.3",
+    "csstype": "^3.1.1",
     "lodash": "^4.17.21",
     "type-fest": "^2.16.0"
   },
   "devDependencies": {
-    "@types/react": "18.0.0",
-    "@types/react-dom": "18.0.0",
-    "@types/react-native": "0.69.1",
-    "@ui-composer/cli": "workspace:*",
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "@types/react-native": "*",
     "@ui-composer/eslint-config": "workspace:*",
-    "eslint": "^8.19.0",
-    "react": "18.0.0",
-    "react-dom": "18.0.0",
-    "react-native": "0.69.1"
+    "eslint": "*",
+    "react": "*",
+    "react-dom": "*",
+    "react-native": "*"
   },
   "peerDependencies": {
     "@types/react": "18.0.0",
@@ -70,5 +83,7 @@
     "type": "git",
     "url": "https://github.com/ui-composer/ui-composer",
     "directory": "packages/ui-composer"
-  }
+  },
+  "types": "./dts/index.d.ts",
+  "main": "./lib/native/index.js"
 }

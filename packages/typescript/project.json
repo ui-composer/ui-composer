@@ -1,0 +1,6 @@
+{
+  "root": "packages/typescript",
+  "sourceRoot": "packages/typescript/configs",
+  "projectType": "library",
+  "targets": {}
+}
