@@ -10,16 +10,16 @@
     "start": "concurrently 'yarn workspace ui-composer watch' 'vite dev'"
   },
   "dependencies": {
-    "react": "*",
-    "react-dom": "*",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "ui-composer": "workspace:*",
     "web-vitals": "^1.0.1"
   },
   "devDependencies": {
-    "@types/react": "*",
-    "@types/react-dom": "*",
+    "@types/react": "18.0.20",
+    "@types/react-dom": "18.0.8",
     "@ui-composer/eslint-config": "workspace:*",
     "@vitejs/plugin-react": "^2.0.0",
-    "vite": "*"
+    "vite": "^3.2.2"
   }
 }

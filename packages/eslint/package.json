@@ -2,7 +2,7 @@
   "name": "@ui-composer/eslint-config",
   "version": "0.0.0",
   "module": "commonjs",
-  "description": "Configurations",
+  "description": "Eslint configs for ui-composer apps and packages",
   "exports": {
     "./common": "./configs/common.js",
     "./mobile": "./configs/mobile.js",

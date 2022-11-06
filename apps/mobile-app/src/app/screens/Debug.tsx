@@ -1,8 +1,8 @@
 import React, { memo, useMemo } from 'react';
 import { ScrollView } from 'react-native';
-import { Button, HStack, Icon, VStack, VStackProps } from 'ui-composer';
+import { Button, HStack, Icon, VStack, VStackProps } from 'ui-composer/index.native';
 
-import materialSymbolsOutlined from '../assets/icons/material/material-symbols-outlined';
+import materialSymbolsOutlined from '../icons/material/material-symbols-outlined';
 
 const Debug = memo((props: VStackProps) => {
   const icons = useMemo(
