@@ -5,8 +5,8 @@
     "eslint": "packages/eslint",
     "figma-plugin": "apps/figma-plugin",
     "mobile-app": "apps/mobile-app",
+    "react": "packages/react",
     "typescript": "packages/typescript",
-    "ui-composer": "packages/ui-composer",
     "web-app": "apps/web-app",
     "website": "apps/website"
   }

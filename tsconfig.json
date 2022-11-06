@@ -17,7 +17,7 @@
       "path": "apps/figma-plugin"
     },
     {
-      "path": "packages/ui-composer"
+      "path": "packages/react"
     }
   ]
 }
