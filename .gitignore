@@ -71,6 +71,8 @@ npm-debug.*
 *.mobileprovision
 *.orig.*
 web-build/
+ios
+android
 
 
 apps/mobile-app-e2e/artifacts
