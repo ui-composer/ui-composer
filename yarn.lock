@@ -15148,7 +15148,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo@npm:46.0.16, expo@npm:~46.0.16":
+"expo@npm:~46.0.16":
   version: 46.0.16
   resolution: "expo@npm:46.0.16"
   dependencies:
@@ -30763,7 +30763,7 @@ __metadata:
     eslint-plugin-react-hooks: 4.6.0
     eslint-plugin-react-native: ^4.0.0
     eslint-plugin-simple-import-sort: ^8.0.0
-    expo: 46.0.16
+    expo: ~46.0.16
     expo-cli: 6.0.6
     expo-font: ~10.2.1
     expo-splash-screen: ~0.16.2
