@@ -2,7 +2,9 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "noEmit": true,
-    "jsx": "react-native"
+    "jsx": "react-native",
+    "traceResolution": true,
+    "moduleSuffixes": [".native", ""]
   },
   "exclude": [
     "node_modules",
