@@ -6099,6 +6099,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/bluebird@npm:^3.5.20":
+  version: 3.5.38
+  resolution: "@types/bluebird@npm:3.5.38"
+  checksum: 8d1b04261e8e58816ec84ffa616c9e641c9416d0ab10c915ddb9cd8a0e7070af16df4f2eec243a3809cbed8ecee2fb3f45600ae43b3ab0ceea563aa18ceb6ab1
+  languageName: node
+  linkType: hard
+
 "@types/body-parser@npm:*":
   version: 1.19.2
   resolution: "@types/body-parser@npm:1.19.2"
@@ -6153,6 +6160,15 @@ __metadata:
   dependencies:
     "@types/node": "*"
   checksum: fe81351470f2d3165e8b12ce33542eef89ea893e36dd62e8f7d72566dfb7e448376ae962f9f3ea888547ce8b55a40020ca0e01d637fab5d99567673084542641
+  languageName: node
+  linkType: hard
+
+"@types/csv-parse@npm:^1.1.11":
+  version: 1.1.12
+  resolution: "@types/csv-parse@npm:1.1.12"
+  dependencies:
+    "@types/node": "*"
+  checksum: ebc8be600b4169c23eafd0b629e568839761ff259b60fb55cd82759db9cf966978198198e31bfd9666a1bbd416d4daf819d33b9b6df2cb1b83c558d9f37ed886
   languageName: node
   linkType: hard
 
@@ -6251,6 +6267,15 @@ __metadata:
     "@types/qs": "*"
     "@types/serve-static": "*"
   checksum: 12a2a0e6c4b993fc0854bec665906788aea0d8ee4392389d7a98a5de1eefdd33c9e1e40a91f3afd274011119c506f7b4126acb97fae62ae20b654974d44cba12
+  languageName: node
+  linkType: hard
+
+"@types/fs-extra@npm:^5.0.1":
+  version: 5.1.0
+  resolution: "@types/fs-extra@npm:5.1.0"
+  dependencies:
+    "@types/node": "*"
+  checksum: 9b4abc891ad0dc3baa77b0ebcf91dff8e7a5936aa037de0bd6ded399ab38b5896be1ee02b5c0a18c0915cfc40ab590a915709e6f2beef8f6f7e16fd3759e469a
   languageName: node
   linkType: hard
 
@@ -9057,7 +9082,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bluebird@npm:^3.5.5":
+"bluebird@npm:^3.5.1, bluebird@npm:^3.5.5":
   version: 3.7.2
   resolution: "bluebird@npm:3.7.2"
   checksum: 869417503c722e7dc54ca46715f70e15f4d9c602a423a02c825570862d12935be59ed9c7ba34a9b31f186c017c23cac6b54e35446f8353059c101da73eac22ef
@@ -11599,6 +11624,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"csv-parse@npm:^2.0.4":
+  version: 2.5.0
+  resolution: "csv-parse@npm:2.5.0"
+  checksum: 0eb0d939c696b57b0c90df96084c4f0cf684e3c4ab24fe6b5065912591c7af6e0f0cafd11b941f22391de1194a5d0f585c8349290c935a692b661b44bb4813a2
+  languageName: node
+  linkType: hard
+
 "cubic2quad@npm:^1.2.1":
   version: 1.2.1
   resolution: "cubic2quad@npm:1.2.1"
@@ -12156,6 +12188,20 @@ __metadata:
   version: 5.1.0
   resolution: "diff@npm:5.1.0"
   checksum: c7bf0df7c9bfbe1cf8a678fd1b2137c4fb11be117a67bc18a0e03ae75105e8533dbfb1cda6b46beb3586ef5aed22143ef9d70713977d5fb1f9114e21455fba90
+  languageName: node
+  linkType: hard
+
+"difficulty@npm:1.2.0":
+  version: 1.2.0
+  resolution: "difficulty@npm:1.2.0"
+  dependencies:
+    "@types/bluebird": ^3.5.20
+    "@types/csv-parse": ^1.1.11
+    "@types/fs-extra": ^5.0.1
+    bluebird: ^3.5.1
+    csv-parse: ^2.0.4
+    fs-extra: ^5.0.0
+  checksum: ed2efb7ccbef8260b03dbd1a603a6b4ecb5ca8db6408b178b0b8acadea75d4c4dfa1f1ac4766ad65686a2b1ccca932aee0238a0358d421d2a4fac8e2daab3194
   languageName: node
   linkType: hard
 
@@ -14824,6 +14870,17 @@ __metadata:
     jsonfile: ^2.1.0
     klaw: ^1.0.0
   checksum: 9d3642621f42c810e9a32e6ecf97f6f827fdffb001316504d2102d87b4505b8bda1197d43e38e5b1db1faa240b022380b489a0e378b739e1cadef0df9aad4b5f
+  languageName: node
+  linkType: hard
+
+"fs-extra@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "fs-extra@npm:5.0.0"
+  dependencies:
+    graceful-fs: ^4.1.2
+    jsonfile: ^4.0.0
+    universalify: ^0.1.0
+  checksum: b3dcaf1d545097013c4fa649951c85cad1b845316ab473cc3440254a45e9b0b17d8ca9355af477e982c7d126f1a30417bcf78b1f744593ce77a0f43165f2d5e5
   languageName: node
   linkType: hard
 
@@ -31159,6 +31216,34 @@ __metadata:
   checksum: 30b48f91fcf12106ed3186ae4fa86a6a1842416df425be7b60485de14bec665a54a68e4b5156647dec3a70f25e84d270ca8bc8cd23182ed095f5c7206a938c1f
   languageName: node
   linkType: hard
+
+"wordle@workspace:apps/wordle":
+  version: 0.0.0-use.local
+  resolution: "wordle@workspace:apps/wordle"
+  dependencies:
+    "@babel/core": ^7.12.9
+    "@expo/metro-config": 0.5.1
+    "@nrwl/expo": 15.3.3
+    "@testing-library/jest-native": 5.3.3
+    "@testing-library/react-native": 11.5.0
+    "@ui-composer/eslint-config": "workspace:*"
+    "@ui-composer/react": "workspace:*"
+    difficulty: 1.2.0
+    eas-cli: 3.1.0
+    expo: ~47.0.8
+    expo-font: ~11.0.1
+    expo-splash-screen: ~0.17.5
+    expo-status-bar: ~1.4.2
+    expo-system-ui: ~2.0.1
+    lodash: ^4.17.21
+    react: 18.2.0
+    react-dom: 18.2.0
+    react-native: 0.70.6
+    react-native-bundle-visualizer: ^3.1.1
+    react-native-svg: 13.6.0
+    react-native-web: ~0.18.10
+  languageName: unknown
+  linkType: soft
 
 "worker-farm@npm:^1.7.0":
   version: 1.7.0

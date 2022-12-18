@@ -27,4 +27,6 @@ export type SpacingConfig<SpacingToken extends number> = {
   offsetStart?: SpacingToken;
   /** Apply negative outer spacing on the top side. */
   offsetTop?: SpacingToken;
+  /** Gap to insert between siblings. */
+  gap?: SpacingToken;
 };

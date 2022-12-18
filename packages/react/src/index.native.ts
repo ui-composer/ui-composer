@@ -3,6 +3,7 @@ export * from './components/Button.native';
 export * from './components/HStack.native';
 export * from './components/Icon.native';
 export * from './components/Pressable.native';
+export * from './components/Spacer.native';
 export * from './components/Text.native';
 export * from './components/VStack.native';
 export * from './theme';

@@ -1,0 +1,21 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "jsx": "react-native",
+    "traceResolution": true,
+    "moduleSuffixes": [".native", ""]
+  },
+  "exclude": [
+    "node_modules",
+    "babel.config.js",
+    "metro.config.js",
+    "jest.config.js",
+    ".eslintrc.js"
+  ],
+  "references": [
+    {
+      "path": "../../packages/react"
+    }
+  ]
+}

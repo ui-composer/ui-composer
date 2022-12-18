@@ -142,98 +142,132 @@ export function createTheme<
 
   const palette = createPalette(config);
 
+  function getSpacerStyles({
+    flexGrow,
+    flexShrink,
+    flexBasis,
+    horizontal,
+    vertical,
+    maxHorizontal,
+    maxVertical,
+    minHorizontal,
+    minVertical,
+  }: SpacerProps) {
+    const isFixedSize = horizontal !== undefined || vertical !== undefined;
+
+    return {
+      // fixed size spacer by default should not grow or shrink.
+      flexGrow: isFixedSize ? flexGrow ?? 0 : flexGrow ?? 1,
+      flexShrink: isFixedSize ? flexShrink ?? 0 : flexShrink ?? 1,
+      flexBasis: isFixedSize ? flexBasis : flexBasis ?? 1,
+      width: horizontal && config.spacing[horizontal],
+      height: vertical && config.spacing[vertical],
+      maxWidth: maxHorizontal && config.spacing[maxHorizontal],
+      maxHeight: maxVertical && config.spacing[maxVertical],
+      minWidth: minHorizontal && config.spacing[minHorizontal],
+      minHeight: minVertical && config.spacing[minVertical],
+    };
+  }
+
+  const styleParsers = {
+    spacer: getSpacerStyles,
+  };
+
   function compose<
     T extends ComposerComponent,
     Props extends Merge<ThemeableProps, React.ComponentProps<T>>
-  >(Component: T, defaultProps?: Props) {
-    function EnhancedComponent({
-      pressed = defaultProps?.pressed,
-      loading = defaultProps?.loading,
-      disabled = defaultProps?.disabled,
-      style: styleProp = defaultProps?.style ?? emptyObject,
-      backgroundColor = defaultProps?.backgroundColor,
-      color = defaultProps?.color,
-      block = defaultProps?.block,
-      borderColor = defaultProps?.borderColor,
-      borderColorVertical = defaultProps?.borderColorVertical ?? borderColor, // convenience
-      borderColorHorizontal = defaultProps?.borderColorHorizontal ?? borderColor, // convenience
-      borderTopColor = defaultProps?.borderTopColor ?? borderColorVertical,
-      borderBottomColor = defaultProps?.borderBottomColor ?? borderColorVertical,
-      borderStartColor = defaultProps?.borderStartColor ?? borderColorHorizontal,
-      borderEndColor = defaultProps?.borderEndColor ?? borderColorHorizontal,
-      borderRadius = defaultProps?.borderRadius,
-      borderRadiusTop = defaultProps?.borderRadiusTop ?? borderRadius, // convenience
-      borderRadiusBottom = defaultProps?.borderRadiusBottom ?? borderRadius, // convenience
-      borderTopStartRadius = defaultProps?.borderTopStartRadius ?? borderRadiusTop,
-      borderTopEndRadius = defaultProps?.borderTopEndRadius ?? borderRadiusTop,
-      borderBottomStartRadius = defaultProps?.borderBottomStartRadius ?? borderRadiusBottom,
-      borderBottomEndRadius = defaultProps?.borderBottomEndRadius ?? borderRadiusBottom,
-      borderWidth = defaultProps?.borderWidth,
-      borderWidthVertical = defaultProps?.borderWidthVertical ?? borderWidth, // convenience
-      borderWidthHorizontal = defaultProps?.borderWidthHorizontal ?? borderWidth, // convenience
-      borderTopWidth = defaultProps?.borderTopWidth ?? borderWidthVertical,
-      borderBottomWidth = defaultProps?.borderBottomWidth ?? borderWidthVertical,
-      borderStartWidth = defaultProps?.borderStartWidth ?? borderWidthHorizontal,
-      borderEndWidth = defaultProps?.borderEndWidth ?? borderWidthHorizontal,
-      display = 'flex',
-      flex = defaultProps?.flex,
-      flexBasis = defaultProps?.flexBasis,
-      flexDirection = defaultProps?.flexDirection,
-      flexGrow = defaultProps?.flexGrow ?? block ? 1 : undefined,
-      flexShrink = defaultProps?.flexShrink,
-      flexWrap = defaultProps?.flexWrap,
-      alignContent = defaultProps?.alignContent,
-      alignItems = defaultProps?.alignItems,
-      alignSelf = defaultProps?.alignSelf,
-      justifyContent = defaultProps?.justifyContent,
-      spacing = defaultProps?.spacing,
-      spacingVertical = defaultProps?.spacingVertical ?? spacing, // convenience
-      spacingHorizontal = defaultProps?.spacingHorizontal ?? spacing, // convenience
-      spacingTop = defaultProps?.spacingTop ?? spacingVertical,
-      spacingBottom = defaultProps?.spacingBottom ?? spacingVertical,
-      spacingStart = defaultProps?.spacingStart ?? spacingHorizontal,
-      spacingEnd = defaultProps?.spacingEnd ?? spacingHorizontal,
-      offset = defaultProps?.offset,
-      offsetVertical = defaultProps?.offsetVertical ?? offset, // convenience
-      offsetHorizontal = defaultProps?.offsetHorizontal ?? offset, // convenience
-      offsetTop = defaultProps?.offsetTop ?? offsetVertical,
-      offsetBottom = defaultProps?.offsetBottom ?? offsetVertical,
-      offsetStart = defaultProps?.offsetStart ?? offsetHorizontal,
-      offsetEnd = defaultProps?.offsetEnd ?? offsetHorizontal,
-      opacity = defaultProps?.opacity,
-      textAlign = defaultProps?.textAlign,
-      lineHeight = defaultProps?.lineHeight,
-      fontFamily = defaultProps?.fontFamily,
-      fontSize = defaultProps?.fontSize,
-      fontWeight = defaultProps?.fontWeight,
-      height = defaultProps?.height,
-      width = defaultProps?.width,
-      maxHeight = defaultProps?.maxHeight,
-      maxWidth = defaultProps?.maxWidth,
-      minHeight = defaultProps?.minHeight,
-      minWidth = defaultProps?.minWidth,
-      dangerouslySetColor = defaultProps?.dangerouslySetColor,
-      dangerouslySetBackgroundColor = defaultProps?.dangerouslySetBackgroundColor,
-      dangerouslySetBorderColor = defaultProps?.dangerouslySetBorderColor,
-      dangerouslySetBorderColorVertical = defaultProps?.dangerouslySetBorderColorVertical ??
-        dangerouslySetBorderColor,
-      dangerouslySetBorderColorHorizontal = defaultProps?.dangerouslySetBorderColorHorizontal ??
-        dangerouslySetBorderColor,
-      dangerouslySetBorderTopColor = defaultProps?.dangerouslySetBorderTopColor ??
-        dangerouslySetBorderColorVertical,
-      dangerouslySetBorderBottomColor = defaultProps?.dangerouslySetBorderBottomColor ??
-        dangerouslySetBorderColorVertical,
-      dangerouslySetBorderStartColor = defaultProps?.dangerouslySetBorderStartColor ??
-        dangerouslySetBorderColorHorizontal,
-      dangerouslySetBorderEndColor = defaultProps?.dangerouslySetBorderEndColor ??
-        dangerouslySetBorderColorHorizontal,
-      dangerouslySetFontFamily = defaultProps?.dangerouslySetFontFamily,
-      dangerouslySetFontWeight = defaultProps?.dangerouslySetFontWeight,
-      dangerouslySetLineHeight = defaultProps?.dangerouslySetLineHeight,
-      dangerouslySetFontSize = defaultProps?.dangerouslySetFontSize,
-      ...other
-    }: Props) {
-      const style: CSS.Properties<string | number> = {
+  >(Component: T, defaultProps?: Props, styleParser?: keyof typeof styleParsers) {
+    function EnhancedComponent(props: Props) {
+      const {
+        pressed = defaultProps?.pressed,
+        loading = defaultProps?.loading,
+        disabled = defaultProps?.disabled,
+        style: styleProp = defaultProps?.style ?? emptyObject,
+        backgroundColor = defaultProps?.backgroundColor,
+        color = defaultProps?.color,
+        block = defaultProps?.block,
+        borderColor = defaultProps?.borderColor,
+        borderColorVertical = defaultProps?.borderColorVertical ?? borderColor, // convenience
+        borderColorHorizontal = defaultProps?.borderColorHorizontal ?? borderColor, // convenience
+        borderTopColor = defaultProps?.borderTopColor ?? borderColorVertical,
+        borderBottomColor = defaultProps?.borderBottomColor ?? borderColorVertical,
+        borderStartColor = defaultProps?.borderStartColor ?? borderColorHorizontal,
+        borderEndColor = defaultProps?.borderEndColor ?? borderColorHorizontal,
+        borderRadius = defaultProps?.borderRadius,
+        borderRadiusTop = defaultProps?.borderRadiusTop ?? borderRadius, // convenience
+        borderRadiusBottom = defaultProps?.borderRadiusBottom ?? borderRadius, // convenience
+        borderTopStartRadius = defaultProps?.borderTopStartRadius ?? borderRadiusTop,
+        borderTopEndRadius = defaultProps?.borderTopEndRadius ?? borderRadiusTop,
+        borderBottomStartRadius = defaultProps?.borderBottomStartRadius ?? borderRadiusBottom,
+        borderBottomEndRadius = defaultProps?.borderBottomEndRadius ?? borderRadiusBottom,
+        borderWidth = defaultProps?.borderWidth,
+        borderWidthVertical = defaultProps?.borderWidthVertical ?? borderWidth, // convenience
+        borderWidthHorizontal = defaultProps?.borderWidthHorizontal ?? borderWidth, // convenience
+        borderTopWidth = defaultProps?.borderTopWidth ?? borderWidthVertical,
+        borderBottomWidth = defaultProps?.borderBottomWidth ?? borderWidthVertical,
+        borderStartWidth = defaultProps?.borderStartWidth ?? borderWidthHorizontal,
+        borderEndWidth = defaultProps?.borderEndWidth ?? borderWidthHorizontal,
+        display = 'flex',
+        flex = defaultProps?.flex,
+        flexBasis = defaultProps?.flexBasis,
+        flexDirection = defaultProps?.flexDirection,
+        flexGrow = defaultProps?.flexGrow ?? block ? 1 : undefined,
+        flexShrink = defaultProps?.flexShrink,
+        flexWrap = defaultProps?.flexWrap,
+        alignContent = defaultProps?.alignContent,
+        alignItems = defaultProps?.alignItems,
+        alignSelf = defaultProps?.alignSelf,
+        justifyContent = defaultProps?.justifyContent,
+        spacing = defaultProps?.spacing,
+        spacingVertical = defaultProps?.spacingVertical ?? spacing, // convenience
+        spacingHorizontal = defaultProps?.spacingHorizontal ?? spacing, // convenience
+        spacingTop = defaultProps?.spacingTop ?? spacingVertical,
+        spacingBottom = defaultProps?.spacingBottom ?? spacingVertical,
+        spacingStart = defaultProps?.spacingStart ?? spacingHorizontal,
+        spacingEnd = defaultProps?.spacingEnd ?? spacingHorizontal,
+        offset = defaultProps?.offset,
+        offsetVertical = defaultProps?.offsetVertical ?? offset, // convenience
+        offsetHorizontal = defaultProps?.offsetHorizontal ?? offset, // convenience
+        offsetTop = defaultProps?.offsetTop ?? offsetVertical,
+        offsetBottom = defaultProps?.offsetBottom ?? offsetVertical,
+        offsetStart = defaultProps?.offsetStart ?? offsetHorizontal,
+        offsetEnd = defaultProps?.offsetEnd ?? offsetHorizontal,
+        gap = defaultProps?.gap,
+        opacity = defaultProps?.opacity,
+        textAlign = defaultProps?.textAlign,
+        lineHeight = defaultProps?.lineHeight,
+        fontFamily = defaultProps?.fontFamily,
+        fontSize = defaultProps?.fontSize,
+        fontWeight = defaultProps?.fontWeight,
+        height = defaultProps?.height,
+        width = defaultProps?.width,
+        maxHeight = defaultProps?.maxHeight,
+        maxWidth = defaultProps?.maxWidth,
+        minHeight = defaultProps?.minHeight,
+        minWidth = defaultProps?.minWidth,
+        dangerouslySetColor = defaultProps?.dangerouslySetColor,
+        dangerouslySetBackgroundColor = defaultProps?.dangerouslySetBackgroundColor,
+        dangerouslySetBorderColor = defaultProps?.dangerouslySetBorderColor,
+        dangerouslySetBorderColorVertical = defaultProps?.dangerouslySetBorderColorVertical ??
+          dangerouslySetBorderColor,
+        dangerouslySetBorderColorHorizontal = defaultProps?.dangerouslySetBorderColorHorizontal ??
+          dangerouslySetBorderColor,
+        dangerouslySetBorderTopColor = defaultProps?.dangerouslySetBorderTopColor ??
+          dangerouslySetBorderColorVertical,
+        dangerouslySetBorderBottomColor = defaultProps?.dangerouslySetBorderBottomColor ??
+          dangerouslySetBorderColorVertical,
+        dangerouslySetBorderStartColor = defaultProps?.dangerouslySetBorderStartColor ??
+          dangerouslySetBorderColorHorizontal,
+        dangerouslySetBorderEndColor = defaultProps?.dangerouslySetBorderEndColor ??
+          dangerouslySetBorderColorHorizontal,
+        dangerouslySetFontFamily = defaultProps?.dangerouslySetFontFamily,
+        dangerouslySetFontWeight = defaultProps?.dangerouslySetFontWeight,
+        dangerouslySetLineHeight = defaultProps?.dangerouslySetLineHeight,
+        dangerouslySetFontSize = defaultProps?.dangerouslySetFontSize,
+        ...other
+      } = props;
+
+      let style: CSS.Properties<string | number> = {
         display,
         ...styleProp,
       };
@@ -434,6 +468,12 @@ export function createTheme<
         style.marginRight = config.spacing[offsetEnd];
       }
 
+      // if (gap) {
+      //   if (config.platform === 'web') {
+      //     style.gap = config.spacing[gap];
+      //   }
+      // }
+
       if (opacity) {
         style.opacity = opacity;
       }
@@ -498,6 +538,13 @@ export function createTheme<
         style.minWidth = minWidth;
       }
 
+      if (styleParser) {
+        style = {
+          ...style,
+          ...styleParsers[styleParser](props),
+        };
+      }
+
       const a11y = getA11yProps({
         disabled,
         loading,
@@ -519,6 +566,22 @@ export function createTheme<
 
     return MemoizedComponent;
   }
+
+  type SpacerProps = Pick<FlexProps, 'flexGrow' | 'flexShrink' | 'flexBasis'> &
+    Omit<SpacingProps, 'gap'> & {
+      /** Space in the horizontal direction */
+      horizontal?: SpacingToken;
+      /** Space in the vertical direction */
+      vertical?: SpacingToken;
+      /** Max space in the horizontal direction */
+      maxHorizontal?: SpacingToken;
+      /** Max space in the vertical direction */
+      maxVertical?: SpacingToken;
+      /** Min space in the horizontal direction */
+      minHorizontal?: SpacingToken;
+      /** Min space in the vertical direction */
+      minVertical?: SpacingToken;
+    };
 
   return {
     config,
@@ -547,6 +610,7 @@ export function createTheme<
         psuedoState: {} as PsuedoStateProps,
         spacing: {} as SpacingProps,
         typography: {} as TypographyProps,
+        spacer: {} as SpacerProps,
       },
     }),
   };

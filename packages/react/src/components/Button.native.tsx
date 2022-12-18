@@ -5,13 +5,27 @@ import { ThemeableProps } from '../types';
 import { Pressable, PressableProps } from './Pressable.native';
 import { Text, TextProps } from './Text.native';
 
-type ButtonVariant = 'primary' | 'secondary' | 'positive' | 'negative';
+type ButtonVariant =
+  | 'primary'
+  | 'primaryWash'
+  | 'secondary'
+  | 'positive'
+  | 'positiveWash'
+  | 'negative'
+  | 'negativeWash'
+  | 'warning'
+  | 'warningWash';
 type ButtonVariantsConfig = Record<ButtonVariant, ThemeableProps['all']>;
 
 /** @todo move to tokens configuration */
 const variants: ButtonVariantsConfig = {
   primary: {
     color: 'primaryForeground',
+    backgroundColor: 'primary',
+    borderColor: 'transparent',
+  },
+  primaryWash: {
+    color: 'primaryWash',
     backgroundColor: 'primary',
     borderColor: 'transparent',
   },
@@ -25,9 +39,29 @@ const variants: ButtonVariantsConfig = {
     backgroundColor: 'positive',
     borderColor: 'transparent',
   },
+  positiveWash: {
+    color: 'positiveWashForeground',
+    backgroundColor: 'positiveWash',
+    borderColor: 'transparent',
+  },
   negative: {
     color: 'negative',
     backgroundColor: 'background',
+    borderColor: 'line',
+  },
+  negativeWash: {
+    color: 'negativeWashForeground',
+    backgroundColor: 'negativeWash',
+    borderColor: 'line',
+  },
+  warning: {
+    color: 'warningForeground',
+    backgroundColor: 'warning',
+    borderColor: 'line',
+  },
+  warningWash: {
+    color: 'warningWashForeground',
+    backgroundColor: 'warningWash',
     borderColor: 'line',
   },
 };
@@ -75,6 +109,7 @@ export const Button = memo(function Button({
   spacingStart = flush ? FLUSH_SPACING : DEFAULT_SPACING,
   spacingEnd = flush ? FLUSH_SPACING : DEFAULT_SPACING,
   feedback = compact ? 'light' : 'normal',
+  children,
   ...props
 }: ButtonProps) {
   return (
@@ -96,9 +131,13 @@ export const Button = memo(function Button({
       feedback={feedback}
       {...props}
     >
-      <Text variant="headline" textAlign="center" color={variants[variant].color} {..._textProps}>
-        Button
-      </Text>
+      {typeof children === 'string' || children instanceof Text ? (
+        <Text variant="headline" textAlign="center" color={variants[variant].color} {..._textProps}>
+          {children as string}
+        </Text>
+      ) : (
+        children
+      )}
     </Pressable>
   );
 });
