@@ -7,7 +7,7 @@ const lightWashes = {
   positiveWashForeground: 'gray100',
   warningWash: 'yellow5',
   warningWashForeground: 'gray100',
-};
+} as const;
 
 export const light = {
   foreground: 'gray100',
