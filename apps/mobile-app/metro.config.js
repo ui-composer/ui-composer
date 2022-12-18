@@ -1,22 +1,26 @@
 const { withNxMetro } = require('@nrwl/expo');
 const { getDefaultConfig } = require('@expo/metro-config');
-const path = require('path');
+const { withMetroConfig } = require('@ui-composer/react/metro-config');
 
-const defaultConfig = getDefaultConfig(__dirname);
+const expoMetroConfig = getDefaultConfig(__dirname, { mode: 'exotic' });
 
 module.exports = (async () => {
-  defaultConfig.transformer.babelTransformerPath = require.resolve('react-native-svg-transformer');
-  defaultConfig.resolver.assetExts = defaultConfig.resolver.assetExts.filter(ext => ext !== 'svg');
-  defaultConfig.resolver.sourceExts.push('svg');
-  return withNxMetro(defaultConfig, {
+  expoMetroConfig.transformer.babelTransformerPath = require.resolve(
+    'react-native-svg-transformer'
+  );
+  expoMetroConfig.resolver.assetExts = expoMetroConfig.resolver.assetExts.filter(
+    ext => ext !== 'svg'
+  );
+  expoMetroConfig.resolver.sourceExts.push('svg');
+  expoMetroConfig.resolver.resolverMainFields.unshift('react-native');
+
+  const nxMetroConfig = withNxMetro(expoMetroConfig, {
     // Change this to true to see debugging info.
     // Useful if you have issues resolving modules
     debug: false,
-    // all the file extensions used for imports other than 'ts', 'tsx', 'js', 'jsx'
-    extensions: [],
     // the project root to start the metro server
     projectRoot: __dirname,
-    // Specify any additional (to projectRoot) watch folders, this is used to know which files to watch
-    watchFolders: [path.resolve(__dirname, '../../packages')],
   });
+
+  return withMetroConfig(nxMetroConfig);
 })();

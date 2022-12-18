@@ -23,6 +23,9 @@
       "path": "packages/react"
     },
     {
+      "path": "packages/style-plugin"
+    },
+    {
       "path": "packages/theme"
     }
   ]

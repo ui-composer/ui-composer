@@ -13,12 +13,12 @@
   "source": "src",
   "types": "./dts/index.d.ts",
   "main": "./lib/index.js",
+  "react-native": "./lib/index.native.js",
   "exports": {
     "./package.json": "./package.json",
     ".": {
       "types": "./dts/index.d.ts",
-      "browser": "./lib/index.js",
-      "react-native": "./lib/index.native.js",
+      "react-native": "./lib/index.js",
       "default": "./lib/index.js"
     },
     "./native": {
@@ -39,7 +39,6 @@
   "devDependencies": {
     "@types/react": "18.0.26",
     "@types/react-dom": "18.0.9",
-    "@types/react-native": "0.70.8",
     "@ui-composer/eslint-config": "workspace:*",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -48,16 +47,12 @@
   "peerDependencies": {
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
-    "@types/react-native": "^0.69.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-native": "^0.69.1"
+    "react-native": "^0.70.6"
   },
   "peerDependenciesMeta": {
     "@types/react-dom": {
-      "optional": true
-    },
-    "@types/react-native": {
       "optional": true
     },
     "react-dom": {
