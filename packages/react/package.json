@@ -7,60 +7,53 @@
   "packemon": [
     {
       "bundle": false,
-      "platform": [
-        "native",
-        "browser"
-      ]
+      "platform": "native"
     }
   ],
-  "module": "./esm/index.js",
-  "browser": "./lib/browser/index.js",
+  "source": "src",
+  "types": "./dts/index.d.ts",
+  "main": "./lib/index.js",
+  "react-native": "./lib/index.native.js",
   "exports": {
     "./package.json": "./package.json",
     ".": {
       "types": "./dts/index.d.ts",
-      "browser": {
-        "module": "./esm/index.js",
-        "import": "./esm/index.js",
-        "default": "./lib/browser/index.js"
-      },
-      "react-native": "./lib/native/index.js",
-      "default": "./lib/browser/index.js"
-    }
+      "react-native": "./lib/index.js",
+      "default": "./lib/index.js"
+    },
+    "./native": {
+      "types": "./dts/index.native.d.ts",
+      "default": "./lib/index.native.js"
+    },
+    "./metro-config": "./metro-config.js"
   },
   "files": [
     "dts/**/*.d.ts",
-    "esm/**/*.{js,map}",
     "lib/**/*.{js,map}",
     "src/**/*.{ts,tsx,json}"
   ],
   "dependencies": {
-    "@types/lodash": "^4.14.182",
+    "@types/lodash": "^4.14.191",
     "@ui-composer/theme": "workspace:^",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@types/react": "18.0.20",
-    "@types/react-dom": "18.0.8",
-    "@types/react-native": "0.69.8",
+    "@types/react": "18.0.26",
+    "@types/react-dom": "18.0.9",
     "@ui-composer/eslint-config": "workspace:*",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-native": "0.69.6"
+    "react-native": "0.70.6"
   },
   "peerDependencies": {
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
-    "@types/react-native": "^0.69.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-native": "^0.69.1"
+    "react-native": "^0.70.6"
   },
   "peerDependenciesMeta": {
     "@types/react-dom": {
-      "optional": true
-    },
-    "@types/react-native": {
       "optional": true
     },
     "react-dom": {
@@ -80,7 +73,5 @@
     "type": "git",
     "url": "https://github.com/ui-composer/ui-composer",
     "directory": "packages/react"
-  },
-  "types": "./dts/index.d.ts",
-  "main": "./lib/native/index.js"
+  }
 }

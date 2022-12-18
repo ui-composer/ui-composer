@@ -1,9 +1,9 @@
 import { createTheme } from '@ui-composer/theme';
 
-import { light as colors } from './tokens/color-tokens';
-import { icon } from './tokens/icon-tokens';
-import { light as palette } from './tokens/palette-tokens';
-import { typography } from './tokens/typography-tokens';
+import { light as colors } from './tokens/color';
+import { icon } from './tokens/icon';
+import { light as palette } from './tokens/palette';
+import { typography } from './tokens/typography';
 
 const borderRadius = {
   roundedNone: 0,

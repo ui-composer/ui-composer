@@ -142,11 +142,11 @@ export function createTheme<
 
   const palette = createPalette(config);
 
-  function processProps<
+  function compose<
     T extends ComposerComponent,
     Props extends Merge<ThemeableProps, React.ComponentProps<T>>
-  >(props: Props, defaultProps?: Props) {
-    const {
+  >(Component: T, defaultProps?: Props) {
+    function EnhancedComponent({
       pressed = defaultProps?.pressed,
       loading = defaultProps?.loading,
       disabled = defaultProps?.disabled,
@@ -232,309 +232,296 @@ export function createTheme<
       dangerouslySetLineHeight = defaultProps?.dangerouslySetLineHeight,
       dangerouslySetFontSize = defaultProps?.dangerouslySetFontSize,
       ...other
-    } = props;
-    const style: CSS.Properties<string | number> = {
-      display,
-      ...styleProp,
-    };
-
-    if (backgroundColor) {
-      style.backgroundColor = palette.rgbaStrings[backgroundColor];
-    }
-
-    if (dangerouslySetBackgroundColor) {
-      style.backgroundColor = dangerouslySetBackgroundColor;
-    }
-
-    if (pressed && backgroundColor) {
-      style.backgroundColor = palette.pseudoStyles[backgroundColor].pressed.backgroundColor;
-    }
-
-    if (disabled && backgroundColor) {
-      style.backgroundColor = palette.pseudoStyles[backgroundColor].disabled.backgroundColor;
-    }
-
-    if (loading && backgroundColor) {
-      style.backgroundColor = palette.pseudoStyles[backgroundColor].disabled.backgroundColor;
-    }
-
-    if (color) {
-      style.color = palette.rgbaStrings[color];
-    }
-
-    if (dangerouslySetColor) {
-      style.color = dangerouslySetColor;
-    }
-
-    if (borderStartColor) {
-      /** @todo figure out web version of RN's borderStartColor  */
-      style.borderLeftColor = palette.rgbaStrings[borderStartColor];
-    }
-
-    if (dangerouslySetBorderStartColor) {
-      /** @todo figure out web version of RN's borderStartColor  */
-      style.borderLeftColor = dangerouslySetBorderStartColor;
-    }
-
-    if (borderEndColor) {
-      /** @todo figure out web version of RN's borderEndColor  */
-      style.borderRightColor = palette.rgbaStrings[borderEndColor];
-    }
-
-    if (dangerouslySetBorderEndColor) {
-      /** @todo figure out web version of RN's borderEndColor  */
-      style.borderRightColor = dangerouslySetBorderEndColor;
-    }
-
-    if (borderTopColor) {
-      style.borderTopColor = palette.rgbaStrings[borderTopColor];
-    }
-
-    if (dangerouslySetBorderTopColor) {
-      style.borderTopColor = dangerouslySetBorderTopColor;
-    }
-
-    if (borderBottomColor) {
-      style.borderBottomColor = palette.rgbaStrings[borderBottomColor];
-    }
-
-    if (dangerouslySetBorderBottomColor) {
-      style.borderBottomColor = dangerouslySetBorderBottomColor;
-    }
-
-    if (borderBottomStartRadius) {
-      /** @todo figure out web version of RN's borderBottomStartRadius  */
-      style.borderBottomLeftRadius = config.borderRadius[borderBottomStartRadius];
-    }
-
-    if (borderBottomEndRadius) {
-      /** @todo figure out web version of RN's borderBottomEndRadius  */
-      style.borderBottomRightRadius = config.borderRadius[borderBottomEndRadius];
-    }
-
-    if (borderTopWidth) {
-      style.borderTopWidth = config.borderWidth
-        ? config.borderWidth[borderTopWidth]
-        : borderTopWidth;
-    }
-
-    if (borderBottomWidth) {
-      style.borderBottomWidth = config.borderWidth
-        ? config.borderWidth[borderBottomWidth]
-        : borderBottomWidth;
-    }
-
-    if (borderStartWidth) {
-      /** @todo figure out web version of RN's borderStartWidth  */
-      style.borderLeftWidth = config.borderWidth
-        ? config.borderWidth[borderStartWidth]
-        : borderStartWidth;
-    }
-
-    if (borderEndWidth) {
-      /** @todo figure out web version of RN's borderEndWidth  */
-      style.borderRightWidth = config.borderWidth
-        ? config.borderWidth[borderEndWidth]
-        : borderEndWidth;
-    }
-
-    if (borderTopStartRadius) {
-      /** @todo figure out web version of RN's borderTopStartRadius  */
-      style.borderTopLeftRadius = config.borderRadius[borderTopStartRadius];
-    }
-
-    if (borderTopEndRadius) {
-      /** @todo figure out web version of RN's borderTopEndRadius  */
-      style.borderTopRightRadius = config.borderRadius[borderTopEndRadius];
-    }
-
-    if (borderBottomStartRadius) {
-      /** @todo figure out web version of RN's borderBottomStartRadius  */
-      style.borderBottomLeftRadius = config.borderRadius[borderBottomStartRadius];
-    }
-
-    if (borderBottomEndRadius) {
-      /** @todo figure out web version of RN's borderBottomEndRadius  */
-      style.borderBottomRightRadius = config.borderRadius[borderBottomEndRadius];
-    }
-
-    if (flex) {
-      style.flex = flex;
-    }
-
-    if (flexBasis) {
-      style.flexBasis = flexBasis;
-    }
-
-    if (flexDirection) {
-      style.flexDirection = flexDirection;
-    }
-
-    if (flexGrow) {
-      style.flexGrow = flexGrow;
-    }
-
-    if (flexShrink) {
-      style.flexShrink = flexShrink;
-    }
-
-    if (flexWrap) {
-      style.flexWrap = flexWrap;
-    }
-
-    if (alignContent) {
-      style.alignContent = alignContent;
-    }
-
-    if (alignItems) {
-      style.alignItems = alignItems;
-    }
-
-    if (alignSelf) {
-      style.alignSelf = alignSelf;
-    }
-
-    if (justifyContent) {
-      style.justifyContent = justifyContent;
-    }
-
-    if (spacingTop) {
-      style.paddingTop = config.spacing[spacingTop];
-    }
-
-    if (spacingBottom) {
-      style.paddingBottom = config.spacing[spacingBottom];
-    }
-
-    if (spacingStart) {
-      /** @todo figure out web version of RN's paddingStart  */
-      style.paddingLeft = config.spacing[spacingStart];
-    }
-
-    if (spacingEnd) {
-      /** @todo figure out web version of RN's paddingEnd  */
-      style.paddingRight = config.spacing[spacingEnd];
-    }
-
-    if (offsetTop) {
-      style.marginTop = config.spacing[offsetTop];
-    }
-
-    if (offsetBottom) {
-      style.marginBottom = config.spacing[offsetBottom];
-    }
-
-    if (offsetStart) {
-      /** @todo figure out web version of RN's paddingEnd  */
-      style.marginLeft = config.spacing[offsetStart];
-    }
-
-    if (offsetEnd) {
-      /** @todo figure out web version of RN's paddingEnd  */
-      style.marginRight = config.spacing[offsetEnd];
-    }
-
-    if (opacity) {
-      style.opacity = opacity;
-    }
-
-    if (textAlign) {
-      style.textAlign = textAlign;
-    }
-
-    if (fontFamily) {
-      style.fontFamily = fontFamily;
-    }
-
-    if (dangerouslySetFontFamily) {
-      style.fontFamily = dangerouslySetFontFamily;
-    }
-
-    if (fontWeight) {
-      style.fontWeight = fontWeight;
-    }
-
-    if (dangerouslySetFontWeight) {
-      style.fontWeight = dangerouslySetFontWeight;
-    }
-
-    if (lineHeight) {
-      style.lineHeight = lineHeight;
-    }
-
-    if (dangerouslySetLineHeight) {
-      style.lineHeight = dangerouslySetLineHeight;
-    }
-
-    if (fontSize) {
-      style.fontSize = fontSize;
-    }
-
-    if (dangerouslySetFontSize) {
-      style.fontSize = dangerouslySetFontSize;
-    }
-
-    if (height) {
-      style.height = height;
-    }
-
-    if (width) {
-      style.width = width;
-    }
-
-    if (maxHeight) {
-      style.maxHeight = maxHeight;
-    }
-
-    if (maxWidth) {
-      style.maxWidth = maxWidth;
-    }
-
-    if (minHeight) {
-      style.minHeight = minHeight;
-    }
-
-    if (minWidth) {
-      style.minWidth = minWidth;
-    }
-
-    const a11y = getA11yProps({
-      disabled,
-      loading,
-    });
-
-    const nativeProps = { ...a11y, ...other };
-
-    return {
-      style,
-      nativeProps,
-    };
-  }
-
-  function compose<
-    T extends ComposerComponent,
-    Props extends Merge<ThemeableProps, React.ComponentProps<T>>
-  >(Component: T, defaultProps?: Props) {
-    function EnhancedComponent(props: Props) {
-      const { style, nativeProps } = processProps(props, defaultProps);
-
-      /** This is a Web HTML element */
-      if (typeof Component === 'string') {
-        return createElement(Component, {
-          style,
-          ...nativeProps,
-        });
+    }: Props) {
+      const style: CSS.Properties<string | number> = {
+        display,
+        ...styleProp,
+      };
+
+      if (backgroundColor) {
+        style.backgroundColor = palette.rgbaStrings[backgroundColor];
       }
-      // @ts-expect-error This is fine
-      return <Component style={style} {...nativeProps} />;
+
+      if (dangerouslySetBackgroundColor) {
+        style.backgroundColor = dangerouslySetBackgroundColor;
+      }
+
+      if (pressed && backgroundColor) {
+        style.backgroundColor = palette.pseudoStyles[backgroundColor].pressed.backgroundColor;
+      }
+
+      if (disabled && backgroundColor) {
+        style.backgroundColor = palette.pseudoStyles[backgroundColor].disabled.backgroundColor;
+      }
+
+      if (loading && backgroundColor) {
+        style.backgroundColor = palette.pseudoStyles[backgroundColor].disabled.backgroundColor;
+      }
+
+      if (color) {
+        style.color = palette.rgbaStrings[color];
+      }
+
+      if (dangerouslySetColor) {
+        style.color = dangerouslySetColor;
+      }
+
+      if (borderStartColor) {
+        /** @todo figure out web version of RN's borderStartColor  */
+        style.borderLeftColor = palette.rgbaStrings[borderStartColor];
+      }
+
+      if (dangerouslySetBorderStartColor) {
+        /** @todo figure out web version of RN's borderStartColor  */
+        style.borderLeftColor = dangerouslySetBorderStartColor;
+      }
+
+      if (borderEndColor) {
+        /** @todo figure out web version of RN's borderEndColor  */
+        style.borderRightColor = palette.rgbaStrings[borderEndColor];
+      }
+
+      if (dangerouslySetBorderEndColor) {
+        /** @todo figure out web version of RN's borderEndColor  */
+        style.borderRightColor = dangerouslySetBorderEndColor;
+      }
+
+      if (borderTopColor) {
+        style.borderTopColor = palette.rgbaStrings[borderTopColor];
+      }
+
+      if (dangerouslySetBorderTopColor) {
+        style.borderTopColor = dangerouslySetBorderTopColor;
+      }
+
+      if (borderBottomColor) {
+        style.borderBottomColor = palette.rgbaStrings[borderBottomColor];
+      }
+
+      if (dangerouslySetBorderBottomColor) {
+        style.borderBottomColor = dangerouslySetBorderBottomColor;
+      }
+
+      if (borderBottomStartRadius) {
+        /** @todo figure out web version of RN's borderBottomStartRadius  */
+        style.borderBottomLeftRadius = config.borderRadius[borderBottomStartRadius];
+      }
+
+      if (borderBottomEndRadius) {
+        /** @todo figure out web version of RN's borderBottomEndRadius  */
+        style.borderBottomRightRadius = config.borderRadius[borderBottomEndRadius];
+      }
+
+      if (borderTopWidth) {
+        style.borderTopWidth = config.borderWidth
+          ? config.borderWidth[borderTopWidth]
+          : borderTopWidth;
+      }
+
+      if (borderBottomWidth) {
+        style.borderBottomWidth = config.borderWidth
+          ? config.borderWidth[borderBottomWidth]
+          : borderBottomWidth;
+      }
+
+      if (borderStartWidth) {
+        /** @todo figure out web version of RN's borderStartWidth  */
+        style.borderLeftWidth = config.borderWidth
+          ? config.borderWidth[borderStartWidth]
+          : borderStartWidth;
+      }
+
+      if (borderEndWidth) {
+        /** @todo figure out web version of RN's borderEndWidth  */
+        style.borderRightWidth = config.borderWidth
+          ? config.borderWidth[borderEndWidth]
+          : borderEndWidth;
+      }
+
+      if (borderTopStartRadius) {
+        /** @todo figure out web version of RN's borderTopStartRadius  */
+        style.borderTopLeftRadius = config.borderRadius[borderTopStartRadius];
+      }
+
+      if (borderTopEndRadius) {
+        /** @todo figure out web version of RN's borderTopEndRadius  */
+        style.borderTopRightRadius = config.borderRadius[borderTopEndRadius];
+      }
+
+      if (borderBottomStartRadius) {
+        /** @todo figure out web version of RN's borderBottomStartRadius  */
+        style.borderBottomLeftRadius = config.borderRadius[borderBottomStartRadius];
+      }
+
+      if (borderBottomEndRadius) {
+        /** @todo figure out web version of RN's borderBottomEndRadius  */
+        style.borderBottomRightRadius = config.borderRadius[borderBottomEndRadius];
+      }
+
+      if (flex) {
+        style.flex = flex;
+      }
+
+      if (flexBasis) {
+        style.flexBasis = flexBasis;
+      }
+
+      if (flexDirection) {
+        style.flexDirection = flexDirection;
+      }
+
+      if (flexGrow) {
+        style.flexGrow = flexGrow;
+      }
+
+      if (flexShrink) {
+        style.flexShrink = flexShrink;
+      }
+
+      if (flexWrap) {
+        style.flexWrap = flexWrap;
+      }
+
+      if (alignContent) {
+        style.alignContent = alignContent;
+      }
+
+      if (alignItems) {
+        style.alignItems = alignItems;
+      }
+
+      if (alignSelf) {
+        style.alignSelf = alignSelf;
+      }
+
+      if (justifyContent) {
+        style.justifyContent = justifyContent;
+      }
+
+      if (spacingTop) {
+        style.paddingTop = config.spacing[spacingTop];
+      }
+
+      if (spacingBottom) {
+        style.paddingBottom = config.spacing[spacingBottom];
+      }
+
+      if (spacingStart) {
+        /** @todo figure out web version of RN's paddingStart  */
+        style.paddingLeft = config.spacing[spacingStart];
+      }
+
+      if (spacingEnd) {
+        /** @todo figure out web version of RN's paddingEnd  */
+        style.paddingRight = config.spacing[spacingEnd];
+      }
+
+      if (offsetTop) {
+        style.marginTop = config.spacing[offsetTop];
+      }
+
+      if (offsetBottom) {
+        style.marginBottom = config.spacing[offsetBottom];
+      }
+
+      if (offsetStart) {
+        /** @todo figure out web version of RN's paddingEnd  */
+        style.marginLeft = config.spacing[offsetStart];
+      }
+
+      if (offsetEnd) {
+        /** @todo figure out web version of RN's paddingEnd  */
+        style.marginRight = config.spacing[offsetEnd];
+      }
+
+      if (opacity) {
+        style.opacity = opacity;
+      }
+
+      if (textAlign) {
+        style.textAlign = textAlign;
+      }
+
+      if (fontFamily) {
+        style.fontFamily = fontFamily;
+      }
+
+      if (dangerouslySetFontFamily) {
+        style.fontFamily = dangerouslySetFontFamily;
+      }
+
+      if (fontWeight) {
+        style.fontWeight = fontWeight;
+      }
+
+      if (dangerouslySetFontWeight) {
+        style.fontWeight = dangerouslySetFontWeight;
+      }
+
+      if (lineHeight) {
+        style.lineHeight = lineHeight;
+      }
+
+      if (dangerouslySetLineHeight) {
+        style.lineHeight = dangerouslySetLineHeight;
+      }
+
+      if (fontSize) {
+        style.fontSize = fontSize;
+      }
+
+      if (dangerouslySetFontSize) {
+        style.fontSize = dangerouslySetFontSize;
+      }
+
+      if (height) {
+        style.height = height;
+      }
+
+      if (width) {
+        style.width = width;
+      }
+
+      if (maxHeight) {
+        style.maxHeight = maxHeight;
+      }
+
+      if (maxWidth) {
+        style.maxWidth = maxWidth;
+      }
+
+      if (minHeight) {
+        style.minHeight = minHeight;
+      }
+
+      if (minWidth) {
+        style.minWidth = minWidth;
+      }
+
+      const a11y = getA11yProps({
+        disabled,
+        loading,
+      });
+
+      const nativeProps = { ...a11y, ...other };
+
+      return createElement(Component, {
+        style,
+        ...nativeProps,
+      });
     }
 
-    return memo(EnhancedComponent);
+    const MemoizedComponent = memo(EnhancedComponent);
+
+    MemoizedComponent.displayName = `Enhanced${
+      typeof Component === 'string' ? Component : Component?.displayName
+    }`;
+
+    return MemoizedComponent;
   }
 
   return {
     config,
-    processProps,
     compose,
     palette,
     types: Object.freeze({

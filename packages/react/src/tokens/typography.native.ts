@@ -1,6 +1,6 @@
 import type { TypographyConfig } from '@ui-composer/theme';
 
-import { typographyShared } from './typography-tokens-shared';
+import { typographyShared } from './typography-shared';
 
 function transformVariants(variants: TypographyConfig['variants']) {
   const fontWeightMap = {
