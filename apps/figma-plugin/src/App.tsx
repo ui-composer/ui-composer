@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
 
-import { HStack } from '@ui-composer/react';
-
 import { init, postMessage } from './events/events-ui';
 
 function App() {
@@ -12,7 +10,7 @@ function App() {
 
   return (
     <div className="App">
-      <HStack>
+      <div>
         <h1>Hello</h1>
         <button
           onClick={() => {
@@ -21,7 +19,7 @@ function App() {
         >
           Close
         </button>
-      </HStack>
+      </div>
     </div>
   );
 }
