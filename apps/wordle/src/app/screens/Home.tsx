@@ -7,10 +7,8 @@ const Home = memo((props: VStackProps) => {
   return (
     <ScrollView>
       <VStack alignItems="center" flexGrow={1} justifyContent="center" {...props}>
-        <Button variant="primary">Primary</Button>
-        <Button variant="secondary">Secondary</Button>
-        <Button variant="positive">Positive</Button>
-        <Button variant="negative">Negative</Button>
+        <Button variant="primary">Multi player</Button>
+        <Button variant="secondary">Single player</Button>
       </VStack>
     </ScrollView>
   );

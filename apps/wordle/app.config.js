@@ -5,6 +5,7 @@ module.exports = {
     name: 'Wordle Remix',
     slug: 'wordle-remix',
     owner: 'remix-labs',
+    scheme: 'wordle-remix',
     version: '1.0.0',
     orientation: 'portrait',
     icon: './assets/icon.png',
@@ -19,19 +20,19 @@ module.exports = {
     assetBundlePatterns: ['**/*'],
     ios: {
       supportsTablet: true,
-      bundleIdentifier: 'com.remix-labs.wordle',
+      bundleIdentifier: 'com.remix-labs.wordle-remix',
     },
     android: {
       adaptiveIcon: {
         foregroundImage: './assets/adaptive-icon.png',
         backgroundColor: '#FFFFFF',
       },
-      package: 'com.remix-labs.wordle',
+      package: 'com.remix_labs.wordle_remix',
     },
     extra: {
       env,
       eas: {
-        projectId: 'd44d4c7b-45b1-4358-b314-5733974cd5e8',
+        projectId: '45afecc1-c4e7-4743-b15d-e26a298e74c5',
       },
     },
   },
