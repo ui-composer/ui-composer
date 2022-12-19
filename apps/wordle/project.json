@@ -5,36 +5,47 @@
   "projectType": "application",
   "targets": {
     "start": {
-      "executor": "@nrwl/expo:start",
+      "executor": "nx:run-commands",
       "dependsOn": ["^build"],
       "options": {
-        "port": 8081
-      }
-    },
-    "serve": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "nx start wordle"
+        "cwd": "apps/wordle",
+        "command": "expo start --dev-client"
       }
     },
     "run-ios": {
-      "executor": "@nrwl/expo:run",
+      "executor": "nx:run-commands",
       "dependsOn": ["^build"],
       "options": {
-        "platform": "ios"
+        "cwd": "apps/wordle",
+        "command": "expo run:ios --configuration Release"
       }
     },
     "run-android": {
-      "executor": "@nrwl/expo:run",
+      "executor": "nx:run-commands",
       "dependsOn": ["^build"],
       "options": {
-        "platform": "android"
+        "cwd": "apps/wordle",
+        "command": "expo run:android --configuration Release"
       }
     },
     "build-eas": {
-      "executor": "@nrwl/expo:build",
+      "executor": "nx:run-commands",
       "dependsOn": ["^build"],
-      "options": {}
+      "options": {
+        "cwd": "apps/wordle",
+        "command": "eas build --profile development"
+      },
+      "configurations": {
+        "all": {
+          "command": "--platform all"
+        },
+        "android": {
+          "command": "--platform android"
+        },
+        "ios": {
+          "command": "--platform ios"
+        }
+      }
     },
     "build-list": {
       "executor": "@nrwl/expo:build-list",
@@ -44,51 +55,6 @@
       "executor": "@nrwl/expo:download",
       "options": {
         "output": "apps/wordle/dist"
-      }
-    },
-    "build-ios": {
-      "executor": "@nrwl/expo:build-ios",
-      "dependsOn": ["^build"],
-      "options": {}
-    },
-    "build-android": {
-      "executor": "@nrwl/expo:build-android",
-      "dependsOn": ["^build"],
-      "options": {}
-    },
-    "build-status": {
-      "executor": "@nrwl/expo:build-status",
-      "options": {}
-    },
-    "sync-deps": {
-      "executor": "@nrwl/expo:sync-deps",
-      "options": {}
-    },
-    "ensure-symlink": {
-      "executor": "@nrwl/expo:ensure-symlink",
-      "options": {}
-    },
-    "publish": {
-      "executor": "@nrwl/expo:publish",
-      "options": {}
-    },
-    "publish-set": {
-      "executor": "@nrwl/expo:publish-set",
-      "options": {}
-    },
-    "rollback": {
-      "executor": "@nrwl/expo:rollback",
-      "options": {}
-    },
-    "prebuild": {
-      "executor": "@nrwl/expo:prebuild",
-      "dependsOn": ["^build"],
-      "options": {}
-    },
-    "eject": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "nx prebuild wordle"
       }
     },
     "install": {

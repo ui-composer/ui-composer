@@ -1,4 +1,11 @@
-import { env } from 'wordle-server';
+const env = {
+  secretKey: process.env.WORDLE_AUTH_SECRET,
+  serverHostname: process.env.WORDLE_SERVER_HOSTNAME,
+  serverPort: process.env.WORDLE_SERVER_PORT,
+  get serverUrl() {
+    return `${this.serverHostname}:${this.serverPort}`;
+  },
+};
 
 module.exports = {
   expo: {

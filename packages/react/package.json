@@ -35,7 +35,8 @@
   "dependencies": {
     "@types/lodash": "^4.14.191",
     "@ui-composer/theme": "workspace:^",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "metro-resolver": "0.73.6"
   },
   "devDependencies": {
     "@types/react": "18.0.26",

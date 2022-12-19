@@ -77,6 +77,3 @@ npm-debug.*
 web-build/
 ios
 android
-
-
-apps/mobile-app-e2e/artifacts

@@ -6,11 +6,7 @@
     "node": "16.18.1"
   },
   "dependencies": {
-    "@expo/metro-config": "0.5.1",
-    "@nrwl/expo": "15.3.3",
     "@react-native-async-storage/async-storage": "~1.17.3",
-    "@testing-library/jest-native": "5.3.3",
-    "@testing-library/react-native": "11.5.0",
     "@ui-composer/react": "workspace:*",
     "expo": "~47.0.8",
     "expo-constants": "~14.0.2",
@@ -23,10 +19,10 @@
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-native": "0.70.5",
-    "react-native-svg": "13.6.0",
+    "react-native-bundle-visualizer": "^3.1.1",
+    "react-native-svg": "13.4.0",
     "react-native-web": "~0.18.10",
-    "socket.io-client": "^4.5.4",
-    "wordle-server": "workspace:*"
+    "socket.io-client": "^4.5.4"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
@@ -35,9 +31,10 @@
     "react-native-bundle-visualizer": "^3.1.1"
   },
   "scripts": {
-    "eas-build-pre-install": "cd ../../ && cp yarn.lock ./apps/wordle/",
     "start": "expo start --dev-client",
+    "deploy-ios": "eas build --profile development --platform ios",
+    "deploy-ios-production": "eas build --profile production --platform ios",
     "android": "expo run:android",
-    "ios": "expo run:ios"
+    "ios": "expo run:ios --configuration Release"
   }
 }

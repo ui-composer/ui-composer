@@ -12,6 +12,7 @@
       "distribution": "internal"
     },
     "development-simulator": {
+      "node": "16.18.1",
       "developmentClient": true,
       "distribution": "internal",
       "ios": {
@@ -20,13 +21,7 @@
     },
     "preview": {
       "node": "16.18.1",
-      "distribution": "internal",
-      "ios": {
-        "simulator": true
-      },
-      "android": {
-        "buildType": "apk"
-      }
+      "distribution": "internal"
     }
   },
   "submit": {

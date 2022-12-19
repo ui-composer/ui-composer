@@ -4,7 +4,6 @@
     "cli": "packages/cli",
     "eslint": "packages/eslint",
     "figma-plugin": "apps/figma-plugin",
-    "mobile-app": "apps/mobile-app",
     "palette": "packages/palette",
     "react": "packages/react",
     "style-plugin": "packages/style-plugin",

@@ -1,11 +1,12 @@
 import ExpoConstants from 'expo-constants';
-import { EnvVars } from 'wordle-server';
 
 type OriginalConstantsType = typeof ExpoConstants;
 type OriginalExpoConfigType = Omit<NonNullable<OriginalConstantsType['expoConfig']>, 'extra'>;
 type ExtraType = {
   extra: {
-    env: EnvVars;
+    env: {
+      serverUrl: string;
+    };
   };
 };
 type ExpoConfigType = OriginalExpoConfigType & ExtraType;
