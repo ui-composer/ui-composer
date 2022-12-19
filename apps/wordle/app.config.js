@@ -2,9 +2,9 @@ import { env } from 'wordle-server';
 
 module.exports = {
   expo: {
-    name: 'Wordle',
-    slug: 'wordle',
-    owner: 'mombo-mobile',
+    name: 'Wordle Remix',
+    slug: 'wordle-remix',
+    owner: 'remix-labs',
     version: '1.0.0',
     orientation: 'portrait',
     icon: './assets/icon.png',
@@ -19,14 +19,14 @@ module.exports = {
     assetBundlePatterns: ['**/*'],
     ios: {
       supportsTablet: true,
-      bundleIdentifier: 'com.mombo.wordle',
+      bundleIdentifier: 'com.remix-labs.wordle',
     },
     android: {
       adaptiveIcon: {
         foregroundImage: './assets/adaptive-icon.png',
         backgroundColor: '#FFFFFF',
       },
-      package: 'com.mombo.wordle',
+      package: 'com.remix-labs.wordle',
     },
     extra: {
       env,
