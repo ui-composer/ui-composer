@@ -1,0 +1,39 @@
+{
+  "root": "apps/wordle-server",
+  "sourceRoot": "apps/wordle-server/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "outputs": ["{projectRoot}/lib", "{projectRoot}/dts"],
+      "options": {
+        "cwd": "apps/wordle-server",
+        "commands": ["packemon build --addFiles --addEngines --addExports --declaration"]
+      },
+      "dependsOn": ["^build"]
+    },
+    "release": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/wordle-server",
+        "commands": ["yarn version $npm_package_version --no-git-tag-version"]
+      }
+    },
+    "watch": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/wordle-server",
+        "commands": ["packemon watch", "nodemon lib/server.js"]
+      },
+      "dependsOn": ["build"]
+    },
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/wordle-server",
+        "command": "pm2 start lib/server.js --name wordle-server"
+      },
+      "dependsOn": ["build"]
+    }
+  }
+}

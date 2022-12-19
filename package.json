@@ -102,5 +102,9 @@
     "@nrwl/js": {
       "analyzeSourceFiles": false
     }
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20",
+    "pm2": "^5.2.2"
   }
 }

@@ -15,6 +15,9 @@
   ],
   "references": [
     {
+      "path": "../wordle-server"
+    },
+    {
       "path": "../../packages/react"
     }
   ]

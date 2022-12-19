@@ -1,0 +1,50 @@
+{
+  "name": "wordle-server",
+  "version": "0.0.1",
+  "packemon": {
+    "platform": "node",
+    "format": "lib"
+  },
+  "author": "Katherine Martinez <kmartinezmedia@gmail.com>",
+  "homepage": "https://github.com/ui-composer/ui-composer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ui-composer/ui-composer/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ui-composer/ui-composer",
+    "directory": "apps/wordle-server"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "socket.io": "^4.5.4"
+  },
+  "devDependencies": {
+    "@types/cors": "^2"
+  },
+  "types": "./dts/index.d.ts",
+  "main": "./lib/index.js",
+  "engines": {
+    "node": ">=14.15.0",
+    "npm": ">=6.14.0"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    "./*": {
+      "types": "./dts/*.d.ts",
+      "node": "./lib/*.js",
+      "default": "./lib/*.js"
+    },
+    ".": {
+      "types": "./dts/index.d.ts",
+      "node": "./lib/index.js",
+      "default": "./lib/index.js"
+    }
+  },
+  "files": [
+    "dts/**/*.d.ts",
+    "lib/**/*.{js,map}",
+    "src/**/*.{ts,tsx,json}"
+  ]
+}

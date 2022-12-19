@@ -1,4 +1,12 @@
-import React, { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, {
+  memo,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { TextInput } from 'react-native';
 
 import {
@@ -16,6 +24,7 @@ import {
 import level1Words from '../data/level1-words';
 import level2Words from '../data/level2-words';
 import level3Words from '../data/level3-words';
+import socket from '../utils/socket';
 
 // const numberOfTrys = 6;
 const wordLength = 5;
@@ -246,6 +255,13 @@ const Game = memo((props: VStackProps) => {
       };
     });
   }, []);
+
+  useLayoutEffect(() => {
+    const start = Date.now();
+    socket.emit('ping', () => {
+      console.log(`pong (latency: ${Date.now() - start} ms)`);
+    });
+  }, [socket]);
 
   return (
     <VStack

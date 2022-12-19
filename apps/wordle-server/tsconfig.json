@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.composite",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dts"
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "lib", "dts"],
+  "references": []
+}

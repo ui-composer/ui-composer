@@ -1,5 +1,5 @@
-import React, { useCallback, useRef } from 'react';
-import { SafeAreaView, ScrollView, Text } from 'react-native';
+import React, { useCallback } from 'react';
+import { SafeAreaView } from 'react-native';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
@@ -7,7 +7,6 @@ import { StatusBar } from 'expo-status-bar';
 import Game from './screens/Game';
 
 function App() {
-  const scrollViewRef = useRef<null | ScrollView>(null);
   const [fontsLoaded] = useFonts({
     'Sofia-Regular': require('./fonts/SofiaProRegular.otf'),
     'Sofia-Medium': require('./fonts/SofiaProMedium.otf'),
