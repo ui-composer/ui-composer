@@ -2,6 +2,9 @@
   "name": "wordle",
   "version": "0.0.1",
   "private": true,
+  "engines": {
+    "node": "16.18.1"
+  },
   "dependencies": {
     "@expo/metro-config": "0.5.1",
     "@nrwl/expo": "15.3.3",
@@ -9,27 +12,27 @@
     "@testing-library/jest-native": "5.3.3",
     "@testing-library/react-native": "11.5.0",
     "@ui-composer/react": "workspace:*",
-    "eas-cli": "3.1.0",
     "expo": "~47.0.8",
     "expo-constants": "~14.0.2",
+    "expo-dev-client": "~2.0.1",
     "expo-font": "~11.0.1",
     "expo-splash-screen": "~0.17.5",
     "expo-status-bar": "~1.4.2",
     "expo-system-ui": "~2.0.1",
     "lodash": "^4.17.21",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-native": "0.70.6",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "react-native": "0.70.5",
     "react-native-svg": "13.6.0",
     "react-native-web": "~0.18.10",
-    "socket.io-client": "^4.5.4"
+    "socket.io-client": "^4.5.4",
+    "wordle-server": "workspace:*"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@ui-composer/eslint-config": "workspace:*",
     "difficulty": "1.2.0",
-    "react-native-bundle-visualizer": "^3.1.1",
-    "wordle-server": "workspace:^"
+    "react-native-bundle-visualizer": "^3.1.1"
   },
   "scripts": {
     "eas-build-pre-install": "cd ../../ && cp yarn.lock ./apps/wordle/",

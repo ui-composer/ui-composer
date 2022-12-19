@@ -11,7 +11,7 @@
     "lint:workspace": "TIMING=1 eslint $INIT_CWD"
   },
   "engines": {
-    "node": "16.13.*"
+    "node": "16.18.1"
   },
   "packageManager": "yarn@3.2.1",
   "author": "Katherine Martinez <kmartinezmedia@gmail.com>",
@@ -54,7 +54,6 @@
     "babel-jest": "29.3.1",
     "babel-preset-expo": "~9.2.2",
     "concurrently": "^7.6.0",
-    "eas-cli": "3.1.0",
     "esbuild": "^0.16.8",
     "eslint": "^8.30.0",
     "eslint-config-prettier": "^8.5.0",
@@ -79,12 +78,14 @@
     "jest-circus": "29.3.1",
     "jest-environment-jsdom": "29.3.1",
     "metro-resolver": "0.73.6",
+    "nodemon": "^2.0.20",
     "nx": "15.3.3",
     "packemon": "^2.4.1",
+    "pm2": "^5.2.2",
     "prettier": "^2.8.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-native": "0.70.6",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "react-native": "0.70.5",
     "react-native-bundle-visualizer": "^3.1.1",
     "react-native-svg": "13.6.0",
     "react-native-svg-transformer": "1.0.0",
@@ -102,9 +103,5 @@
     "@nrwl/js": {
       "analyzeSourceFiles": false
     }
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.20",
-    "pm2": "^5.2.2"
   }
 }

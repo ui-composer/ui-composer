@@ -1,15 +1,25 @@
 {
   "build": {
     "production": {
+      "node": "16.18.1",
       "android": {
         "buildType": "app-bundle"
       }
     },
     "development": {
+      "node": "16.18.1",
       "developmentClient": true,
       "distribution": "internal"
     },
+    "development-simulator": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "ios": {
+        "simulator": true
+      }
+    },
     "preview": {
+      "node": "16.18.1",
       "distribution": "internal",
       "ios": {
         "simulator": true
@@ -23,6 +33,6 @@
     "production": {}
   },
   "cli": {
-    "version": ">= 0.55.1"
+    "version": ">=3.1.0"
   }
 }

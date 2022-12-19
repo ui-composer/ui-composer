@@ -41,16 +41,16 @@
     "@types/react": "18.0.26",
     "@types/react-dom": "18.0.9",
     "@ui-composer/eslint-config": "workspace:*",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-native": "0.70.6"
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "react-native": "0.70.5"
   },
   "peerDependencies": {
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
-    "react": "^18.0.0",
+    "react": "^18.1.0",
     "react-dom": "^18.0.0",
-    "react-native": "^0.70.6"
+    "react-native": "^0.70.5"
   },
   "peerDependenciesMeta": {
     "@types/react-dom": {
