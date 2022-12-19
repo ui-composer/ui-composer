@@ -5413,7 +5413,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@svgr/webpack@npm:^6.2.1, @svgr/webpack@npm:^6.5.1":
+"@svgr/webpack@npm:^6.2.1":
   version: 6.5.1
   resolution: "@svgr/webpack@npm:6.5.1"
   dependencies:
@@ -26191,7 +26191,6 @@ __metadata:
     "@nrwl/jest": 15.3.3
     "@nrwl/web": 15.3.3
     "@react-native-community/eslint-config": ^3.2.0
-    "@svgr/webpack": ^6.5.1
     "@testing-library/jest-dom": 5.16.5
     "@testing-library/jest-native": 5.3.3
     "@testing-library/react-native": 11.5.0
