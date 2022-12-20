@@ -261,7 +261,7 @@ const Game = memo((props: VStackProps) => {
     socket.emit('ping', () => {
       console.log(`pong (latency: ${Date.now() - start} ms)`);
     });
-  }, [socket]);
+  }, []);
 
   return (
     <VStack

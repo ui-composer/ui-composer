@@ -12,6 +12,14 @@
         "command": "echo 'Installed deps for wordle app'"
       }
     },
+    "build-ios-dev-client": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["^build"],
+      "options": {
+        "cwd": "apps/wordle",
+        "command": "EAS_LOCAL_BUILD_SKIP_CLEANUP=1 EAS_LOCAL_BUILD_ARTIFACTS_DIR=.expo eas build --profile dev-client --platform ios --local --non-interactive"
+      }
+    },
     "start": {
       "executor": "nx:run-commands",
       "dependsOn": ["^build"],

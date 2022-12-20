@@ -29,11 +29,7 @@
   "eslint.options": {
     "extensions": [".js", ".ts", ".tsx", ".md", ".mdx"]
   },
-  "eslint.workingDirectories": [
-    { "pattern": "apps/*" },
-    { "pattern": "examples/*" },
-    { "pattern": "packages/*" }
-  ],
+  "eslint.workingDirectories": [{ "mode": "auto" }],
   "eslint.packageManager": "yarn",
   "eslint.validate": ["markdown", "javascript", "javascriptreact", "typescript", "typescriptreact"],
   "files.exclude": {

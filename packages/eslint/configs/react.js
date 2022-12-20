@@ -3,7 +3,7 @@
 /** @type {import('eslint').ESLint.ConfigData} */
 const config = {
   plugins: ['react', 'react-hooks'],
-  extends: ['plugin:react/recommended'],
+  extends: ['plugin:react/recommended', 'plugin:react-hooks/recommended'],
   settings: {
     react: {
       version: 'detect',
@@ -55,6 +55,13 @@ const config = {
     // const Component: React.FC<Props> = ({ A }) => {};
     // ```
     'react/prop-types': 'off',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': [
+      'error',
+      {
+        enableDangerousAutofixThisMayCauseInfiniteLoops: true,
+      },
+    ],
   },
 };
 
