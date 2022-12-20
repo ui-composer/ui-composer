@@ -4,6 +4,14 @@
   "sourceRoot": "apps/wordle/src",
   "projectType": "application",
   "targets": {
+    "postinstall": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["^build"],
+      "options": {
+        "cwd": "apps/wordle",
+        "command": "echo 'Installed deps for wordle app'"
+      }
+    },
     "start": {
       "executor": "nx:run-commands",
       "dependsOn": ["^build"],

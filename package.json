@@ -8,7 +8,8 @@
   ],
   "scripts": {
     "format": "yarn exec workspaces-to-typescript-project-references --includesRoot",
-    "lint:workspace": "TIMING=1 eslint $INIT_CWD"
+    "lint:workspace": "TIMING=1 eslint $INIT_CWD",
+    "postinstall": "yarn nx run wordle:postinstall"
   },
   "engines": {
     "node": "16.18.1"
@@ -73,7 +74,6 @@
     "prettier": "^2.8.1",
     "react": "18.1.0",
     "react-dom": "18.1.0",
-    "react-native": "0.70.5",
     "react-test-renderer": "18.2.0",
     "ts-jest": "29.0.3",
     "ts-node": "10.9.1",

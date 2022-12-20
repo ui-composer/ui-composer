@@ -1,6 +1,6 @@
 const path = require('node:path');
 const metroResolver = require('metro-resolver');
-const uiComposerPath = path.dirname(require.resolve('@ui-composer/react'));
+const uiComposerPath = path.dirname(__dirname);
 const nativeRedirects = ['native', 'ios', 'android'];
 
 let paths;
@@ -110,7 +110,6 @@ function withMetroConfig(config) {
     }
     return resolution;
   };
-
   return config;
 }
 
