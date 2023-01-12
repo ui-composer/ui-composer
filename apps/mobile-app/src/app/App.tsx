@@ -4,16 +4,13 @@ import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 
+import { fonts } from '@ui-composer/react';
+
 import Debug from './screens/Debug';
 
 function App() {
   const scrollViewRef = useRef<null | ScrollView>(null);
-  const [fontsLoaded] = useFonts({
-    'Material-Symbols-Outlined': require('./icons/material/MaterialSymbolsOutline.ttf'),
-    'Sofia-Regular': require('./fonts/SofiaProRegular.otf'),
-    'Sofia-Medium': require('./fonts/SofiaProMedium.otf'),
-    'Sofia-Semi-Bold': require('./fonts/SofiaProSemiBold.otf'),
-  });
+  const [fontsLoaded] = useFonts(fonts);
 
   const onLayoutRootView = useCallback(async () => {
     if (fontsLoaded) {

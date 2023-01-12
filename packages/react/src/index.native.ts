@@ -7,3 +7,4 @@ export * from './components/Text.native';
 export * from './components/VStack.native';
 export * from './theme';
 export * from './types';
+export { fonts } from './tokens/fonts';
