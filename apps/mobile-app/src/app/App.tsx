@@ -3,10 +3,9 @@ import { SafeAreaView, ScrollView } from 'react-native';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
+import Home from 'features/home';
 
 import { fonts } from '@ui-composer/react';
-
-import Debug from './screens/Debug';
 
 function App() {
   const scrollViewRef = useRef<null | ScrollView>(null);
@@ -37,7 +36,7 @@ function App() {
           }}
           contentInsetAdjustmentBehavior="automatic"
         >
-          <Debug onLayout={onLayoutRootView} />
+          <Home onLayout={onLayoutRootView} />
         </ScrollView>
       </SafeAreaView>
     </>

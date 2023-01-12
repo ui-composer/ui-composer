@@ -10861,6 +10861,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"features@workspace:libs/features":
+  version: 0.0.0-use.local
+  resolution: "features@workspace:libs/features"
+  languageName: unknown
+  linkType: soft
+
 "feed@npm:^4.2.2":
   version: 4.2.2
   resolution: "feed@npm:4.2.2"
