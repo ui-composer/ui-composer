@@ -1,5 +1,8 @@
+import 'expo-dev-client';
+
 import { registerRootComponent } from 'expo';
 
+// eslint-disable-next-line import/first
 import App from './src/app/App';
 
 // registerRootComponent calls AppRegistry.registerComponent('main', () => App);
