@@ -12,7 +12,7 @@ const copyParams = {
 };
 
 module.exports = {
-  rollupInput(config) {
+  rollupOutput(config) {
     config.plugins.unshift(
       copy({
         targets: [

@@ -8,8 +8,7 @@
   ],
   "scripts": {
     "format": "yarn exec workspaces-to-typescript-project-references --includesRoot",
-    "lint:workspace": "TIMING=1 eslint $INIT_CWD",
-    "postinstall": "yarn nx run mobile-app:postinstall"
+    "lint:workspace": "TIMING=1 eslint $INIT_CWD"
   },
   "engines": {
     "node": "16.18.1"

@@ -47,7 +47,7 @@ yarn install
 https://docs.expo.dev/development/introduction/#what-is-an-expo-dev-client
 
 ```shell
-Run yarn nx run mobile-app:build:ios:local
+yarn nx run mobile-app:build-ios-local
 ```
 
 ## Build commands
@@ -84,6 +84,16 @@ Run the start command to spin up the metro server for live reload of the dev-cli
 
 ```shell
 yarn nx run mobile-app:start
+```
+
+# Web app
+
+The web app uses vite, https://vitejs.dev/. It's a super simple way to easily spin up a new web app.
+
+To start the web app run.
+
+```shell
+yarn nx run web-app:start
 ```
 
 ## FAQ

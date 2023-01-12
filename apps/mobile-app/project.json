@@ -4,14 +4,6 @@
   "sourceRoot": "apps/mobile-app/src",
   "projectType": "application",
   "targets": {
-    "postinstall": {
-      "executor": "nx:run-commands",
-      "dependsOn": ["^build"],
-      "options": {
-        "cwd": "apps/mobile-app",
-        "command": "echo 'Installed deps for mobile app'"
-      }
-    },
     "start": {
       "executor": "nx:run-commands",
       "dependsOn": ["^build"],
