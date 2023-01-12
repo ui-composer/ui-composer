@@ -51,5 +51,7 @@
     "**/lib": true
   },
   "eslint.nodePath": ".yarn/sdks",
-  "prettier.prettierPath": ".yarn/sdks/prettier/index.js"
+  "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
+  "eslint.alwaysShowStatus": true,
+  "eslint.run": "onType"
 }

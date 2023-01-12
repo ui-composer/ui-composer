@@ -17,6 +17,11 @@
   "browser": "./lib/browser/index.js",
   "exports": {
     "./package.json": "./package.json",
+    "./metro-config": "./metro-config.js",
+    "./native": {
+      "types": "./dts/index.native.d.ts",
+      "default": "./lib/index.native.js"
+    },
     ".": {
       "types": "./dts/index.d.ts",
       "browser": {
@@ -40,21 +45,22 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@types/react": "18.0.20",
-    "@types/react-dom": "18.0.8",
+    "@types/react": "18.0.26",
+    "@types/react-dom": "18.0.9",
     "@types/react-native": "0.69.8",
     "@ui-composer/eslint-config": "workspace:*",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-native": "0.69.6"
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "react-native": "0.70.5",
+    "rollup-plugin-copy": "^3.4.0"
   },
   "peerDependencies": {
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
-    "@types/react-native": "^0.69.1",
+    "@types/react-native": "^0.69.8",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-native": "^0.69.1"
+    "react-native": "^0.70.5"
   },
   "peerDependenciesMeta": {
     "@types/react-dom": {

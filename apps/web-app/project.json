@@ -33,7 +33,7 @@
       "dependsOn": ["^build"],
       "options": {
         "cwd": "apps/web-app",
-        "commands": ["nx run react:watch", "vite dev"]
+        "commands": ["nx run react:watch", "vite dev", "echo http://127.0.0.1:5173/"]
       }
     }
   }

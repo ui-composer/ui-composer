@@ -4,122 +4,100 @@
   "sourceRoot": "apps/mobile-app/src",
   "projectType": "application",
   "targets": {
+    "postinstall": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["^build"],
+      "options": {
+        "cwd": "apps/mobile-app",
+        "command": "echo 'Installed deps for mobile app'"
+      }
+    },
     "start": {
-      "executor": "@nrwl/expo:start",
+      "executor": "nx:run-commands",
       "dependsOn": ["^build"],
       "options": {
-        "port": 8081
+        "cwd": "apps/mobile-app",
+        "commands": ["nx run react:watch", "expo start --dev-client --clear"]
       }
     },
-    "serve": {
+    "_build": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["^build"],
+      "options": {
+        "cwd": "apps/mobile-app",
+        "command": "EAS_LOCAL_BUILD_SKIP_CLEANUP=1 EAS_LOCAL_BUILD_ARTIFACTS_DIR=.expo eas build --non-interactive"
+      }
+    },
+    "build-all-local": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "nx start mobile-app"
+        "command": "nx run mobile-app:_build --platform all --profile local --local"
       }
     },
-    "run-ios": {
-      "executor": "@nrwl/expo:run",
-      "dependsOn": ["^build"],
-      "options": {
-        "platform": "ios"
-      }
-    },
-    "run-android": {
-      "executor": "@nrwl/expo:run",
-      "dependsOn": ["^build"],
-      "options": {
-        "platform": "android"
-      }
-    },
-    "build-eas": {
-      "executor": "@nrwl/expo:build",
-      "dependsOn": ["^build"],
-      "options": {}
-    },
-    "build-list": {
-      "executor": "@nrwl/expo:build-list",
-      "options": {}
-    },
-    "download": {
-      "executor": "@nrwl/expo:download",
-      "options": {
-        "output": "apps/mobile-app/dist"
-      }
-    },
-    "build-ios": {
-      "executor": "@nrwl/expo:build-ios",
-      "dependsOn": ["^build"],
-      "options": {}
-    },
-    "build-android": {
-      "executor": "@nrwl/expo:build-android",
-      "dependsOn": ["^build"],
-      "options": {}
-    },
-    "build-status": {
-      "executor": "@nrwl/expo:build-status",
-      "options": {}
-    },
-    "sync-deps": {
-      "executor": "@nrwl/expo:sync-deps",
-      "options": {}
-    },
-    "ensure-symlink": {
-      "executor": "@nrwl/expo:ensure-symlink",
-      "options": {}
-    },
-    "publish": {
-      "executor": "@nrwl/expo:publish",
-      "options": {}
-    },
-    "publish-set": {
-      "executor": "@nrwl/expo:publish-set",
-      "options": {}
-    },
-    "rollback": {
-      "executor": "@nrwl/expo:rollback",
-      "options": {}
-    },
-    "prebuild": {
-      "executor": "@nrwl/expo:prebuild",
-      "dependsOn": ["^build"],
-      "options": {}
-    },
-    "eject": {
+    "build-all-development": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "nx prebuild mobile-app"
+        "command": "nx run mobile-app:_build --platform all --profile development"
       }
     },
-    "install": {
-      "executor": "@nrwl/expo:install",
-      "options": {}
-    },
-    "update": {
-      "executor": "@nrwl/expo:update",
-      "options": {}
-    },
-    "export": {
-      "executor": "@nrwl/expo:export",
-      "dependsOn": ["^build"],
+    "build-all-staging": {
+      "executor": "nx:run-commands",
       "options": {
-        "platform": "all",
-        "outputDir": "../../dist/apps/mobile-app"
+        "command": "nx run mobile-app:_build --platform all --profile staging"
       }
     },
-    "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+    "build-all-production": {
+      "executor": "nx:run-commands",
       "options": {
-        "lintFilePatterns": ["apps/mobile-app/**/*.{ts,tsx,js,jsx}"]
+        "command": "nx run mobile-app:_build --platform all --profile production"
       }
     },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+    "build-android-local": {
+      "executor": "nx:run-commands",
       "options": {
-        "jestConfig": "apps/mobile-app/jest.config.ts",
-        "passWithNoTests": true
+        "command": "nx run mobile-app:_build --platform android --profile local --local"
+      }
+    },
+    "build-android-development": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nx run mobile-app:_build --platform android --profile development"
+      }
+    },
+    "build-android-staging": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nx run mobile-app:_build --platform android --profile staging"
+      }
+    },
+    "build-android-production": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nx run mobile-app:_build --platform android --profile production"
+      }
+    },
+    "build-ios-local": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nx run mobile-app:_build --platform ios --profile local --local"
+      }
+    },
+    "build-ios-development": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nx run mobile-app:_build --platform ios --profile development"
+      }
+    },
+    "build-ios-staging": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nx run mobile-app:_build --platform ios --profile staging"
+      }
+    },
+    "build-ios-production": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nx run mobile-app:_build --platform ios --profile production"
       }
     }
   },

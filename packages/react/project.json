@@ -8,7 +8,9 @@
       "outputs": ["{projectRoot}/lib", "{projectRoot}/dts", "{projectRoot}/esm"],
       "options": {
         "cwd": "packages/react",
-        "commands": ["packemon build --addFiles --addEngines --addExports --declaration"]
+        "commands": [
+          "packemon build --addFiles --addEngines --addExports --declaration --loadConfigs"
+        ]
       },
       "dependsOn": ["^build"]
     },
