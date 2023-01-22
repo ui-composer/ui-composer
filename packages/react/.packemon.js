@@ -1,26 +1,14 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-const copy = require('rollup-plugin-copy');
-
-function rename(_name, _extension, fullPath) {
-  console.log(_name, fullPath);
-  return fullPath.replace('src/fonts', '');
-}
-
-const copyParams = {
-  rename,
-  verbose: true,
-};
+const fs = require('node:fs');
+const path = require('node:path');
+const SRC_FONT_DIR = path.join(__dirname, 'src/fonts');
 
 module.exports = {
   rollupOutput(config) {
-    config.plugins.unshift(
-      copy({
-        targets: [
-          { src: 'src/fonts', dest: 'lib/native/fonts', ...copyParams },
-          { src: 'src/fonts', dest: 'lib/browser/fonts', ...copyParams },
-          { src: 'src/fonts', dest: 'esm/fonts', ...copyParams },
-        ],
-      })
-    );
+    const DEST_DIR = `${config.dir}/fonts`;
+    if (!fs.existsSync(DEST_DIR)) {
+      fs.mkdirSync(DEST_DIR);
+    }
+
+    fs.cpSync(SRC_FONT_DIR, DEST_DIR, { recursive: true });
   },
 };

@@ -31,17 +31,12 @@
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@ui-composer/eslint-config": "workspace:*",
+    "eas-cli": "3.3.2",
     "react-native-bundle-visualizer": "^3.1.1"
   },
   "scripts": {
-    "start": "expo start --dev-client --clear",
-    "deploy-ios-development": "eas build --profile development --platform ios",
-    "update-ios-development": "eas update --branch development",
-    "deploy-ios-staging": "eas build --profile staging --platform ios",
-    "update-ios-staging": "eas update --branch staging",
-    "deploy-ios-production": "eas build --profile production --platform ios",
-    "update-ios-production": "eas update --branch production",
-    "android": "expo run:android",
-    "ios": "expo run:ios"
+    "update-ios-development": "npx eas update --branch development",
+    "update-ios-staging": "npx eas update --branch staging",
+    "update-ios-production": "npx eas update --branch production"
   }
 }

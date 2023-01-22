@@ -1,9 +1,9 @@
 module.exports = {
   expo: {
     name: 'UI composer',
-    slug: 'mobile-app',
-    owner: 'kmartinezmedia',
-    scheme: 'mobile-app',
+    slug: 'ui-composer',
+    owner: 'remix-labs',
+    scheme: 'ui-composer',
     orientation: 'portrait',
     icon: './assets/icon.png',
     splash: {
@@ -22,7 +22,7 @@ module.exports = {
     version: '1.0.0',
     ios: {
       supportsTablet: true,
-      bundleIdentifier: 'com.kmartinezmedia.mobile-app',
+      bundleIdentifier: 'com.remix-labs.ui-composer',
       buildNumber: '1', // increment when making native changes
     },
     android: {
@@ -30,12 +30,12 @@ module.exports = {
         foregroundImage: './assets/adaptive-icon.png',
         backgroundColor: '#FFFFFF',
       },
-      package: 'com.kmartinezmedia.mobile_app',
-      versionCode: 0, // increment when making native changes
+      package: 'com.remix_labs.ui_composer',
+      versionCode: 1, // increment when making native changes
     },
     extra: {
       eas: {
-        projectId: '0e906e78-ac10-45e3-af65-c0d7004456ea',
+        projectId: 'b78bd109-0ea0-4589-9db3-5625795f2e95',
       },
     },
   },

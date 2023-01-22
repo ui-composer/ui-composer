@@ -9,87 +9,26 @@
       "dependsOn": ["^build"],
       "options": {
         "cwd": "apps/mobile-app",
-        "commands": ["nx run react:watch", "expo start --dev-client --clear"]
+        "commands": ["nx run react:watch", "expo start --dev-client --clear --localhost"]
       }
     },
-    "_build": {
+    "build": {
       "executor": "nx:run-commands",
       "dependsOn": ["^build"],
       "options": {
         "cwd": "apps/mobile-app",
-        "command": "EAS_LOCAL_BUILD_SKIP_CLEANUP=1 EAS_LOCAL_BUILD_ARTIFACTS_DIR=.expo eas build --non-interactive"
-      }
-    },
-    "build-all-local": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "nx run mobile-app:_build --platform all --profile local --local"
-      }
-    },
-    "build-all-development": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "nx run mobile-app:_build --platform all --profile development"
-      }
-    },
-    "build-all-staging": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "nx run mobile-app:_build --platform all --profile staging"
-      }
-    },
-    "build-all-production": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "nx run mobile-app:_build --platform all --profile production"
-      }
-    },
-    "build-android-local": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "nx run mobile-app:_build --platform android --profile local --local"
-      }
-    },
-    "build-android-development": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "nx run mobile-app:_build --platform android --profile development"
-      }
-    },
-    "build-android-staging": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "nx run mobile-app:_build --platform android --profile staging"
-      }
-    },
-    "build-android-production": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "nx run mobile-app:_build --platform android --profile production"
-      }
-    },
-    "build-ios-local": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "nx run mobile-app:_build --platform ios --profile local --local"
-      }
-    },
-    "build-ios-development": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "nx run mobile-app:_build --platform ios --profile development"
-      }
-    },
-    "build-ios-staging": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "nx run mobile-app:_build --platform ios --profile staging"
-      }
-    },
-    "build-ios-production": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "nx run mobile-app:_build --platform ios --profile production"
+        "commands": [
+          {
+            "command": "EAS_LOCAL_BUILD_SKIP_CLEANUP=0 EAS_LOCAL_BUILD_ARTIFACTS_DIR=.expo RCT_NO_LAUNCH_PACKAGER=1 eas build --local --non-interactive --json --clear-cache --platform ios --profile local --output .expo/build.tar.gz",
+            "forwardAllArgs": true
+          },
+          {
+            "command": "eas build:run --path .expo/build.tar.gz --platform ios",
+            "forwardAllArgs": false
+          },
+          { "command": "nx run mobile-app:start", "forwardAllArgs": false }
+        ],
+        "parallel": false
       }
     }
   },
