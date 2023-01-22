@@ -1,7 +1,6 @@
 {
   // TypeScript
   "javascript.validate.enable": true,
-  "typescript.tsdk": ".yarn/sdks/typescript/lib",
   "typescript.preferences.quoteStyle": "single",
   "typescript.preferences.importModuleSpecifier": "project-relative",
   // Prettier
@@ -53,5 +52,6 @@
   "eslint.nodePath": ".yarn/sdks",
   "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
   "eslint.alwaysShowStatus": true,
-  "eslint.run": "onType"
+  "eslint.run": "onType",
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

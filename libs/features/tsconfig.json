@@ -1,8 +1,0 @@
-{
-  "extends": "../../tsconfig.composite",
-  "compilerOptions": {
-    "jsx": "react",
-    "rootDir": ".",
-    "outDir": "dts"
-  }
-}

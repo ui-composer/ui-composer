@@ -3,6 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "@features/chart": "workspace:*",
+    "@features/feed": "workspace:*",
     "@react-navigation/native": "^6.1.1",
     "@react-navigation/native-stack": "^6.9.7",
     "@ui-composer/react": "workspace:*",

@@ -5,10 +5,6 @@
     "outDir": "dts"
   },
   "include": ["src"],
-  "exclude": ["node_modules", "lib", "esm", "dts"],
-  "references": [
-    {
-      "path": "../theme"
-    }
-  ]
+  "exclude": ["node_modules", "lib", "dts"],
+  "references": []
 }

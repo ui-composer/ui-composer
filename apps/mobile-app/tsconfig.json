@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "noEmit": true,
-    "jsx": "react-native"
+    "moduleSuffixes": [".ios", ".android", ".native", ""]
   },
   "exclude": [
     "node_modules",
@@ -16,7 +16,7 @@
       "path": "../../packages/react"
     },
     {
-      "path": "../../libs/features"
+      "path": "../../features/feed"
     }
   ]
 }

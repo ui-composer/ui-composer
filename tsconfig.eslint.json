@@ -3,7 +3,7 @@
   "compilerOptions": {
     "noEmit": true
   },
-  "include": ["apps", "libs", "packages", "scripts"],
+  "include": ["apps", "features", "libs", "packages", "scripts"],
   "exclude": [
     "**/dts/**/*",
     "**/esm/**/*",

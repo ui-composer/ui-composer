@@ -3,6 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "dependencies": {
+    "@features/chart": "workspace:*",
+    "@features/feed": "workspace:*",
     "@ui-composer/react": "workspace:*",
     "react": "18.1.0",
     "react-dom": "18.1.0",

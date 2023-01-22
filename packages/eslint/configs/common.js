@@ -2,7 +2,14 @@
 
 /** @type {import('eslint').ESLint.ConfigData} */
 const config = {
-  plugins: ['prefer-arrow', 'import', 'prettier', '@typescript-eslint', 'simple-import-sort'],
+  plugins: [
+    'prefer-arrow',
+    'import',
+    'prettier',
+    '@typescript-eslint',
+    'simple-import-sort',
+    'codegen',
+  ],
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
@@ -25,6 +32,7 @@ const config = {
     },
   },
   rules: {
+    'codegen/codegen': 'error',
     '@typescript-eslint/array-type': 'off',
     '@typescript-eslint/consistent-type-definitions': 'off',
     '@typescript-eslint/explicit-member-accessibility': 'off',

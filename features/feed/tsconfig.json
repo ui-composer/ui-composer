@@ -1,14 +1,12 @@
 {
   "extends": "../../tsconfig.composite",
   "compilerOptions": {
-    "rootDir": "src",
+    "rootDir": ".",
     "outDir": "dts"
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "lib", "esm", "dts"],
   "references": [
     {
-      "path": "../theme"
+      "path": "../../packages/react"
     }
   ]
 }

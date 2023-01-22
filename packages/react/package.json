@@ -18,9 +18,15 @@
   "exports": {
     "./package.json": "./package.json",
     "./metro-config": "./metro-config.js",
-    "./native": {
-      "types": "./dts/index.native.d.ts",
-      "default": "./lib/index.native.js"
+    "./*": {
+      "types": "./dts/*.d.ts",
+      "browser": {
+        "module": "./esm/*.js",
+        "import": "./esm/*.js",
+        "default": "./lib/browser/*.js"
+      },
+      "react-native": "./lib/native/*.js",
+      "default": "./lib/browser/*.js"
     },
     ".": {
       "types": "./dts/index.d.ts",

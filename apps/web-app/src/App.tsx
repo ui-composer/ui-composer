@@ -1,8 +1,8 @@
 import React from 'react';
-import Home from 'features/home';
+import { List } from '@features/feed/List';
 
 function App() {
-  return <Home />;
+  return <List />;
 }
 
 export default App;

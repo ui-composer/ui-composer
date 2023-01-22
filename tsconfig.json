@@ -8,7 +8,10 @@
       "path": "apps/web-app"
     },
     {
-      "path": "apps/website"
+      "path": "features/chart"
+    },
+    {
+      "path": "features/feed"
     },
     {
       "path": "packages/palette"
@@ -18,9 +21,8 @@
     },
     {
       "path": "packages/theme"
-    },
-    {
-      "path": "libs/features"
     }
-  ]
+  ],
+  "compilerOptions": {},
+  "extends": "expo/tsconfig.base"
 }

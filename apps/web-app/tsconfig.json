@@ -11,7 +11,10 @@
       "path": "../../packages/react"
     },
     {
-      "path": "../../libs/features"
+      "path": "../../features/chart"
+    },
+    {
+      "path": "../../features/feed"
     }
   ]
 }

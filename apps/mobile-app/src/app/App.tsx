@@ -1,9 +1,9 @@
 import React, { useCallback, useRef } from 'react';
 import { SafeAreaView, ScrollView } from 'react-native';
+import { FeedList } from '@features/feed';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
-import Home from 'features/home';
 
 import { fonts } from '@ui-composer/react';
 
@@ -35,8 +35,9 @@ function App() {
             scrollViewRef.current = ref;
           }}
           contentInsetAdjustmentBehavior="automatic"
+          onLayout={onLayoutRootView}
         >
-          <Home onLayout={onLayoutRootView} />
+          <FeedList />
         </ScrollView>
       </SafeAreaView>
     </>
