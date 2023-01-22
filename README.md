@@ -47,7 +47,7 @@ yarn install
 https://docs.expo.dev/development/introduction/#what-is-an-expo-dev-client
 
 ```shell
-yarn nx run mobile-app:build-ios-local
+yarn nx run mobile-app:build
 ```
 
 ## Build commands
@@ -67,18 +67,27 @@ yarn nx run mobile-app:build-ios-local
 | android  | staging     | `yarn nx run mobile-app:build-android-staging`     |
 | android  | production  | `yarn nx run mobile-app:build-android-production`  |
 
-The `build-ios-dev-client` task generates a Debug build that contains the [expo-dev-client](https://www.npmjs.com/package/expo-dev-client) package. A production build is for the general public, and a preview build lets us test on physical devices using eas cloud services, and a development build lets us develop locally.
+The `mobile-app:build` task generates a Debug build that contains the [expo-dev-client](https://www.npmjs.com/package/expo-dev-client) package. A production build is for the general public, and a preview build lets us test on physical devices using eas cloud services, and a development build lets us develop locally.
 
 You can think of the development build as our own custom version of the Expo Go client.
 
-You will only need to generate this build when first setting up the repo or anytime there is a change to a native dependency.
+> You will only need to generate this build when first setting up the repo or anytime there is a change to a native dependency.
 
-This command will output a tarball to `apps/mobile-app/.expo/**.tgz`.
+Once the task completes it should trigger ios Simulator to launch and download the app and spin up the metro server. The tarball with the compressed .app file will be in `apps/mobile-app/.expo/**.tgz`.
 
-1. Right click the .expo folder, click `Reveal in finder`
-2. Navigate into the .expo directory and find the latest tarball file that was generated
-3. Unzip the tarball by double cliking on it and then drag and drop the .app file that was unzipped into the iOS simulator.
-4. Repeat these steps each time you add a new dependency which requires a native change and therefore a new app build.
+## Installing your build on the simulator
+
+> If you haven't installed or run the iOS Simulator before, follow the [iOS Simulator guide](https://docs.expo.dev/workflow/ios-simulator/) before proceeding.
+
+- Once the task completes it should trigger ios Simulator to launch and download the app and spin up the metro server, but if you want to manually add to your simulator or send to someone follow the steps below: 
+
+- Locate the `.tar.gz` file outputted to `apps/mobile-app/.expo/**.tgz`.
+- Extract the file by opening it. You will now have a file like `myapp.app`.
+- Open up your simulator.
+- Drag `myapp.app` into the simulator.
+- The app will be installed in a few seconds. When you see it appear on the simulator home screen, tap it to run it.
+- You can share this build, it will run in any iOS Simulator.
+- Repeat these steps each time you add a new dependency which requires a native change and therefore a new app build.
 
 Run the start command to spin up the metro server for live reload of the dev-client we just built.
 
