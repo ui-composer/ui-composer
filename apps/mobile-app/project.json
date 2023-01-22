@@ -26,6 +26,10 @@
             "command": "eas build:run --path .expo/build.tar.gz --platform ios",
             "forwardAllArgs": false
           },
+          {
+            "command": "aws s3 cp .expo/build.tar.gz $AWS_BUCKET/build.tar.gz",
+            "forwardAllArgs": false
+          },
           { "command": "nx run mobile-app:start", "forwardAllArgs": false }
         ],
         "parallel": false

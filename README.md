@@ -50,23 +50,6 @@ https://docs.expo.dev/development/introduction/#what-is-an-expo-dev-client
 yarn nx run mobile-app:build
 ```
 
-## Build commands
-
-| Platform | Profile     | Command                                            |
-| -------- | ----------- | -------------------------------------------------- |
-| all      | local       | `yarn nx run mobile-app:build-all-local`           |
-| all      | development | `yarn nx run mobile-app:build-all-development`     |
-| all      | staging     | `yarn nx run mobile-app:build-all-staging`         |
-| all      | production  | `yarn nx run mobile-app:build-all-production`      |
-| ios      | local       | `yarn nx run mobile-app:build-ios-local`           |
-| ios      | development | `yarn nx run mobile-app:build-ios-development`     |
-| ios      | staging     | `yarn nx run mobile-app:build-ios-staging`         |
-| ios      | production  | `yarn nx run mobile-app:build-ios-production`      |
-| android  | local       | `yarn nx run mobile-app:build-android-local`       |
-| android  | development | `yarn nx run mobile-app:build-android-development` |
-| android  | staging     | `yarn nx run mobile-app:build-android-staging`     |
-| android  | production  | `yarn nx run mobile-app:build-android-production`  |
-
 The `mobile-app:build` task generates a Debug build that contains the [expo-dev-client](https://www.npmjs.com/package/expo-dev-client) package. A production build is for the general public, and a preview build lets us test on physical devices using eas cloud services, and a development build lets us develop locally.
 
 You can think of the development build as our own custom version of the Expo Go client.
