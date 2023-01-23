@@ -1,9 +1,7 @@
 {
-  "name": "@ui-composer/react",
-  "version": "0.0.0",
-  "sideEffects": [
-    "*.css"
-  ],
+  "name": "@ui-composer/charts",
+  "version": "0.0.1",
+  "description": "Set of components and helpers for building complex and beautifully animated charts",
   "packemon": [
     {
       "bundle": false,
@@ -19,7 +17,6 @@
   "browser": "./lib/browser/index.js",
   "exports": {
     "./package.json": "./package.json",
-    "./metro-config": "./metro-config.js",
     "./*": {
       "types": "./dts/*.d.ts",
       "browser": {
@@ -47,30 +44,11 @@
     "lib/**/*.{js,map}",
     "src/**/*.{ts,tsx,json}"
   ],
-  "dependencies": {
-    "@types/lodash": "^4.14.182",
-    "@ui-composer/theme": "workspace:^",
-    "lodash": "^4.17.21"
-  },
-  "devDependencies": {
-    "@ui-composer/eslint-config": "workspace:*"
-  },
-  "peerDependencies": {
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-native": "^0.70.5"
-  },
-  "peerDependenciesMeta": {
-    "react": {
-      "optional": false
-    },
-    "react-dom": {
-      "optional": true
-    },
-    "react-native": {
-      "optional": true
-    }
-  },
+  "keywords": [
+    "react-native",
+    "expo",
+    "charts"
+  ],
   "author": "Katherine Martinez <kmartinezmedia@gmail.com>",
   "homepage": "https://github.com/ui-composer/ui-composer",
   "license": "MIT",
@@ -80,6 +58,26 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/ui-composer/ui-composer",
-    "directory": "packages/react"
-  }
+    "directory": "packages/charts"
+  },
+  "devDependencies": {
+    "@ui-composer/eslint-config": "workspace:*"
+  },
+  "peerDependencies": {
+    "expo-modules-core": "^1.1.0",
+    "react": "^18.0.0",
+    "react-native": "^0.70.5"
+  },
+  "peerDependenciesMeta": {
+    "expo-modules-core": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    },
+    "react-native": {
+      "optional": true
+    }
+  },
+  "packageManager": "yarn@3.2.1"
 }

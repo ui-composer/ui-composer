@@ -1,6 +1,6 @@
 {
-  "root": "packages/react",
-  "sourceRoot": "packages/react/src",
+  "root": "packages/charts",
+  "sourceRoot": "packages/charts/src",
   "projectType": "library",
   "targets": {
     "prebuild": {
@@ -14,7 +14,7 @@
       "executor": "nx:run-commands",
       "outputs": ["{projectRoot}/lib", "{projectRoot}/dts", "{projectRoot}/esm"],
       "options": {
-        "cwd": "packages/react",
+        "cwd": "packages/charts",
         "commands": [
           "packemon build --addFiles --addEngines --addExports --declaration --loadConfigs"
         ]
@@ -24,15 +24,15 @@
     "release": {
       "executor": "nx:run-commands",
       "options": {
-        "cwd": "packages/react",
+        "cwd": "packages/charts",
         "commands": ["yarn version $npm_package_version --no-git-tag-version"]
       }
     },
     "watch": {
       "executor": "nx:run-commands",
       "options": {
-        "cwd": "packages/react",
-        "commands": ["nx run theme:watch", "packemon watch"]
+        "cwd": "packages/charts",
+        "command": "packemon watch"
       },
       "dependsOn": ["^build"]
     }

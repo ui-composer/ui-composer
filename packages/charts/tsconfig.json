@@ -6,9 +6,5 @@
   },
   "include": ["src"],
   "exclude": ["lib", "esm", "dts"],
-  "references": [
-    {
-      "path": "../theme"
-    }
-  ]
+  "references": []
 }

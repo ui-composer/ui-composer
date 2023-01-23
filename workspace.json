@@ -4,6 +4,7 @@
     "eslint": "packages/eslint",
     "metro-config": "packages/metro-config",
     "mobile-app": "apps/mobile-app",
+    "charts": "packages/charts",
     "palette": "packages/palette",
     "react": "packages/react",
     "theme": "packages/theme",

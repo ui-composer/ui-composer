@@ -4,6 +4,14 @@
   "sourceRoot": "apps/mobile-app/src",
   "projectType": "application",
   "targets": {
+    "show-linked-modules": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["^build"],
+      "options": {
+        "cwd": "apps/mobile-app",
+        "command": "npx expo-modules-autolinking search"
+      }
+    },
     "start": {
       "executor": "nx:run-commands",
       "dependsOn": ["^build"],
@@ -15,6 +23,7 @@
     "build": {
       "executor": "nx:run-commands",
       "dependsOn": ["^build"],
+      "outputs": ["{projectRoot}/.expo"],
       "options": {
         "cwd": "apps/mobile-app",
         "commands": [
@@ -26,13 +35,17 @@
             "command": "eas build:run --path .expo/build.tar.gz --platform ios",
             "forwardAllArgs": false
           },
-          {
-            "command": "aws s3 cp .expo/build.tar.gz $AWS_BUCKET/build.tar.gz",
-            "forwardAllArgs": false
-          },
           { "command": "nx run mobile-app:start", "forwardAllArgs": false }
         ],
         "parallel": false
+      }
+    },
+    "upload": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["build"],
+      "options": {
+        "cwd": "apps/mobile-app",
+        "command": "aws s3 cp .expo/build.tar.gz $AWS_BUCKET/build.tar.gz"
       }
     }
   },

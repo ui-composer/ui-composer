@@ -1,0 +1,9 @@
+{
+  "platforms": ["ios"],
+  "ios": {
+    "modules": ["ChartModule"]
+  },
+  "android": {
+    "modules": ["expo.modules.charts.ChartModule"]
+  }
+}

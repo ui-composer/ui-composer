@@ -13,10 +13,13 @@
   ],
   "references": [
     {
-      "path": "../../packages/react"
+      "path": "../../packages/charts"
     },
     {
       "path": "../../features/feed"
+    },
+    {
+      "path": "../../packages/react"
     }
   ]
 }
